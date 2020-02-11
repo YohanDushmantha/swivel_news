@@ -98,7 +98,7 @@ class NewsServiceApiModule {
      * @return created SwivelCommonApi
      */
     @Provides
-    fun provideDriverCommonApi(
+    fun provideSwivelCommonApi(
         retrofitBuilder: Retrofit.Builder,
         loggingInterceptor: HttpLoggingInterceptor,
         swivelHeaderInterceptor: SwivelHeaderInterceptor,

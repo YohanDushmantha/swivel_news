@@ -21,11 +21,11 @@
     <color name="white_bar_button_bg_focused_color">#625E55</color>
     <color name="white_bar_button_border_color">#625E55</color>
 
-    <!-- GREEN BAR BUTTON -->
-    <color name="green_bar_button_text_color">#fff</color>
-    <color name="green_bar_button_bg_pressed_color">#625E55</color>
-    <color name="green_bar_button_bg_focused_color">#625E55</color>
-    <color name="green_bar_button_border_color">#625E55</color>
+    <!-- BROWN BAR BUTTON -->
+    <color name="brown_bar_button_text_color">#fff</color>
+    <color name="brown_bar_button_bg_pressed_color">#625E55</color>
+    <color name="brown_bar_button_bg_focused_color">#625E55</color>
+    <color name="brown_bar_button_border_color">#625E55</color>
 
 
     <!-- ===========================================================================================
@@ -44,13 +44,13 @@
     </style>
 
     <!-- BROWN BAR BUTTON -->
-    <style name="GreenBarButtonStyle" parent="BaseBarButtonStyle">
-        <item name="android:textColor">@color/green_bar_button_text_color</item>
+    <style name="BrownBarButtonStyle" parent="BaseBarButtonStyle">
+        <item name="android:textColor">@color/brown_bar_button_text_color</item>
         <item name="android:background">@drawable/btn_brown_bar_bg</item>
     </style>
 
-    <!-- BLACK BAR BUTTON -->
-    <style name="BlackBarButtonStyle" parent="BaseBarButtonStyle">
+    <!-- WHITE BAR BUTTON -->
+    <style name="WhiteBarButtonStyle" parent="BaseBarButtonStyle">
         <item name="android:textColor">@color/white_bar_button_text_color</item>
         <item name="android:background">@drawable/btn_white_bar_bg</item>
     </style>

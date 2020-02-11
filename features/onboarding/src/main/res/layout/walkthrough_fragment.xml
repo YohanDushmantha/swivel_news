@@ -2,9 +2,9 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- ***************************************************************************************************************
-            DATA BINDING
-    **************************************************************************************************************** -->
+    <!-- *******************************************************************************************
+            DATA BINDING - START
+    ******************************************************************************************** -->
     <data>
         <variable
                 name="viewModel"
@@ -12,15 +12,50 @@
         />
     </data>
 
-    <!-- ***************************************************************************************************************
-            LAYOUT
-    **************************************************************************************************************** -->
+    <!-- *******************************************************************************************
+            DATA BINDING - END
+    ******************************************************************************************** -->
+
+    <!-- *******************************************************************************************
+            LAYOUT - START
+    ******************************************************************************************** -->
     <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/walkthrough_fragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:context=".ui.walkthrough.WalkthroughFragment"
             android:background="@color/main_bg">
+
+        <!-- ***************************************************************************************
+            LAYOUT GUIDELINES - START
+        **************************************************************************************** -->
+
+        <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/bottomHorizontalGuideline"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/v_0"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_end="@dimen/v_16" />
+
+        <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/startMarginGuideline"
+                android:layout_width="@dimen/v_0"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/v_16" />
+
+        <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/endMarginGuideline"
+                android:layout_width="@dimen/v_0"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/v_16" />
+
+        <!-- ***************************************************************************************
+            LAYOUT GUIDELINES - END
+        **************************************************************************************** -->
+
+
 
         <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/walkthroughViewPager"
@@ -49,15 +84,31 @@
                 />
 
         <Button
-                android:id="@+id/mRegistrationButton"
+                android:id="@+id/mLoginButton"
                 android:layout_width="0dp"
                 android:onClick="@{(v) -> viewModel.onTapRegistration(v)}"
-                android:text="@string/walkthrough_get_started"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                style="@style/GreenBarButtonStyle"
-                android:layout_margin="@dimen/v_16"/>
+                android:text="@string/walkthrough_routing_signup_title"
+                style="@style/WhiteBarButtonStyle"
+                app:layout_constraintStart_toStartOf="@id/startMarginGuideline"
+                app:layout_constraintEnd_toStartOf="@id/mRegistrationButton"
+                app:layout_constraintBottom_toTopOf="@id/bottomHorizontalGuideline"
+                android:layout_marginEnd="@dimen/v_8"/>
+
+        <Button
+                android:id="@+id/mRegistrationButton"
+                android:layout_width="0dp"
+                android:onClick="@{(v) -> viewModel.onTapLogin(v)}"
+                android:text="@string/walkthrough_routing_signin_title"
+                style="@style/BrownBarButtonStyle"
+                app:layout_constraintStart_toEndOf="@id/mLoginButton"
+                app:layout_constraintEnd_toEndOf="@id/endMarginGuideline"
+                app:layout_constraintBottom_toTopOf="@id/bottomHorizontalGuideline"
+                android:layout_marginStart="@dimen/v_8"
+                />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- *******************************************************************************************
+            LAYOUT - END
+    ******************************************************************************************** -->
 </layout>

@@ -124,11 +124,12 @@ android {
             /**
              * ADD VALUES TO BUILD CONFIG
              */
-            variant.buildConfigField "String", "NEWS_SERVICE_ENDPOINT", "${envConfig.properties.DRIVER_SERVICE_ENDPOINT}"
+            variant.buildConfigField "String", "NEWS_SERVICE_ENDPOINT", "${envConfig.properties.NEWS_SERVICE_ENDPOINT}"
             variant.buildConfigField "String", "MAP_SERVICE_ENDPOINT", "${envConfig.properties.MAP_SERVICE_ENDPOINT}"
             variant.buildConfigField "String", "NOTIFICATION_ENDPOINT", "${envConfig.properties.NOTIFICATION_URL}"
             variant.buildConfigField "String", "S3_BUCKET_ENDPOINT", "${envConfig.properties.S3_BUCKET_URL}"
             variant.buildConfigField "String", "S3_BUCKET", "${envConfig.properties.S3_BUCKET}"
+            variant.buildConfigField "String", "NEWS_API_KEY", "${envConfig.properties.NEWS_API_KEY}"
 
             /**
              * ADD VALUES TO MANIFEST

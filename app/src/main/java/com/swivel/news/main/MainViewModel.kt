@@ -64,6 +64,11 @@ class MainViewModel @Inject constructor(
             Timber.i("YD -> APP CONFIGS -> notificationEndPoint inside ob -> $notificationEndPoint")
 
             /**
+             * SWIVEL NEWS API KEY
+             */
+            newsApiKey = BuildConfig.NEWS_API_KEY
+
+            /**
              * S3 BUCKET END POINTS AND DATA
              */
             s3BucketEndPoint =

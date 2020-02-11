@@ -15,7 +15,7 @@ import com.swivel.models.base.AppConfig
 import com.swivel.models.base.AppConstants
 import com.swivel.models.base.DataSource
 import com.swivel.models.dto.driver_authentication_api.request.DriverAuthenticationRequest
-import com.swivel.models.entities.DriverAuthentication
+import com.swivel.models.entities.UserAuthentication
 import com.swivel.models.features.IBaseDeepLinkArguments
 import com.swivel.models.features.home.home.router_arguments.HomeDeepLinkArguments
 import com.swivel.models.features.login.verify_password.router_arguments.VerifyPasswordDeepLinkArguments
@@ -197,11 +197,11 @@ class VerifyPasswordViewModel @Inject constructor(
      *----------------------------------------------------------------------------------------------*/
 
     private suspend fun handleAuthenticationSuccess(
-        driverAuthentication: DriverAuthentication,
+        userAuthentication: UserAuthentication,
         navController: NavController
     ){
         try {
-            storeAuthenticationDetails(driverAuthentication)?.let {
+            storeAuthenticationDetails(userAuthentication)?.let {
                 if(it){
                     redirectToHomePage(navController)
                 } else throw VerifyPasswordAuthenticationException()
@@ -212,17 +212,17 @@ class VerifyPasswordViewModel @Inject constructor(
     }
 
     private fun prepareDriverAuthenticationObject(
-        driverAuthentication: DriverAuthentication
-    ) : DriverAuthentication{
-        return driverAuthentication.apply {
-            mobileNumber = receivedDeepLinkArgs?.userMobileNumber
+        userAuthentication: UserAuthentication
+    ) : UserAuthentication{
+        return userAuthentication.apply {
+            //mobileNumber = receivedDeepLinkArgs?.userMobileNumber
         }
     }
 
     private suspend fun storeAuthenticationDetails(
-        driverAuthentication: DriverAuthentication
+        userAuthentication: UserAuthentication
     ) : Boolean?{
-        return authManager.storeDriverAuthentication(prepareDriverAuthenticationObject(driverAuthentication))
+        return authManager.storeUserAuthentication(prepareDriverAuthenticationObject(userAuthentication))
     }
 
     private suspend fun redirectToHomePage(navController: NavController){

@@ -215,7 +215,7 @@
                         app:layout_constraintTop_toBottomOf="@id/mobileNumberContainer"
                         app:layout_constraintStart_toStartOf="@id/mobileNumberCardViewStartMarginGuideline"
                         app:layout_constraintEnd_toEndOf="@id/mobileNumberCardViewEndMarginGuideline"
-                        style="@style/GreenBarButtonStyle"
+                        style="@style/BrownBarButtonStyle"
                         android:onClick="@{(v) -> viewModel.onTapSubmit(v)}"
                         android:layout_marginTop="@dimen/v_24"
                         tools:text="Next"

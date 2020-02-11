@@ -22,7 +22,11 @@ enum class DEEP_LINK (val KEY : String ,val URL : String) {
     //ONBOARDING MODULE
     WALKTHROUGH("WALKTHROUGH","onboarding://walkthrough"),
 
+    //USER REGISTRATION
+    USER_REGISTRATION("USER_REGISTRATION","user_registration://user_registration"),
+
     //LOGIN MODULE
+    LOGIN("LOGIN","login://login"),
     VERIFY_PASSWORD("VERIFY_PASSWORD","login://verify_password"),
     FORGOT_PASSWORD_OPTION("FORGOT_PASSWORD_OPTION","login://forgot_password_option"),
 

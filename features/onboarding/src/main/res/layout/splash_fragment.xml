@@ -34,7 +34,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/v_0"
                 android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.5" />
+                app:layout_constraintGuide_percent="0.6" />
 
         <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/startMarginGuideline"
@@ -54,11 +54,11 @@
                 android:id="@+id/swivelIcon"
                 android:layout_width="@dimen/v_0"
                 android:layout_height="@dimen/v_0"
-                app:layout_constraintDimensionRatio="H,326:264"
+                app:layout_constraintDimensionRatio="H,1:1"
                 app:layout_constraintEnd_toEndOf="@id/endMarginGuideline"
                 app:layout_constraintStart_toStartOf="@id/startMarginGuideline"
                 app:layout_constraintBottom_toTopOf="@id/centerHorizontalGuideline"
-                app:layout_constraintWidth_percent="0.2"
+                app:layout_constraintWidth_percent="0.4"
                 app:srcCompat="@drawable/ic_app_icon" />
 
         <TextView
@@ -66,41 +66,12 @@
                 style="@style/labelGray"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/v_8"
                 android:text="@{viewModel.taskProgressText ?? `default text`}"
                 app:layout_constraintEnd_toEndOf="@id/endMarginGuideline"
                 app:layout_constraintStart_toStartOf="@id/startMarginGuideline"
-                tools:text="In Progress Text"
-                app:layout_constraintBottom_toTopOf="@id/powered_by"/>
-
-        <TextView
-                android:id="@+id/powered_by"
-                style="@style/labelGray"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/splash_powered_by"
-                app:layout_constraintEnd_toStartOf="@+id/finap_logo"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintHorizontal_chainStyle="packed"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toTopOf="@id/copyrights_text"
-                android:layout_marginBottom="@dimen/v_4"
-                android:layout_marginEnd="@dimen/v_8"
-                />
-
-        <ImageView
-                android:id="@+id/finap_logo"
-                android:layout_width="@dimen/v_0"
-                android:layout_height="@dimen/v_0"
-                app:srcCompat="@drawable/ic_app_logo"
-                app:layout_constraintDimensionRatio="H,227:47"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/powered_by"
-                app:layout_constraintWidth_percent="0.12"
-                app:layout_constraintBaseline_toBaselineOf="@id/powered_by"
-                android:baselineAlignBottom="true"
-                />
+                android:layout_marginBottom="@dimen/v_8"
+                tools:text="In Progress Text" />
 
         <TextView
                 android:id="@+id/copyrights_text"

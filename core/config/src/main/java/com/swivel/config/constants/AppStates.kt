@@ -1,6 +1,6 @@
 package com.swivel.config.constants
 
-import com.swivel.models.entities.DriverAuthentication
+import com.swivel.models.entities.UserAuthentication
 import com.swivel.models.entities.SystemConfiguration
 import com.swivel.models.libs.utility.DeviceInfo
 
@@ -14,6 +14,6 @@ import com.swivel.models.libs.utility.DeviceInfo
 class AppStates {
     var deviceInfo : DeviceInfo? = null
     //var sessionInfo : SessionInfo? = SessionInfo(null,null)
-    var driverAuth : DriverAuthentication? = null
+    var userAuth : UserAuthentication? = null
     var systemConfiguration : SystemConfiguration? = null
 }

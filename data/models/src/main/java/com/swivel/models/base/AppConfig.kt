@@ -16,6 +16,7 @@ class AppConfig {
     var newsServiceEndPoint   : String? = null
     var mapServiceEndPoint      : String? = null
     var notificationEndPoint    : String? = null
+    var newsApiKey              : String? = null
     var s3Bucket                : String? = null
     var s3BucketEndPoint        : String? = null
 

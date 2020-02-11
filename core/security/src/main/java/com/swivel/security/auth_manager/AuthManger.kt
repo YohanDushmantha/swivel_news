@@ -3,7 +3,7 @@ package com.swivel.security.auth_manager
 import android.content.Context
 import com.swivel.config.constants.AppStates
 import com.swivel.crypto.keystore_manager.KEYSTORE_ALIAS
-import com.swivel.models.entities.DriverAuthentication
+import com.swivel.models.entities.UserAuthentication
 import com.swivel.security.auth_manager.enums.AuthManagerSharedKeys
 import com.swivel.security.auth_manager.exceptions.AuthManagerException
 import com.swivel.models.libs.shared_pref.enums.SHARED_PREF_STORAGE_KEY
@@ -23,14 +23,14 @@ class AuthManger @Inject constructor(
 ) : IAuthManager{
 
     /**
-     * store driver authentication details into shared preferences
+     * store user authentication details into shared preferences
      *
-     * @param driverAuthentication driver authentication object to insert
-     * @return status of data insertion process, if driver object is inserted successfully returns
+     * @param userAuthentication user authentication object to insert
+     * @return status of data insertion process, if user object is inserted successfully returns
      * true otherwise returns false
      */
-    override fun storeDriverAuthentication(
-        driverAuthentication : DriverAuthentication?
+    override fun storeUserAuthentication(
+        userAuthentication : UserAuthentication?
     ) : Boolean?{
 
         //insert data into shared preferences
@@ -38,64 +38,64 @@ class AuthManger @Inject constructor(
             context,
             SHARED_PREF_STORAGE_KEY.SESSION_DATA_KEY,
             KEYSTORE_ALIAS.DEFAULT,
-            AuthManagerSharedKeys.DRIVER_AUTHENTICATION.key,
-            driverAuthentication
+            AuthManagerSharedKeys.USER_AUTHENTICATION.key,
+            userAuthentication
         )?.let {
             if(it){
                 // set driver authentication obejct into app states
-                appState.driverAuth = driverAuthentication
+                appState.userAuth = userAuthentication
                 return@let  true
             }
-            appState.driverAuth = null
+            appState.userAuth = null
             false
-        } ?: throw AuthManagerException("Driver authentication object storing process is failed.")
+        } ?: throw AuthManagerException("User authentication object storing process is failed.")
     }
 
     /**
-     * fetch driver authentication object
-     * first, trying to get driver authentication object from appState if it returns null, trying to
-     * get driver authentication object from shared preferences
+     * fetch user authentication object
+     * first, trying to get user authentication object from appState if it returns null, trying to
+     * get user authentication object from shared preferences
      *
-     * @return DriverAuthentication object or null
+     * @return UserAuthentication object or null
      */
-    override fun fetchDriverAuthentication() : DriverAuthentication?{
-        // return driver auth object inside app state object when it is not null
-        appState.driverAuth?.let {
+    override fun fetchUserAuthentication() : UserAuthentication?{
+        // return user auth object inside app state object when it is not null
+        appState.userAuth?.let {
             return it
         }
 
-        // if driver auth object inside app state object is null should fetch data from shared
+        // if user auth object inside app state object is null should fetch data from shared
         // preferences and return
         return sharedPrefManger.fetchData(
             context,
             SHARED_PREF_STORAGE_KEY.SESSION_DATA_KEY,
             KEYSTORE_ALIAS.DEFAULT,
-            AuthManagerSharedKeys.DRIVER_AUTHENTICATION.key,
-            DriverAuthentication::class.java
+            AuthManagerSharedKeys.USER_AUTHENTICATION.key,
+            UserAuthentication::class.java
         )
     }
 
     /**
-     * renew session id inside driver authentication object
+     * renew session id inside user authentication object
      * @param sessionId new session id
      * @return if renewal process is success returns true otherwise returns false
      */
     override fun renewSession(sessionId: String) : Boolean{
-        return fetchDriverAuthentication()?.let {
-            val updatedDriverAuth = it.apply {
+        return fetchUserAuthentication()?.let {
+            val updatedUserAuth = it.apply {
                 sessionID = sessionId
             }
 
-            storeDriverAuthentication(
-                updatedDriverAuth
+            storeUserAuthentication(
+                updatedUserAuth
             )?.let { result ->
                 if(result){
-                    // set drier auth object inside app state object to updated driver auth object
-                    appState.driverAuth = updatedDriverAuth
+                    // set user auth object inside app state object to updated user auth object
+                    appState.userAuth = updatedUserAuth
                 }
                 result
             } ?: throw AuthManagerException("data insertion process is failed.")
-        } ?: throw AuthManagerException("Unable to renew session with empty object of driver authentication")
+        } ?: throw AuthManagerException("Unable to renew session with empty object of user authentication")
     }
 
     /**
@@ -104,7 +104,7 @@ class AuthManger @Inject constructor(
      * @return if session is valid return true otherwise false
      */
     override fun isActiveSession() : Boolean{
-        return fetchDriverAuthentication()?.let {
+        return fetchUserAuthentication()?.let {
             it.loginStatus?.let {status ->
                 status
             } ?: throw AuthManagerException("Session status checking process is failed due to login status not found")
@@ -115,30 +115,30 @@ class AuthManger @Inject constructor(
      * return session id
      */
     override fun getSessionId() : String?{
-        return fetchDriverAuthentication()?.let {
+        return fetchUserAuthentication()?.let {
             it.sessionID
         }
     }
 
     /**
-     * provide capability to expire session, this method set session id attribute to null inside driver
-     * authentication object , not removing Driver Authentication object
+     * provide capability to expire session, this method set session id attribute to null inside user
+     * authentication object , not removing User Authentication object
      */
     override fun expireSession() : Boolean?{
-        return fetchDriverAuthentication()?.let {
+        return fetchUserAuthentication()?.let {
             val updateDriverAuth = it.apply {
                 sessionID = null
                 loginStatus = false
             }
 
-            // expire session id inside driver auth obejct inside shared preferences
-            storeDriverAuthentication(
+            // expire session id inside user auth obejct inside shared preferences
+            storeUserAuthentication(
               updateDriverAuth
             )?.let{ result ->
 
                 if(result){
-                    // expire session id inside driver auth object inside app staets object
-                    appState.driverAuth = updateDriverAuth
+                    // expire session id inside user auth object inside app states object
+                    appState.userAuth = updateDriverAuth
                 }
                 result
 
@@ -147,15 +147,15 @@ class AuthManger @Inject constructor(
     }
 
     /**
-     * invalidate driver authentication object, this function removes driver authentication object
+     * invalidate user authentication object, this function removes user authentication object
      * from shared preferences
      */
-    override fun invalidateDriverAuthData() : Boolean{
-        return storeDriverAuthentication(null)?.let {
+    override fun invalidateUserAuthData() : Boolean{
+        return storeUserAuthentication(null)?.let {
             if(it){
-                appState.driverAuth = null
+                appState.userAuth = null
             }
             it
-        } ?: throw AuthManagerException("Driver auth data invalidation process is failed")
+        } ?: throw AuthManagerException("User auth data invalidation process is failed")
     }
 }

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:dist="http://schemas.android.com/apk/distribution"
+          package="com.swivel.news">
+
+    <dist:module dist:instant="true"/>
+
+    <!--accessing internet-->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!--accessing device imei number-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!--checking network availablity status-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <application
+            android:allowBackup="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:roundIcon="@mipmap/ic_launcher_round"
+            android:supportsRtl="true"
+            android:hardwareAccelerated="true"
+            android:theme="@style/AppTheme"
+            android:name="com.swivel.news.base.SwivelNewsApplication">
+
+        <!-- GOOGLE MAP API KEY -->
+        <!--<meta-data
+                android:name="com.google.android.geo.API_KEY"
+                android:value="${gMapKey}"/>-->
+
+        <meta-data
+                android:name="com.google.android.geo.API_KEY"
+                android:value="AIzaSyB2RGIV-S7fVlkP_5yOKguyU_-qb8Hj3sc"/>
+
+        <!--AIzaSyB2RGIV-S7fVlkP_5yOKguyU_-qb8Hj3sc-->
+
+        <!-- FABRIC API KEY -->
+        <meta-data
+                android:name="io.fabric.ApiKey"
+                android:value="${fabricKey}" />
+
+        <activity android:name="com.swivel.news.main.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

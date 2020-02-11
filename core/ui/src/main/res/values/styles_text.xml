@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="BaseTextViewStyle" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/font_base_regular</item>
+        <item name="android:textSize">@dimen/text_normal_100</item>
+        <item name="android:textColor">@color/baseTextColor</item>
+    </style>
+
+    <!-- *******************************************************************************************
+                                        TITLES - START
+    *********************************************************************************************-->
+
+    <!-- ===========================================================================================
+                                   PAGE TITLE COLOURS - START
+    =============================================================================================-->
+
+    <color name="title_color_white">#fff</color>
+    <color name="title_color_black">#000</color>
+    <color name="title_color_dark_gray">#4F4F4F</color>
+    <color name="title_color_light_gray">#828282</color>
+
+    <!-- ===========================================================================================
+                                    PAGE TITLE COLOURS - END
+    =============================================================================================-->
+
+    <!-- ===========================================================================================
+                                    PAGE TITLE STYLES - START
+    =============================================================================================-->
+
+    <style name="basePageTitle" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/font_base_bold</item>
+        <item name="android:textSize">@dimen/text_normal_125</item>
+    </style>
+
+    <style name="pageTitleWhite" parent="basePageTitle">
+        <item name="android:textColor">@color/title_color_white</item>
+    </style>
+
+    <style name="pageTitleBlack" parent="basePageTitle">
+        <item name="android:textColor">@color/title_color_black</item>
+    </style>
+
+    <style name="pageTitleDarkGray" parent="basePageTitle">
+        <item name="android:textColor">@color/title_color_dark_gray</item>
+    </style>
+
+    <style name="pageTitleLightGray" parent="basePageTitle">
+        <item name="android:textColor">@color/title_color_light_gray</item>
+    </style>
+
+    <!-- ===========================================================================================
+                                    PAGE TITLE STYLES - END
+    =============================================================================================-->
+
+    <!-- ===========================================================================================
+                                    PAGE SUB TITLE STYLES - START
+    =============================================================================================-->
+
+    <style name="basePageSubTitle" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/font_base_bold</item>
+        <item name="android:textSize">@dimen/text_normal_100</item>
+    </style>
+
+    <style name="pageSubTitleWhite" parent="basePageSubTitle">
+        <item name="android:textColor">@color/title_color_white</item>
+    </style>
+
+    <style name="pageSubTitleBlack" parent="basePageSubTitle">
+        <item name="android:textColor">@color/title_color_black</item>
+    </style>
+
+    <style name="pageSubTitleDarkGray" parent="basePageSubTitle">
+        <item name="android:textColor">@color/title_color_dark_gray</item>
+    </style>
+
+    <style name="pageSubTitleLightGray" parent="basePageSubTitle">
+        <item name="android:textColor">@color/title_color_light_gray</item>
+    </style>
+
+
+
+    <!-- ===========================================================================================
+                                   PAGE SUB TITLE STYLES - END
+    =============================================================================================-->
+
+    <!-- *******************************************************************************************
+                                        TITLES - END
+    *********************************************************************************************-->
+
+
+    <!-- *******************************************************************************************
+                                  LABELS - START
+    *********************************************************************************************-->
+
+    <!-- ===========================================================================================
+                                TEXT FIELD LABEL COLOURS - START
+    =============================================================================================-->
+
+    <color name="label_color_white">#fff</color>
+    <color name="label_color_gray">#4F4F4F</color>
+    <color name="label_color_light_gray">#BDBDBD</color>
+
+    <!-- ===========================================================================================
+                                  TEXT FIELD LABEL COLOURS - END
+    =============================================================================================-->
+
+
+    <!-- ===========================================================================================
+                                  TEXT FIELD LABEL STYLES - START
+    =============================================================================================-->
+
+    <style name="baseLabel" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/font_base_regular</item>
+        <item name="android:textSize">@dimen/text_small_175</item>
+    </style>
+
+    <style name="labelWhite" parent="baseLabel">
+        <item name="android:textColor">@color/label_color_white</item>
+    </style>
+
+    <style name="labelGray" parent="baseLabel">
+        <item name="android:textColor">@color/label_color_gray</item>
+    </style>
+
+    <style name="labelLightGray" parent="baseLabel">
+        <item name="android:textColor">@color/label_color_light_gray</item>
+    </style>
+
+
+    <!-- ===========================================================================================
+                                TEXT FIELD LABEL STYLES - END
+    =============================================================================================-->
+
+    <!-- *******************************************************************************************
+                                        LABELS - END
+    *********************************************************************************************-->
+
+
+    <!-- *******************************************************************************************
+                                  TEXT FIELD LABELS - START
+    *********************************************************************************************-->
+
+    <!-- ===========================================================================================
+                                TEXT FIELD LABEL COLOURS - START
+    =============================================================================================-->
+
+    <color name="text_field_label_color_white">#fff</color>
+    <color name="text_field_label_color_gray">#4F4F4F</color>
+    <color name="text_field_label_color_light_gray">#BDBDBD</color>
+
+    <!-- ===========================================================================================
+                                  TEXT FIELD LABEL COLOURS - END
+    =============================================================================================-->
+
+
+    <!-- ===========================================================================================
+                                  TEXT FIELD LABEL STYLES - START
+    =============================================================================================-->
+
+    <style name="baseTextFieldLabel" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/font_base_bold</item>
+        <item name="android:textSize">@dimen/text_small_175</item>
+    </style>
+
+    <style name="textFieldLabelWhite" parent="baseTextFieldLabel">
+        <item name="android:textColor">@color/text_field_label_color_white</item>
+    </style>
+
+    <style name="textFieldLabelGray" parent="baseTextFieldLabel">
+        <item name="android:textColor">@color/text_field_label_color_gray</item>
+    </style>
+
+    <style name="textFieldLabelLightGray" parent="baseTextFieldLabel">
+        <item name="android:textColor">@color/text_field_label_color_light_gray</item>
+    </style>
+
+
+    <!-- ===========================================================================================
+                                TEXT FIELD LABEL STYLES - END
+    =============================================================================================-->
+
+    <!-- *******************************************************************************************
+                                   TEXT FIELD LABELS - END
+    *********************************************************************************************-->
+
+    <!-- *******************************************************************************************
+                                       TEXT BUTTONS - START
+    *********************************************************************************************-->
+
+    <!-- ===========================================================================================
+                                    TEXT BUTTONS COLOURS - START
+    =============================================================================================-->
+
+    <color name="text_button_color_gray">#828282</color>
+    <color name="text_button_color_gray_pressed">#20828282</color>
+
+    <!-- ===========================================================================================
+                                    TEXT BUTTONS COLOURS - END
+    =============================================================================================-->
+
+    <!-- ===========================================================================================
+                                  TEXT BUTTONS STYLES - START
+    =============================================================================================-->
+
+    <style name="baseTextButton" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/font_base_regular</item>
+        <item name="android:textSize">@dimen/text_small_175</item>
+    </style>
+
+    <style name="textButtonGray" parent="baseTextButton">
+        <item name="android:textColor">@drawable/btn_text_yellow_selector</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+    <!-- ===========================================================================================
+                                TEXT BUTTONS STYLES - END
+    =============================================================================================-->
+
+
+    <!-- *******************************************************************************************
+                                        TEXT BUTTONS - END
+    *********************************************************************************************-->
+
+</resources>

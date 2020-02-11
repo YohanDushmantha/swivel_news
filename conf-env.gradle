@@ -1,0 +1,145 @@
+
+/**-------------------------------------------------------------------------------------------------------------*
+ * CONFIG - START
+ *--------------------------------------------------------------------------------------------------------------*/
+
+/**
+ * object for load keep properties
+ */
+class Config {
+    Properties properties
+}
+
+/**
+ * Env for keep build flavours and related property file location
+ */
+enum BuildEnv {
+    DEV("dev-config.properties"),
+    RND("rnd-config.properties"),
+    INTERNAL("internal-config.properties"),
+    UAT("uat-config.properties"),
+    LIVE("live-config.properties")
+
+    BuildEnv (String fileName) {
+        this.propertyFileName = fileName
+    }
+
+    private final String propertyFileName
+
+    String getPropertyFileName(){
+        propertyFileName
+    }
+}
+
+/**-------------------------------------------------------------------------------------------------------------*
+ * CONFIG - END
+ *--------------------------------------------------------------------------------------------------------------*/
+
+/**-------------------------------------------------------------------------------------------------------------*
+ * LOAD - PROPERTIES - START
+ *--------------------------------------------------------------------------------------------------------------*/
+ext {
+    devConfig = new Config()
+    rndConfig = new Config()
+    internalConfig = new Config()
+    uatConfig = new Config()
+    liveConfig = new Config()
+    commonProperties = new Config()
+}
+
+/**
+ * get env properties by passing env
+ * @param env BuildEnv selected build variant by user
+ * @return return Config() consists of set of properties
+ */
+def getEnvProperties(BuildEnv env ){
+    return getProperties("/config/env/", env.propertyFileName)
+}
+
+/**
+ * get common properties
+ * @return return Config() consists of set of properties
+ */
+def getCommonProperties(){
+    return getProperties("/config/", "common.properties")
+}
+
+/**
+ * get properties by parsing base path and property file name
+ * @param path directory which contains the property file
+ * @param fileName name of peroperty file
+ * @return Config()
+ */
+def getProperties(String path, String fileName){
+    def config = new Config()
+    def basePath = rootDir.absolutePath + path
+
+    config.properties = new Properties()
+    config.properties.load(new FileInputStream(rootProject.file((basePath + fileName))))
+    return config
+}
+
+
+
+/**
+ * load properties into ext variables
+ */
+def loadProperties () {
+
+        devConfig = getEnvProperties(BuildEnv.DEV)
+        rndConfig = getEnvProperties(BuildEnv.RND)
+        internalConfig  = getEnvProperties(BuildEnv.INTERNAL)
+        uatConfig = getEnvProperties(BuildEnv.UAT)
+        liveConfig = getEnvProperties(BuildEnv.LIVE)
+        commonProperties = getCommonProperties()
+
+}
+
+
+
+loadProperties()
+
+/**-------------------------------------------------------------------------------------------------------------*
+ * LOAD - PROPERTIES - START
+ *--------------------------------------------------------------------------------------------------------------*/
+def envConfig = new Config()
+android {
+
+    defaultConfig {
+
+        applicationVariants.all { variant ->
+            if (variant.getName().contains("dev")) {
+                envConfig = devConfig
+            } else if (variant.getName().contains("rnd")) {
+                envConfig = rndConfig
+            } else if (variant.getName().contains("internal")) {
+                envConfig = internalConfig
+            } else if (variant.getName().contains("uat")) {
+                envConfig = uatConfig
+            }else if(variant.getName().contains("live")){
+                envConfig = liveConfig
+            }
+
+
+            /**
+             * ADD VALUES TO BUILD CONFIG
+             */
+            variant.buildConfigField "String", "NEWS_SERVICE_ENDPOINT", "${envConfig.properties.DRIVER_SERVICE_ENDPOINT}"
+            variant.buildConfigField "String", "MAP_SERVICE_ENDPOINT", "${envConfig.properties.MAP_SERVICE_ENDPOINT}"
+            variant.buildConfigField "String", "NOTIFICATION_ENDPOINT", "${envConfig.properties.NOTIFICATION_URL}"
+            variant.buildConfigField "String", "S3_BUCKET_ENDPOINT", "${envConfig.properties.S3_BUCKET_URL}"
+            variant.buildConfigField "String", "S3_BUCKET", "${envConfig.properties.S3_BUCKET}"
+
+            /**
+             * ADD VALUES TO MANIFEST
+             */
+            def mergedFlavor = variant.getMergedFlavor()
+            mergedFlavor.manifestPlaceholders = [
+                    gMapKey : "${envConfig.properties.MAP_API_KEY}",
+                    fabricKey : "${envConfig.properties.FABRIC_API_KEY}"
+            ]
+        }
+    }
+
+
+}

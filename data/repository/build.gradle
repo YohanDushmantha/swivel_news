@@ -1,0 +1,31 @@
+apply plugin: 'com.android.library'
+apply from: '../../conf-android.gradle'
+
+/**-------------------------------------------------------------------------------------------------------------*
+ * DEPENDENCIES
+ *--------------------------------------------------------------------------------------------------------------*/
+
+dependencies {
+
+    /**-------------------------------------------------------------------------------------------------------------*
+     * MODULE DEPENDENCIES
+     *--------------------------------------------------------------------------------------------------------------*/
+
+    implementation project(mSourceRemote)
+    api project(mSourceLocal)
+    implementation project(mSourceFirabase)
+    implementation project(mSourceAmazon)
+    implementation project(mCoreUtility)
+    implementation project(mSourceSharedPref)
+
+    /**-------------------------------------------------------------------------------------------------------------*
+     * REMOTE DEPENDENCIES
+     *--------------------------------------------------------------------------------------------------------------*/
+
+    kotlin()
+    dagger()
+    debugging()
+    networking()
+    unitTesting()
+    instrumentedTesting()
+}

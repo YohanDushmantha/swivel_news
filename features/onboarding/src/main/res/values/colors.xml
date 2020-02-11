@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- *******************************************************************************************
+                                            WALKTHROUGH - START
+    *********************************************************************************************-->
+
+    <!--WALKTHROUGH TITLE-->
+    <color name="walkthrough_view_pager_title">#5F5F5F</color>
+
+    <!--WALKTHROUGH PAGE INDICATOR-->
+    <color name="walkthrough_view_pager_dot">#5F5F5F</color>
+    <color name="walkthrough_view_pager_selected_dot">#1F1F1D</color>
+
+
+    <!-- *******************************************************************************************
+                                            WALKTHROUGH - START
+    *********************************************************************************************-->
+
+</resources>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <style name="BaseFloatingActionButton" parent="Theme.AppCompat.Light">
+
+    </style>
+
+    <!-- *******************************************************************************************
+                                   CIRCULAR FLOATING BUTTON - START
+    *********************************************************************************************-->
+
+    <style name="CircularFloatingActionButton" parent="BaseFloatingActionButton">
+        <item name="android:layout_width">@dimen/v_48</item>
+        <item name="android:layout_height">@dimen/v_48</item>
+        <item name="android:elevation">6dp</item>
+    </style>
+
+    <!-- ===========================================================================================
+                                 CIRCULAR FLOATING BUTTON COLOURS - START
+    ============================================================================================ -->
+
+    //Default Button Color
+    <color name="circularFloatingActionButtonDefaultBg">#fff</color>
+
+
+
+    <!-- ===========================================================================================
+                                 CIRCULAR FLOATING BUTTON COLOURS - END
+    ============================================================================================ -->
+
+
+    <!-- ===========================================================================================
+                                 CIRCULAR FLOATING BUTTON STYLES - START
+    ============================================================================================ -->
+
+    //Default Button
+    <style name="DefaultCircularFloatingActionButton" parent="CircularFloatingActionButton">
+        <item name="android:colorAccent">@color/circularFloatingActionButtonDefaultBg</item>
+        <item name="android:backgroundTint">@color/circularFloatingActionButtonDefaultBg</item>
+    </style>
+
+    <!-- ===========================================================================================
+                                 CIRCULAR FLOATING BUTTON STYLES - END
+    ============================================================================================ -->
+
+    <!-- *******************************************************************************************
+                                   CIRCULAR FLOATING BUTTON - END
+    *********************************************************************************************-->
+
+    <!-- *******************************************************************************************
+                                   EXTENDED FLOATING BUTTON - START
+    *********************************************************************************************-->
+
+    <style name="ExtendedFloatingActionButton" parent="BaseFloatingActionButton">
+
+    </style>
+
+    <!-- ===========================================================================================
+                                 EXTENDED FLOATING BUTTON COLOURS - START
+    ============================================================================================ -->
+
+    //Default Button Color
+    <color name="extendedFloatingActionButtonDefaultBg">#fff</color>
+
+
+
+    <!-- ===========================================================================================
+                                 EXTENDED FLOATING BUTTON COLOURS - END
+    ============================================================================================ -->
+
+
+    <!-- ===========================================================================================
+                                 EXTENDED FLOATING BUTTON STYLES - START
+    ============================================================================================ -->
+
+    //Default Button
+    <style name="DefaultExtendedFloatingActionButton" parent="ExtendedFloatingActionButton">
+        <item name="android:colorAccent">@color/extendedFloatingActionButtonDefaultBg</item>
+        <item name="android:backgroundTint">@color/extendedFloatingActionButtonDefaultBg</item>
+    </style>
+
+    <!-- ===========================================================================================
+                                 EXTENDED FLOATING BUTTON STYLES - END
+    ============================================================================================ -->
+
+    <!-- *******************************************************************************************
+                                   EXTENDED FLOATING BUTTON - END
+    *********************************************************************************************-->
+
+
+
+
+
+</resources>

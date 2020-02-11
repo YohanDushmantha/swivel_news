@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- *******************************************************************************************
+                                HOME - START
+    ******************************************************************************************** -->
+
+    <style name="homeStatisticsDisplayStyle">
+        <item name="elevation">@dimen/v_8</item>
+        <item name="android:textColor">@color/home_statistics_display_text</item>
+        <item name="android:background">@drawable/statistics_display_bg</item>
+        <item name="android:paddingStart">@dimen/v_16</item>
+        <item name="android:paddingEnd">@dimen/v_16</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/text_normal_150</item>
+        <item name="android:layout_height">@dimen/v_56</item>
+    </style>
+
+    <!-- *******************************************************************************************
+                                HOME - START
+    ******************************************************************************************** -->
+
+</resources>

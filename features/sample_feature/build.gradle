@@ -1,0 +1,45 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
+apply plugin: 'androidx.navigation.safeargs'
+apply from: '../../conf-android.gradle'
+
+/**-------------------------------------------------------------------------------------------------------------*
+ * DEPENDENCIES
+ *--------------------------------------------------------------------------------------------------------------*/
+
+dependencies {
+
+    /**-------------------------------------------------------------------------------------------------------------*
+     * MODULE DEPENDENCIES
+     *--------------------------------------------------------------------------------------------------------------*/
+
+    implementation project(mCoreUi)
+    implementation project(mCoreConfig)
+    implementation project(mCoreNavigation)
+    implementation project(mCoreValidator)
+    implementation project(mCoreUtility)
+    implementation project(mRepository)
+    implementation project(mModels)
+
+
+
+
+    /**-------------------------------------------------------------------------------------------------------------*
+     * REMOTE DEPENDENCIES
+     *--------------------------------------------------------------------------------------------------------------*/
+
+    kotlin()
+    dagger()
+    debugging()
+    view()
+    arcView()
+    arcNav()
+    arcLiveData()
+    validation()
+    //unitTesting()
+    instrumentedTesting()
+}
+repositories {
+    mavenCentral()
+}

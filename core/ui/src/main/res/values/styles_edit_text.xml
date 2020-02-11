@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="BaseEditTextStyle" parent="Widget.AppCompat.EditText">
+        <item name="android:fontFamily">@font/font_base_bold</item>
+        <item name="android:textSize">@dimen/text_normal_100</item>
+        <item name="android:background">@null</item>
+    </style>
+
+    <!-- *******************************************************************************************
+                                        EDIT TEXT - START
+    *********************************************************************************************-->
+
+    <!-- ===========================================================================================
+                                    EDIT TEXT COLORS - START
+    =============================================================================================-->
+
+    <color name="default_edit_text_bg">#fff</color>
+    <color name="default_edit_text_border">#BDBDBD</color>
+    <color name="default_edit_text_text_color">#BDBDBD</color>
+
+    <!-- ===========================================================================================
+                                     EDIT TEXT COLORS - END
+    =============================================================================================-->
+
+    <!-- ===========================================================================================
+                                    EDIT TEXT STYLES - START
+    =============================================================================================-->
+
+    <style name="defaultEditTextContainer">
+        <item name="android:background">@drawable/default_edit_text_bg</item>
+        <item name="android:layout_height">@dimen/v_48</item>
+    </style>
+
+    <style name="defaultEditTextField" parent="BaseEditTextStyle">
+        <item name="android:textColor">@color/default_edit_text_text_color</item>
+        <item name="android:background">@drawable/edt_txt_default_container</item>
+        <item name="android:paddingStart">@dimen/v_16</item>
+        <item name="android:paddingEnd">@dimen/v_16</item>
+    </style>
+
+    <style name="mobileNumberEditTextField" parent="BaseEditTextStyle">
+        <item name="android:textColor">@color/default_edit_text_text_color</item>
+        <item name="android:paddingStart">@dimen/v_16</item>
+        <item name="android:paddingEnd">@dimen/v_16</item>
+    </style>
+
+    <!-- ===========================================================================================
+                                    EDIT TEXT STYLES - END
+    =============================================================================================-->
+
+
+    <!-- *******************************************************************************************
+        EDIT TEXT - END
+    *********************************************************************************************-->
+
+</resources>

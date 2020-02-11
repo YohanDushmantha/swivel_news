@@ -1,0 +1,75 @@
+<resources>
+
+    <string name="app_name">shared</string>
+
+    <!-- *******************************************************************************************
+                                       INFO BOX - START
+    *********************************************************************************************-->
+
+    <!-- DEFAULT TITLES -->
+    <string name="info_box_default_title_info">Info Message</string>
+    <string name="info_box_default_title_warning">Warning Message</string>
+    <string name="info_box_default_title_success">Success Message</string>
+    <string name="info_box_default_title_error">Error Message</string>
+
+
+    <!-- *******************************************************************************************
+                                       INFO BOX - END
+    *********************************************************************************************-->
+
+    <!-- *******************************************************************************************
+                                       CONFIRM BOX - START
+    *********************************************************************************************-->
+
+    <!-- DEFAULT TITLES -->
+    <string name="confirm_box_title_default">Are You Sure?</string>
+
+    <!-- DEFAULT Button Text -->
+    <string name="confirm_box_default_btn_text_positive">YES</string>
+    <string name="confirm_box_default_btn_text_negative">NO</string>
+
+    <!-- *******************************************************************************************
+                                       CONFIRM BOX - END
+    *********************************************************************************************-->
+
+
+    <!-- *******************************************************************************************
+                                    VERIFY MOBILE NUMBER - START
+    *********************************************************************************************-->
+
+    <!-- VERIFY MOBILE NUMBER TEXTS -->
+    <string name="verify_mobile_number_welcome_to">WELCOME TO</string>
+    <string name="verify_mobile_number_simplified_text">Simplified lifestyle with smart pay</string>
+    <string name="verify_mobile_number_lbl_phone_number">Can I have your number</string>
+    <string name="verify_mobile_number_country_code">+94</string>
+    <string name="verify_mobile_number_hint">7X XXXXXXX</string>
+    <string name="verify_mobile_number_how_to_register"><u>How to register ?</u></string>
+    <string name="verify_mobile_number_powered_by">Powered by</string>
+
+    <!-- VERIFY MOBILE NUMBER TEXTS VALIDATION -->
+    <string name="verify_mobile_number_field_name">Mobile Number</string>
+
+    <string name="mobile_number_verification_error">Swivel News application was unable to verify provided mobile number with server. Please contact Swivel News customer care.</string>
+
+    <!-- *******************************************************************************************
+                                   VERIFY MOBILE NUMBER - END
+    *********************************************************************************************-->
+
+    <!-- *******************************************************************************************
+                                VERIFY OTP - START
+*********************************************************************************************-->
+
+    <!-- VERIFY MOBILE NUMBER TEXTS -->
+    <string name="verify_otp_page_title">VERIFY %1$s</string>
+    <string name="verify_otp_description">We sent you a code to</string>
+    <string name="verify_otp_enter_otp">Enter your 4 digit OTP code</string>
+
+    <!-- VERIFY MOBILE NUMBER BUTTON TITLES -->
+    <string name="verify_otp_code_not_received">I didn\'t receive a code !</string>
+    <string name="verify_otp_resend_btn_text"><u>Resend code</u></string>
+    <string name="verify_otp_verify_btn_text">VERIFY</string>
+
+    <!-- *******************************************************************************************
+                                   VERIFY OTP - END
+    *********************************************************************************************-->
+</resources>

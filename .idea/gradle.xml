@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/core" />
+            <option value="$PROJECT_DIR$/core/config" />
+            <option value="$PROJECT_DIR$/core/crypto" />
+            <option value="$PROJECT_DIR$/core/navigation" />
+            <option value="$PROJECT_DIR$/core/security" />
+            <option value="$PROJECT_DIR$/core/ui" />
+            <option value="$PROJECT_DIR$/core/utility" />
+            <option value="$PROJECT_DIR$/core/validator" />
+            <option value="$PROJECT_DIR$/data" />
+            <option value="$PROJECT_DIR$/data/data_source" />
+            <option value="$PROJECT_DIR$/data/data_source/amazon" />
+            <option value="$PROJECT_DIR$/data/data_source/firebase" />
+            <option value="$PROJECT_DIR$/data/data_source/local" />
+            <option value="$PROJECT_DIR$/data/data_source/remote" />
+            <option value="$PROJECT_DIR$/data/data_source/shared_pref" />
+            <option value="$PROJECT_DIR$/data/models" />
+            <option value="$PROJECT_DIR$/data/repository" />
+            <option value="$PROJECT_DIR$/features" />
+            <option value="$PROJECT_DIR$/features/home" />
+            <option value="$PROJECT_DIR$/features/login" />
+            <option value="$PROJECT_DIR$/features/onboarding" />
+            <option value="$PROJECT_DIR$/features/profile" />
+            <option value="$PROJECT_DIR$/features/registration" />
+            <option value="$PROJECT_DIR$/features/sample_feature" />
+            <option value="$PROJECT_DIR$/features/shared" />
+          </set>
+        </option>
+        <option name="resolveModulePerSourceSet" value="false" />
+        <option name="testRunner" value="PLATFORM" />
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

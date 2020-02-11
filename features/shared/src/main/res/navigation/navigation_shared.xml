@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/navigation_shared" app:startDestination="@id/verifyOtpFragment">
+
+    <!-- VERIFY OTP FRAGMENT -->
+    <fragment android:id="@+id/verifyOtpFragment"
+            android:name="com.swivel.shared.ui.verify_otp.VerifyOtpFragment"
+            tools:layout="@layout/verify_otp_fragment"
+            android:label="VerifyOtpFragment">
+        <deepLink app:uri="shared://verify_otp"/>
+    </fragment>
+    <!--<fragment android:id="@+id/verifyOtpFragment"
+            android:name="com.swivel.shared.ui.verify_otp.VerifyOtpFragment"
+              tools:layout="@layout/verify_otp_fragment"
+              android:label="VerifyOtpFragment">
+        <deepLink app:uri="shared://verify_otp/{id}/"/>
+    </fragment>-->
+
+    !-- PROGRESS DIALOG FRAGMENT -->
+    <dialog android:id="@+id/progressDialogFragment"
+            tools:layout="@layout/progress_dialog_fragment"
+              android:name="com.swivel.shared.ui.progress_bar.ProgressDialogFragment"
+              android:label="ProgressDialogFragment">
+        <deepLink app:uri="shared://progress_bar"/>
+    </dialog>
+
+    !-- INFO BOX DIALOG FRAGMENT -->
+    <dialog
+            android:id="@+id/infoBox"
+            tools:layout="@layout/info_box_dialog_fragment"
+            android:name="com.swivel.shared.ui.info_box.InfoBox"
+            android:label="InfoBox" >
+        <deepLink app:uri="shared://info_box"/>
+    </dialog>
+
+    !-- CONFIRM BOX DIALOG FRAGMENT -->
+    <dialog
+            android:id="@+id/confirmBox"
+            tools:layout="@layout/confirm_box_bottom_sheet_fragment"
+            android:name="com.swivel.shared.ui.confirm_box.ConfirmBox"
+            android:label="ConfirmBox" >
+        <deepLink app:uri="shared://confirm_box"/>
+    </dialog>
+
+    !-- VERIFY MOBILE NUMBER FRAGMENT -->
+    <fragment
+            android:id="@+id/verifyMobileNumberFragment"
+            android:name="com.swivel.shared.ui.verify_mobile_number.VerifyMobileNumberFragment"
+            android:label="VerifyMobileNumberFragment"
+            tools:layout="@layout/verify_mobile_number_fragment">
+        <deepLink app:uri="shared://verify_mobile_number"/>
+    </fragment>
+
+</navigation>

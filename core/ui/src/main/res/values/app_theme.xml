@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- *******************************************************************************************
+                                BASE APPLICATION THEME - START
+    ******************************************************************************************** -->
+    <!-- Base application theme. -->
+    <style name="BaseAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+
+
+        <!--remove intial white background-->
+        <item name="android:windowIsTranslucent">true</item>
+
+        <item name="android:fontFamily">@font/roboto_mono</item>
+    </style>
+
+    <!-- *******************************************************************************************
+                                    BASE APPLICATION THEME - END
+    ******************************************************************************************** -->
+
+    <!-- *******************************************************************************************
+                                TRAVEL PARTNER APP THEME - START
+    ******************************************************************************************** -->
+
+    <style name="AppTheme" parent="BaseAppTheme">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorControlNormal">@color/colorPrimary</item>
+        <item name="android:textViewStyle">@style/BaseTextViewStyle</item>
+        <item name="android:buttonStyle">@style/BaseButtonStyle</item>
+        <!--<item name="actionBarTheme">@style/ActionBarTheme</item>
+        <item name="actionBarStyle">@style/ActionBarStyle</item>
+        <item name="toolbarNavigationButtonStyle">@style/ToolBarNavigationButtonStyle</item>-->
+    </style>
+
+    <!-- *******************************************************************************************
+                                 TRAVEL PARTNER APP THEME - END
+    ******************************************************************************************** -->
+
+    <!-- *******************************************************************************************
+                                 Swivel ToolBar Style - START
+    ******************************************************************************************** -->
+
+    <!--<style name="ActionBarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+       &lt;!&ndash; <item name="titleTextAppearance">@style/toolbarTitleTextAppearance</item>&ndash;&gt;
+        <item name="colorControlNormal">@color/colorPrimary</item>
+    </style>
+
+    <style name="ActionBarStyle" parent="@style/Widget.AppCompat.Light.ActionBar">
+        <item name="elevation">16dp</item>
+        &lt;!&ndash; style for actionBar title &ndash;&gt;
+        <item name="titleTextStyle">@style/ActionBarTitleTextStyle</item>
+        <item name="subtitleTextStyle">@style/ActionBarSubTitleTextStyle</item>
+        &lt;!&ndash; style for actionBar subtitle &ndash;&gt;
+        &lt;!&ndash;<item name="subtitleTextStyle">@style/ActionBarSubtitleText</item>&ndash;&gt;
+    </style>
+
+    <style name="ActionBarTitleTextStyle" parent="TextAppearance.AppCompat.Title">
+        <item name="colorControlNormal">@android:color/holo_red_dark</item>
+        <item name="android:textSize">@dimen/text_normal_100</item>
+    </style>
+
+    <style name="ActionBarSubTitleTextStyle" parent="TextAppearance.AppCompat.Widget.ActionBar.Subtitle">
+        <item name="colorControlNormal">@android:color/holo_red_dark</item>
+        <item name="android:textSize">@dimen/text_normal_100</item>
+    </style>
+    &lt;!&ndash;<style name="toolbarTitleTextAppearance" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">@dimen/text_large_100</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:layout_gravity">center</item>
+    </style>&ndash;&gt;
+    
+    <style name="ToolBarNavigationButtonStyle" parent="Widget.AppCompat.Toolbar">
+        <item name="android:homeAsUpIndicator">@drawable/ic_back</item>
+        <item name="android:navigationIcon">@drawable/ic_back</item>
+    </style>-->
+
+   <!-- <style name="ToolbarStyle" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+        &lt;!&ndash; Customize color of navigation drawer icon and back arrow &ndash;&gt;
+        <item name="colorControlNormal">@android:color/holo_red_dark</item>
+    </style>-->
+
+    <style name="ToolBarStyle">
+        <item name="android:colorControlNormal">@color/colorPrimary</item>
+    </style>
+
+
+    <!-- *******************************************************************************************
+                                 Swivel News ToolBar Style - END
+    ******************************************************************************************** -->
+
+
+
+</resources>

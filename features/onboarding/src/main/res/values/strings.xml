@@ -1,0 +1,61 @@
+<resources>
+    <string name="app_name">onboarding</string>
+    <string name="title_activity_onboarding_host">OnboardingHost</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- *******************************************************************************************
+                                       SPLASH - START
+    ******************************************************************************************** -->
+
+    <!-- TASK LOADING MESSAGES -->
+    <string name="splash_copyrights">Copyright&#169; All Rights Reserved.</string>
+    <string name="splash_powered_by">Powered by</string>
+
+    <string name="task_loading_msg_keystore_generate">Configuring app security</string>
+    <string name="task_loading_msg_root_checking">Checking root status</string>
+    <string name="task_loading_msg_check_phone_state_permission">Checking Phone State Permission</string>
+    <string name="task_loading_msg_check_access_network_state_permission">Checking Access Network State Permission</string>
+    <string name="task_loading_msg_loading_device_info">Loading device info</string>
+    <string name="task_loading_msg_validating_session">Checking session validity</string>
+    <string name="task_loading_msg_loading_session_data">Loading session data</string>
+    <string name="task_loading_msg_loading_system_configuration">Loading System Configuration</string>
+
+    <!-- TASK LOADING ERROR MESSAGES -->
+    <string name="task_loading_error_device_is_rooted">Swivel news can not be run in this device since the device is rooted.</string>
+    <string name="task_loading_error_keystore_issue">Security configuring issue. Please contact Swivel News customer care.</string>
+    <string name="task_loading_error_denied_phone_state_permission">You should grant permission for accessing Phone State. Otherwise Swivel News application can not be run on your device.</string>
+    <string name="task_loading_error_denied_access_network_state_permission">You should grant permission for accessing Network State. Otherwise Swivel News application can not be run on your device.</string>
+    <string name="task_loading_error_device_info_not_loaded">Swivel News application can not gather your device info. Please contact Swivel News customer care.</string>
+    <string name="task_loading_error_system_configuration_not_loaded">Swivel News application could not load System Configuration from server. Please contact Swivel News customer care.</string>
+
+    <!-- *******************************************************************************************
+                                        SPLASH END
+    *********************************************************************************************-->
+
+    <!-- *******************************************************************************************
+                                      WALKTHROUGH - START
+    *********************************************************************************************-->
+
+    <!-- WALKTHROUGH TITLE -->
+    <string name="walkthrough_page1_title">Discover the most famous news</string>
+    <string name="walkthrough_page2_title">Get to Know Global Politics</string>
+    <string name="walkthrough_page3_title">Keep in touch with your favourite sport</string>
+    <string name="walkthrough_page4_title">Energize with corporate news</string>
+    <string name="walkthrough_page5_title">Get to know weather status</string>
+
+    <!-- SIGN UP AND SIGN IN TEXTS FOR MOBILE NUMBER VERIFICATION PAGE -->
+    <string name="walkthrough_get_started">Get Started</string>
+
+    <string name="walkthrough_routing_signup_title">SIGN UP</string>
+    <string name="walkthrough_routing_signup_submit_button_text">NEXT</string>
+    <string name="walkthrough_routing_signin_title">SIGN IN</string>
+    <string name="walkthrough_routing_signin_submit_button_text">NEXT</string>
+
+    <!-- Exit App Confirmation Message -->
+    <string name="walkthrough_exit_confirmation">Are you sure, you want to exit Swivel application ? </string>
+
+
+    <!-- *******************************************************************************************
+                                       WALKTHROUGH - END
+    *********************************************************************************************-->
+</resources>

@@ -1,0 +1,45 @@
+
+android {
+    signingConfigs {
+        releaseConfig {
+            keyAlias 'SwivelNewsAlias'
+            storePassword 'swivel-store-password'
+            storeFile file('swivel_keystore.jks')
+            keyPassword 'swivel-key-password'
+        }
+    }
+
+    buildTypes {
+        debug {
+            testCoverageEnabled true
+        }
+        release {
+            debuggable false
+            minifyEnabled true
+            //shrinkResources true
+            jniDebuggable false
+            zipAlignEnabled true
+            //proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.releaseConfig
+        }
+    }
+
+    flavorDimensions "default"
+    productFlavors {
+        dev {
+            dimension "default"
+            applicationIdSuffix = ".dev"
+        }
+        internal {
+            dimension "default"
+            applicationIdSuffix = ".internal"
+        }
+        uat {
+            dimension "default"
+            applicationIdSuffix = ".uat"
+        }
+        live{
+            dimension "default"
+        }
+    }
+}

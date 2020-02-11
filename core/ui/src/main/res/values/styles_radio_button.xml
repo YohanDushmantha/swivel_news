@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="BaseRadioButtonStyle" parent="Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="android:fontFamily">@font/font_base_bold</item>
+        <item name="android:textSize">@dimen/text_normal_100</item>
+    </style>
+
+    <!-- *******************************************************************************************
+                                    RADIO BUTTONS - START
+    *********************************************************************************************-->
+
+    <!-- ===========================================================================================
+                                 RADIO BUTTONS COLOURS - START
+    ============================================================================================+-->
+
+    <!-- WHITE RADIO BUTTON -->
+    <color name="white_radio_button_text_color">#fff</color>
+    <color name="white_radio_button_bg_color">#fff</color>
+
+
+
+    <!-- ===========================================================================================
+                                 RADIO BUTTONS COLOURS - END
+    =============================================================================================-->
+
+    <!-- ===========================================================================================
+                                 RADIO BUTTONS STYLES - START
+    ============================================================================================+-->
+
+    <!-- WHITE RADIO BUTTON -->
+    <style name="whiteRadiioButtonStyle" parent="BaseRadioButtonStyle">
+        <item name="android:textColor">@color/white_radio_button_text_color</item>
+        <item name="android:buttonTint">@color/white_radio_button_bg_color</item>
+    </style>
+
+
+
+    <!-- ===========================================================================================
+                                 RADIO BUTTONS STYLES - END
+    =============================================================================================-->
+
+    <!-- *******************************************************************************************
+                                    RADIO BUTTONS - END
+    *********************************************************************************************-->
+</resources>

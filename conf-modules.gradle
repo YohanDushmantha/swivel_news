@@ -1,0 +1,48 @@
+/**
+ * Project List for easy copy and paste
+
+
+
+ */
+
+ext {
+    mApp = ':app'
+
+    /*CORE MODULES - START*/
+
+    mCoreUi = ':core:ui'
+    mCoreConfig = ':core:config'
+    mCoreNavigation = ':core:navigation'
+    mCoreUtility = ':core:utility'
+    mCoreValidator = ':core:validator'
+    mCoreSecurity = ':core:security'
+    mCoreCrypto = ':core:crypto'
+    /*CORE MODULES - END*/
+
+
+    /*DATA MODULES - START*/
+
+    mRepository = ':data:repository'
+    mSourceRemote = ':data:data_source:remote'
+    mSourceLocal = ':data:data_source:local'
+    mSourceFirabase = ':data:data_source:firebase'
+    mSourceAmazon = ':data:data_source:amazon'
+    mSourceSharedPref = ':data:data_source:shared_pref'
+    mModels = ':data:models'
+
+    /*DATA MODULES - END*/
+
+    /*FEATURE MODULES - START*/
+
+    mSampleFeature = ':features:sample_feature'
+
+    mFeatureShared = ':features:shared'
+    mFeatureOnboarding = ':features:onboarding'
+    mFeatureLogin = ':features:login'
+    mFeatureRegistration = ':features:registration'
+    mFeatureHome = ':features:home'
+    mFeatureProfile = ':features:profile'
+
+    /*FEATURE MODULES - END*/
+
+}

@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Swivel News</string>
+
+    <!-- *******************************************************************************************
+                                    MAIN - START
+    ******************************************************************************************** -->
+
+    <!-- INTERNET ACCESSIBILITY ISSUE -->
+    <string name="internet_accessibility_issue">Unable to connect to internet. Please check your internet connection immediately.</string>
+
+    <string name="drawer_main_menu_inbox">Inbox</string>
+    <string name="drawer_main_menu_promotions">Promotions</string>
+    <string name="drawer_main_menu_payments">Payments</string>
+
+    <string name="drawer_sub_menu_account">Account</string>
+    <string name="drawer_sub_menu_help">Help</string>
+    <!-- *******************************************************************************************
+                                    MAIN - END
+    ******************************************************************************************** -->
+
+</resources>

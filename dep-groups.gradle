@@ -1,0 +1,201 @@
+def Group(Closure closure) {
+    closure.delegate = dependencies
+    return closure
+}
+
+/**
+ All groups below for easy copy/pasting:
+
+ libraries()
+ kotlin()
+ debugging()
+ dagger()
+ networking()
+ arcView()
+ viewPager()
+ arcNav()
+ arcLiveData()
+ arcRoom()
+ view()
+ validation()
+ testing()
+
+ **/
+
+ext {
+
+    /**-----------------------------------------------------------------------------------------------------------------*
+     * LIBRARIES
+     *------------------------------------------------------------------------------------------------------------------*/
+
+    libraries = Group {
+        implementation deps.libs
+    }
+
+
+    /**-----------------------------------------------------------------------------------------------------------------*
+     * KOTLIN
+     *------------------------------------------------------------------------------------------------------------------*/
+
+    kotlin = Group {
+        implementation deps.kotlin.lib
+        implementation deps.kotlin.ktx
+    }
+
+    /**-----------------------------------------------------------------------------------------------------------------*
+     * DEBUGGING
+     *------------------------------------------------------------------------------------------------------------------*/
+
+    debugging = Group {
+        implementation deps.timber
+    }
+
+    /**-----------------------------------------------------------------------------------------------------------------*
+     * DAGGER
+     *------------------------------------------------------------------------------------------------------------------*/
+
+    dagger = Group {
+        implementation deps.dagger.dagger
+        kapt deps.dagger.compiler
+        implementation deps.dagger.android
+        implementation deps.dagger.support
+        kapt deps.dagger.processor
+    }
+
+    /**-----------------------------------------------------------------------------------------------------------------*
+     * NETWORKING
+     *------------------------------------------------------------------------------------------------------------------*/
+
+    networking = Group {
+        implementation deps.retrofit.retrofit
+        implementation deps.gson.converterGson
+        implementation deps.gson.gson
+
+        //moshi
+        implementation deps.retrofit.converterMoshi
+        implementation deps.retrofit.retrofitCoroutineAdapter
+
+        //moshi
+        implementation deps.moshi.moshi
+        kapt           deps.moshi.moshiCodegen
+
+        //coroutines
+        implementation deps.kotlinCoroutines.coroutineCore
+        implementation deps.kotlinCoroutines.coroutineAndroid
+
+        //okhttp
+        implementation deps.okHttp.okHttp
+        implementation deps.okHttp.logging
+    }
+
+    gson = Group {
+        implementation deps.gson.converterGson
+        implementation deps.gson.gson
+    }
+
+    /**-----------------------------------------------------------------------------------------------------------------*
+     * ARCHITECTURE COMPONENTS
+     *------------------------------------------------------------------------------------------------------------------*/
+
+    arcView = Group {
+        implementation deps.ac.viewModel
+        implementation deps.ac.extensions
+    }
+
+    viewPager = Group {
+        implementation deps.acViewPager.viewPager
+        implementation deps.acViewPager.viewPagerDots
+    }
+
+    arcNav = Group {
+        implementation deps.nav.navigationFragment
+        implementation deps.nav.navigationUI
+    }
+
+    arcLiveData = Group {
+        implementation deps.ac.liveData
+    }
+
+    arcRoom = Group {
+        api deps.room.roomRuntime
+        api deps.room.roomKTX
+        kapt deps.room.roomCompiler
+    }
+
+    /**-----------------------------------------------------------------------------------------------------------------*
+     * VIEW
+     *------------------------------------------------------------------------------------------------------------------*/
+
+    view = Group {
+
+        implementation deps.support.appCompat
+        implementation deps.support.androidXActivity
+        implementation deps.support.androidXActivityKtx
+        implementation "androidx.fragment:fragment:1.1.0"
+
+        implementation "androidx.fragment:fragment-ktx:1.1.0"
+        implementation deps.support.design
+        implementation deps.support.material
+        implementation deps.support.constraintLayout
+    }
+
+    /**-----------------------------------------------------------------------------------------------------------------*
+     * VALIDATION
+     *------------------------------------------------------------------------------------------------------------------*/
+
+    validation = Group {
+        //https://wajahatkarim.gitbook.io/easyvalidation/
+        implementation deps.validation.easyValidation
+    }
+
+    /**-----------------------------------------------------------------------------------------------------------------*
+     * MAPS
+     *------------------------------------------------------------------------------------------------------------------*/
+
+    maps = Group{
+        implementation deps.maps.playServicesMaps
+    }
+
+    /**-----------------------------------------------------------------------------------------------------------------*
+     * IMAGES
+     *------------------------------------------------------------------------------------------------------------------*/
+
+    images = Group{
+        implementation deps.image.glide
+        kapt deps.image.glideCompiler
+    }
+
+
+    /**-----------------------------------------------------------------------------------------------------------------*
+     * TESTING
+     *------------------------------------------------------------------------------------------------------------------*/
+
+    unitTesting = Group {
+        testImplementation deps.unitTesting.junit
+        testImplementation deps.unitTesting.mokito
+        testImplementation deps.unitTesting.robolectric
+        testImplementation deps.unitTesting.assertJ
+    }
+
+    instrumentedTesting = Group {
+        androidTestImplementation deps.unitTesting.junit
+        androidTestImplementation deps.unitTesting.mokito
+        //androidTestImplementation deps.unitTesting.robolectric
+        androidTestImplementation deps.unitTesting.assertJ
+
+        androidTestImplementation deps.instrumentedTesting.androidxCoreTesting
+        /*androidTestImplementation deps.instrumentedTesting.androidxArchCoreTesting
+        androidTestImplementation deps.instrumentedTesting.androidxArchCoreRuntime*/
+
+        androidTestImplementation deps.instrumentedTesting.espressoCore
+        androidTestImplementation deps.instrumentedTesting.espressoIntents
+        androidTestImplementation deps.instrumentedTesting.espressoContrib
+
+        androidTestImplementation deps.instrumentedTesting.testRunner
+        androidTestImplementation deps.instrumentedTesting.testRules
+
+        androidTestImplementation deps.instrumentedTesting.mockitoCore
+        androidTestImplementation deps.instrumentedTesting.mockitoInline
+        androidTestImplementation deps.instrumentedTesting.mockitoKotlin
+    }
+}

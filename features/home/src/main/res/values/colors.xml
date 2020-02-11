@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- *******************************************************************************************
+                                HOME - START
+    ******************************************************************************************** -->
+
+    <color name="go_button_background">#2646A6</color>
+    <color name="go_button_text">#fff</color>
+    <color name="go_button_border">#fff</color>
+
+    <color name="home_statistics_display_bg">#000</color>
+    <color name="home_statistics_display_text">#fff</color>
+    <color name="home_statistics_display_currency_symbol_color">#93BCAE</color>
+    <color name="home_statistics_display_seperator_color">#fff</color>
+
+    <!-- *******************************************************************************************
+                                HOME - START
+    ******************************************************************************************** -->
+
+
+    <!-- *******************************************************************************************
+                                TRIP PLANNER - START
+    ******************************************************************************************** -->
+
+    <color name="trip_planner_selected_date">#2C50BE</color>
+    <color name="trip_planner_date">#CCE1F4</color>
+
+    <!-- *******************************************************************************************
+                                TRIP PLANNER - START
+    ******************************************************************************************** -->
+
+</resources>

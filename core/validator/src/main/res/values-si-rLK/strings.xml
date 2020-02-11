@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="validation_required_msg">%1$s is Required</string>
+    <string name="validation_min_length_msg">%1$s text is too small. %1$s length should be greater than %2$d characters</string>
+    <string name="validation_max_length_msg">%1$s text is too lengthy. %1$s length should be less than %2$d characters</string>
+    <string name="validation_no_numbers_msg">%1$s contains numbers.</string>
+    <string name="validation_can_not_special_characters_msg">%1$s contains special characters.</string>
+    <string name="validation_contain_characters_msg">%1$s contains characters.</string>
+    <string name="validation_invalid_email_msg">%1$s is not a valid email.</string>
+    <string name="validation_invalid_phone_msg">%1$s is not a valid phone number.</string>
+    <string name="validation_invalid_phone_number_length_msg">%1$s length is not valid.</string>
+    <string name="validation_invalid_url_msg">%1$s is not a valid URL.</string>
+    <string name="validation_valid_number_msg">%1$s is not a valid Number.</string>
+</resources>

@@ -1,0 +1,110 @@
+ext.deps = [
+
+        /**-------------------------------------------------------------------------------------------------------------*
+         * BUILD
+         *--------------------------------------------------------------------------------------------------------------*/
+
+        'build' :   [
+                'gradle'    :   "com.android.tools.build:gradle:$versions.gradle",
+                'kotlin'    :   "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
+        ],
+
+        /**-------------------------------------------------------------------------------------------------------------*
+         * MAIN
+         *--------------------------------------------------------------------------------------------------------------*/
+
+        'libs'      :   fileTree(dir: 'libs', include: ['*.jar']),
+        'kotlin'    :   [
+                'lib'       : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin",
+                'ktx'       : "androidx.core:core-ktx:$versions.ktx"
+        ],
+        'timber'     : "com.jakewharton.timber:timber:$versions.timber",
+        'support'    : [
+                'appCompat'      : "androidx.appcompat:appcompat:$versions.androdixAppCompat",
+                'androidXActivity' : "androidx.activity:activity:$versions.androidXActivity",
+                'androidXActivityKtx' : "androidx.activity:activity-ktx:$versions.androidXActivity",
+                'app'         : "com.android.support:appcompat-v7:$versions.support",
+                'cardView'    : "com.android.support:cardview-v7:$versions.support",
+                'recyclerView': "com.android.support:recyclerview-v7:$versions.support",
+                'design'      : "com.android.support:design:$versions.support",
+                'material'    : "com.google.android.material:material:$versions.material",
+                'constraintLayout' : "androidx.constraintlayout:constraintlayout:$versions.constraintLayout"
+        ],
+        'dagger'    :   [
+                'dagger'   : "com.google.dagger:dagger:$versions.dagger",
+                'compiler' : "com.google.dagger:dagger-compiler:$versions.dagger",
+                'android'  : "com.google.dagger:dagger-android:$versions.dagger",
+                'support'  : "com.google.dagger:dagger-android-support:$versions.dagger",
+                'processor': "com.google.dagger:dagger-android-processor:$versions.dagger"
+        ],
+        'retrofit'  :  [
+                'retrofit'                      : "com.squareup.retrofit2:retrofit:$versions.retrofit",
+                'converterMoshi'                : "com.squareup.retrofit2:converter-moshi:$versions.retrofit",
+                'retrofitCoroutineAdapter'      : "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$versions.retrofitCoroutineAdapter"
+        ],
+        'gson'  : [
+                'converterGson'                 : "com.squareup.retrofit2:converter-gson:$versions.retrofit",
+                'gson'                          : "com.google.code.gson:gson:$versions.gson",
+        ],
+        'okHttp'     : [
+                'okHttp' : "com.squareup.okhttp3:okhttp:$versions.okHttp",
+                'logging': "com.squareup.okhttp3:logging-interceptor:$versions.okHttp",
+        ],
+        'moshi'     : [
+                'moshi' : "com.squareup.moshi:moshi-kotlin:$versions.moshi",
+                'moshiCodegen': "com.squareup.moshi:moshi-kotlin-codegen:$versions.moshi",
+        ],
+        'kotlinCoroutines'     : [
+                'coroutineCore'         : "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.kotlinCoroutines",
+                'coroutineAndroid'      : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.kotlinCoroutines",
+        ],
+        'ac'         : [
+                'viewModel'             : "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.architecture",
+                'extensions'            : "androidx.lifecycle:lifecycle-extensions:$versions.architecture",
+                'liveData'              : "androidx.lifecycle:lifecycle-livedata:$versions.architecture",
+        ],
+        'acViewPager' : [
+                'viewPager'             : "androidx.viewpager2:viewpager2:$versions.viewPager2",
+                'viewPagerDots'         : "com.tbuonomo.andrui:viewpagerdotsindicator:$versions.viewPagerDots"
+        ],
+        'room'         : [
+                'roomRuntime'                   : "androidx.room:room-runtime:$versions.roomVersion",
+                'roomKTX'                       : "androidx.room:room-ktx:$versions.roomVersion",
+                'roomCompiler'                  : "androidx.room:room-compiler:$versions.roomVersion",
+        ],
+        'nav'           : [
+                'navigationFragment'    : "androidx.navigation:navigation-fragment-ktx:$versions.navigation",
+                'navigationUI'          : "androidx.navigation:navigation-ui-ktx:$versions.navigation",
+                'safeArgs'              : "androidx.navigation:navigation-safe-args-gradle-plugin:$versions.navigation"
+        ],
+        'validation'           : [
+                'easyValidation'    : "com.wajahatkarim3.easyvalidation:easyvalidation-core:$versions.easyValidation"
+        ],
+        'maps' :[
+                'playServicesMaps' : "com.google.android.gms:play-services-maps:$versions.playServicesMap"
+        ],
+        'image' : [
+                'glide' : "com.github.bumptech.glide:glide:$versions.glide",
+                'glideCompiler' : "com.github.bumptech.glide:compiler:$versions.glide",
+        ],
+        'unitTesting' : [
+                'junit'         : "junit:junit:$versions.junit",
+                'mokito'        : "org.mockito:mockito-core:$versions.mokito",
+                'robolectric'   : "org.robolectric:robolectric:$versions.robolectric",
+                'assertJ'       : "org.assertj:assertj-core:$versions.assertJ"
+        ],
+        'instrumentedTesting' : [
+                'androidxCoreTesting'   : "androidx.test:core:$versions.andriodxCoreTesting",
+                'androidxArchCoreTesting': "androidx.arch.core:core-testing:$versions.androidxArchCoreTesting",
+                'androidxArchCoreRuntime': "androidx.arch.core:core-runtime:$versions.androidxArchCoreTesting",
+                'espressoCore'  : "androidx.test.espresso:espresso-core:$versions.espresso",
+                'espressoIntents': "androidx.test.espresso:espresso-intents:$versions.espresso",
+                'espressoContrib': "androidx.test.espresso:espresso-contrib:$versions.espresso",
+                'testRunner'        : "androidx.test:runner:$versions.testRunner",
+                'testRules'        : "androidx.test:rules:$versions.testRules",
+                'mockitoCore'   : "org.mockito:mockito-core:$versions.mockito",
+                'mockitoInline' : "org.mockito:mockito-inline:$versions.mockito",
+                "mockitoKotlin" : "com.nhaarman.mockitokotlin2:mockito-kotlin:$versions.nhaarmanMockitoKotlin"
+        ]
+
+]

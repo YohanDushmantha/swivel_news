@@ -1,0 +1,80 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply from: '../conf-android.gradle'
+apply from: "${rootProject.projectDir}/conf-flavour.gradle"
+apply from: '../conf-env.gradle'
+
+/**-------------------------------------------------------------------------------------------------------------*
+ * APP NAME AND VERSION
+ * --------------------------------------------------------------------------------------------------------------*/
+
+android {
+
+
+
+    defaultConfig {
+        applicationId "com.swivel.news"
+        versionCode 1
+        versionName "1.0.0"
+        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        kapt {
+            arguments {
+                arg("room.schemaLocation", "$projectDir/schemas".toString())
+                arg("room.incremental", true)
+            }
+        }
+    }
+}
+
+
+dependencies {
+
+    /**-------------------------------------------------------------------------------------------------------------*
+     * MODULE DEPENDENCIES
+     * --------------------------------------------------------------------------------------------------------------*/
+
+    implementation project(mFeatureOnboarding)
+    implementation project(mFeatureLogin)
+    implementation project(mFeatureRegistration)
+    implementation project(mFeatureHome)
+    implementation project(mFeatureProfile)
+    implementation project(mFeatureShared)
+    implementation project(mSampleFeature)
+
+    implementation project(mCoreUi)
+    implementation project(mCoreConfig)
+    implementation project(mCoreSecurity)
+    implementation project(mCoreCrypto)
+    implementation project(mCoreNavigation)
+    implementation project(mCoreUtility)
+    implementation project(mCoreValidator)
+
+    implementation project(mRepository)
+    implementation project(mSourceRemote)
+    implementation project(mSourceLocal)
+    implementation project(mSourceFirabase)
+    implementation project(mSourceAmazon)
+    implementation project(mSourceSharedPref)
+    implementation project(mModels)
+
+    /**-------------------------------------------------------------------------------------------------------------*
+     * REMOTE DEPENDENCIES
+     * --------------------------------------------------------------------------------------------------------------*/
+
+    libraries()
+    kotlin()
+    debugging()
+    dagger()
+    networking()
+    view()
+    arcView()
+    arcNav()
+    unitTesting()
+    instrumentedTesting()
+}
+repositories {
+    mavenCentral()
+}

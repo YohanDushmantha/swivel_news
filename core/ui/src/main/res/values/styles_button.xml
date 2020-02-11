@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <style name="BaseButtonStyle" parent="Widget.AppCompat.Button">
+        <item name="android:fontFamily">@font/font_base_bold</item>
+        <item name="android:textSize">@dimen/text_normal_100</item>
+    </style>
+
+    <!-- *******************************************************************************************
+                                    BAR BUTTONS - START
+    *********************************************************************************************-->
+
+    <!-- ===========================================================================================
+                                 BAR BUTTONS COLOURS - START
+    ============================================================================================+-->
+
+    <!-- WHITE BAR BUTTON -->
+    <color name="white_bar_button_text_color">#625E55</color>
+    <color name="white_bar_button_bg_color">#fff</color>
+    <color name="white_bar_button_bg_pressed_color">#625E55</color>
+    <color name="white_bar_button_bg_focused_color">#625E55</color>
+    <color name="white_bar_button_border_color">#625E55</color>
+
+    <!-- GREEN BAR BUTTON -->
+    <color name="green_bar_button_text_color">#fff</color>
+    <color name="green_bar_button_bg_pressed_color">#625E55</color>
+    <color name="green_bar_button_bg_focused_color">#625E55</color>
+    <color name="green_bar_button_border_color">#625E55</color>
+
+
+    <!-- ===========================================================================================
+                                 BAR BUTTONS COLOURS - END
+    =============================================================================================-->
+
+    <!-- ===========================================================================================
+                                 BAR BUTTONS STYLES - START
+    =============================================================================================-->
+
+    <!-- BASE BAR BUTTON -->
+    <style name="BaseBarButtonStyle" parent="BaseButtonStyle">
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_height">@dimen/v_48</item>
+        <item name="android:textSize">@dimen/text_normal_125</item>
+    </style>
+
+    <!-- BROWN BAR BUTTON -->
+    <style name="GreenBarButtonStyle" parent="BaseBarButtonStyle">
+        <item name="android:textColor">@color/green_bar_button_text_color</item>
+        <item name="android:background">@drawable/btn_brown_bar_bg</item>
+    </style>
+
+    <!-- BLACK BAR BUTTON -->
+    <style name="BlackBarButtonStyle" parent="BaseBarButtonStyle">
+        <item name="android:textColor">@color/white_bar_button_text_color</item>
+        <item name="android:background">@drawable/btn_white_bar_bg</item>
+    </style>
+
+    <!-- ===========================================================================================
+                                    BAR BUTTONS STYLES - END
+    =============================================================================================-->
+
+    <!-- *******************************************************************************************
+                                        BAR BUTTONS - END
+    *********************************************************************************************-->
+
+</resources>

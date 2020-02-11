@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">login</string>
+
+    <!-- *******************************************************************************************
+                                VERIFY PASSWORD - START
+    ******************************************************************************************** -->
+
+    <!-- PAGE TITLE -->
+    <string name="verify_password_page_title">VERIFY PASSWORD</string>
+
+    <string name="verify_password_password_field_label">PASSWORD</string>
+    <string name="verify_password_submit_button_text">LOGIN</string>
+    <string name="verify_password_forgot_password_label"><u>Forgot Password</u></string>
+
+    <string name="verify_password_authentication_error">Swivel News application was unable to authenticate with server. Please contact YouCab customer care.</string>
+
+
+    <!-- *******************************************************************************************
+                                 VERIFY PASSWORD - END
+     ******************************************************************************************* -->
+
+    <!-- *******************************************************************************************
+                                FORGOT PASSWORD OPTION - START
+    ******************************************************************************************** -->
+
+    <!-- PAGE TITLE -->
+    <string name="forgot_password_option_page_title">FORGOT PASSWORD</string>
+    <string name="forgot_password_get_verification_code_label">GET YOUR VERIFICATION CODE</string>
+    <string name="forgot_password_option_submit_button_text">NEXT</string>
+
+
+    <!-- *******************************************************************************************
+                                 FORGOT PASSWORD OPTION - END
+     ******************************************************************************************* -->
+</resources>

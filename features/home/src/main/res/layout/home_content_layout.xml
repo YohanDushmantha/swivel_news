@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+                name="viewModel"
+                type="com.swivel.home.ui.home.HomeViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <!-- ***************************************************************************************
+                                    LAYOUT GUIDELINES - START
+        **************************************************************************************** -->
+
+        <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/startMarginGuideline"
+                android:layout_width="@dimen/v_0"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/v_16" />
+
+        <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/endMarginGuideline"
+                android:layout_width="@dimen/v_0"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/v_16" />
+
+        <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/topMarginGuideline"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/v_0"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="@dimen/v_16" />
+
+        <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/bottomMarginGuideline"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/v_0"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_end="@dimen/v_64" />
+
+        <!-- ***************************************************************************************
+                                   LAYOUT GUIDELINES - END
+        **************************************************************************************** -->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

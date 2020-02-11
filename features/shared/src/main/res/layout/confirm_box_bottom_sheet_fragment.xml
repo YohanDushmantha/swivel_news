@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+                name="viewModel"
+                type="com.swivel.shared.ui.confirm_box.ConfirmBoxViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/a_100">
+
+        <TextView
+                android:id="@+id/confirm_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.title}"
+                android:textSize="@dimen/text_normal_125"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Info Title"
+                android:fontFamily="@font/font_base_bold"
+                style="@style/BaseTextViewStyle"/>
+
+        <TextView
+                android:id="@+id/confirm_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/a_100"
+                android:text="@{viewModel.detail}"
+                app:layout_constraintStart_toStartOf="@id/confirm_title"
+                app:layout_constraintTop_toBottomOf="@id/confirm_title"
+                app:layout_goneMarginTop="@dimen/a_175"
+                android:layout_marginBottom="@dimen/a_175"
+                style="@style/BaseTextViewStyle"
+                tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
+
+        <Button
+                android:id="@+id/negativeButton"
+                style="@style/negativeConfirmButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/default_button_height"
+                android:layout_marginTop="@dimen/a_125"
+                android:text="@{viewModel.negativeButtonConfig.buttonText ?? @string/confirm_box_default_btn_text_negative}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/confirm_detail"
+                app:layout_constraintEnd_toStartOf="@id/positiveButton"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                android:layout_marginRight="@dimen/a_50"
+                android:onClick="@{(v) -> viewModel.onTapNegativeButton(v)}"/>
+
+        <Button
+                android:id="@+id/positiveButton"
+                style="@style/positiveConfirmButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/default_button_height"
+                android:text="@{viewModel.positiveButtonConfig.buttonText ?? @string/confirm_box_default_btn_text_positive}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/negativeButton"
+                app:layout_constraintTop_toTopOf="@id/negativeButton"
+                android:layout_marginLeft="@dimen/a_50"
+                android:onClick="@{(v) -> viewModel.onTapPositiveButton(v)}"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

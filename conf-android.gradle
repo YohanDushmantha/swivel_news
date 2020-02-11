@@ -1,0 +1,66 @@
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+
+
+androidExtensions {
+    experimental = true
+}
+
+/**-------------------------------------------------------------------------------------------------------------*
+ * COMMON ANDROID CONFIG SETTINGS
+ *--------------------------------------------------------------------------------------------------------------*/
+
+android {
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    compileSdkVersion versions.targetSdk
+    buildToolsVersion versions.buildTools
+
+    defaultConfig {
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
+        versionCode 1
+        versionName "1.0.0"
+        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        /*kapt {
+            arguments {
+                arg("room.schemaLocation", "$projectDir/schemas".toString())
+                arg("room.incremental", true)
+                arg("android.databinding.incremental",true)
+            }
+        }*/
+    }
+
+    dexOptions {
+        preDexLibraries = false
+        javaMaxHeapSize "4g"
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+
+
+    testOptions {
+        unitTests {
+            all {
+                testLogging {
+                    events 'passed', 'skipped', 'failed'
+                }
+            }
+            returnDefaultValues = true
+        }
+    }
+}
+
+/**-------------------------------------------------------------------------------------------------------------*
+ * COMMON FLAGS
+ *--------------------------------------------------------------------------------------------------------------*/

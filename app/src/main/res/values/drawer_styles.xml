@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- *******************************************************************************************
+                                    DRAWER COLORS - START
+    ******************************************************************************************** -->
+
+    <color name="drawer_bg">#fff</color>
+    <color name="drawer_text">#000</color>
+    <color name="seperator_bg">#999</color>
+
+
+    <!-- *******************************************************************************************
+                                    DRAWER COLORS - END
+    ******************************************************************************************** -->
+
+
+    <!-- *******************************************************************************************
+                                    DRAWER STYLES - START
+    ******************************************************************************************** -->
+
+    <style name="drawerProfileName" parent="BaseTextViewStyle">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/text_normal_125</item>
+    </style>
+
+
+    <style name="drawerRating" parent="BaseTextViewStyle">
+        <item name="android:textSize">@dimen/text_normal_100</item>
+    </style>
+
+    <style name="drawerMainMenuItem" parent="BaseTextViewStyle">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/text_normal_175</item>
+    </style>
+
+    <style name="drawerSubMenuItem" parent="BaseTextViewStyle">
+
+    </style>
+
+    <style name="navigationViewTextApearance" parent="BaseTextViewStyle">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/text_normal_125</item>
+    </style>
+
+
+    <!-- *******************************************************************************************
+                                    DRAWER STYLES - END
+    ******************************************************************************************** -->
+
+</resources>

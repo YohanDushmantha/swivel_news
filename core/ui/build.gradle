@@ -1,0 +1,32 @@
+apply plugin: 'com.android.library'
+apply from: '../../conf-android.gradle'
+
+/**-------------------------------------------------------------------------------------------------------------*
+ * DEPENDENCIES
+ *--------------------------------------------------------------------------------------------------------------*/
+
+dependencies {
+
+    /**-------------------------------------------------------------------------------------------------------------*
+     * MODULE DEPENDENCIES
+     *--------------------------------------------------------------------------------------------------------------*/
+    implementation project(mCoreNavigation)
+    implementation project(mCoreConfig)
+    implementation project(mCoreUtility)
+    implementation project(mModels)
+
+    /**-------------------------------------------------------------------------------------------------------------*
+     * REMOTE DEPENDENCIES
+     *--------------------------------------------------------------------------------------------------------------*/
+    kotlin()
+    dagger()
+    debugging()
+    view()
+    arcView()
+    arcNav()
+    arcLiveData()
+    images()
+    unitTesting()
+    instrumentedTesting()
+    //unitTesting()
+}

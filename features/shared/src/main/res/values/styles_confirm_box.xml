@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- *******************************************************************************************
+                                  CONFIRM BUTTON STYLES - START
+    *********************************************************************************************-->
+
+    //BORDER COLOR FOR BUTTONS
+    <color name="buttonBoarderColor">#999999</color>
+
+    //BACKGROUND COLORS FOR BUTTONS
+    <color name="positiveButtonBGColor">#000000</color>
+    <color name="negativeButtonBGColor">#FFFFFF</color>
+
+    //TEXT COLORS OF BUTTON TEXTS
+    <color name="positiveButtonTextColor">#FFFFFF</color>
+    <color name="negativeButtonTextColor">#000000</color>
+
+
+    //POSITIVE BUTTON STYLES
+    <style name="positiveConfirmButtonStyle" parent="@style/BaseButtonStyle" >
+        <item name="android:background">@color/positiveButtonBGColor</item>
+        <item name="android:textColor">@color/positiveButtonTextColor</item>
+    </style>
+
+    //NEGATIVE BUTTON STYLES
+    <style name="negativeConfirmButtonStyle" parent="@style/BaseButtonStyle">
+        <item name="android:textColor">@color/negativeButtonTextColor</item>
+        <item name="android:background">@drawable/btn_negative_drawable</item>
+    </style>
+
+    <!-- *******************************************************************************************
+                                      CONFIRM BUTTON STYLES - END
+    *********************************************************************************************-->
+
+</resources>

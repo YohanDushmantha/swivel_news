@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/navigation_onboarding"
+            app:startDestination="@id/splashFragment"
+            android:label="Onboarding">
+
+    <fragment android:id="@+id/splashFragment" android:name="com.swivel.onboarding.ui.splash.SplashFragment"
+              android:label="splash_fragment" tools:layout="@layout/splash_fragment">
+        <action android:id="@+id/action_splashFragment_to_walkthroughFragment"
+                app:destination="@id/walkthroughFragment" />
+    </fragment>
+    <fragment android:id="@+id/walkthroughFragment"
+                android:name="com.swivel.onboarding.ui.walkthrough.WalkthroughFragment"
+                android:label="walkthrough_fragment"
+                tools:layout="@layout/walkthrough_fragment"
+            >
+        <deepLink app:uri="onboarding://walkthrough"/>
+    </fragment>
+
+
+</navigation>

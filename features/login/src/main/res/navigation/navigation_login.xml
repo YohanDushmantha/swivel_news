@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/navigation_login"
+        app:startDestination="@id/verifyPasswordFragment">
+    <fragment   android:id="@+id/verifyPasswordFragment"
+                android:name="com.swivel.login.ui.verify_password.VerifyPasswordFragment"
+                android:label="LoginFragment"
+                tools:layout="@layout/verify_password_fragment"
+            >
+        <deepLink app:uri="login://verify_password"/>
+        <action
+                android:id="@+id/action_verifyPasswordFragment_to_forgotPasswordOptionFragment"
+                app:destination="@id/forgotPasswordOptionFragment" />
+    </fragment>
+    <fragment
+            android:id="@+id/forgotPasswordOptionFragment"
+            android:name="com.swivel.login.ui.forgot_password_option.ForgotPasswordOptionFragment"
+            android:label="ForgotPasswordOptionFragment"
+            tools:layout="@layout/forgot_password_option_fragment"/>
+
+
+</navigation>

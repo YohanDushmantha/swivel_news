@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/drawer_bg">
+
+    <!-- *******************************************************************************************
+                                    LAYOUT GUIDELINES - START
+    ******************************************************************************************** -->
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/startMarginGuide"
+            android:layout_width="@dimen/v_0"
+            android:layout_height="match_parent"
+            app:layout_constraintGuide_begin="@dimen/v_16"
+            android:orientation="vertical"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/endMarginGuide"
+            android:layout_width="@dimen/v_0"
+            android:layout_height="match_parent"
+            app:layout_constraintGuide_end="@dimen/v_16"
+            android:orientation="vertical"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/topHorizontalGuideline"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/v_0"
+        android:orientation="horizontal"
+            app:layout_constraintGuide_begin="@dimen/v_16"/>
+
+<!--    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/bottomHorizontalGuideline"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/v_0"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_end="@dimen/v_32"/>-->
+
+
+
+    <!-- *******************************************************************************************
+                                    LAYOUT GUIDELINES - END
+    ******************************************************************************************** -->
+
+    <!-- *******************************************************************************************
+                                    PROFILE - START
+    ******************************************************************************************** -->
+
+    <ImageView
+            android:id="@+id/profileImage"
+            android:layout_width="@dimen/v_48"
+            android:layout_height="@dimen/v_0"
+            app:layout_constraintDimensionRatio="H,512:512"
+            app:srcCompat="@drawable/ic_app_icon"
+            app:layout_constraintStart_toStartOf="@id/startMarginGuide"
+            app:layout_constraintTop_toTopOf="@id/topHorizontalGuideline"
+
+            />
+
+    <TextView
+            android:id="@+id/driverName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/profileImage"
+            android:layout_marginStart="@dimen/v_16"
+            app:layout_constraintTop_toTopOf="@id/topHorizontalGuideline"
+            android:text="Yohan"
+            style="@style/drawerProfileName"/>
+
+    <ImageView
+            android:id="@+id/starIcon"
+            android:layout_width="@dimen/v_16"
+            android:layout_height="@dimen/v_0"
+            android:src="@drawable/star"
+            app:layout_constraintDimensionRatio="H,1:1"
+            app:layout_constraintStart_toStartOf="@id/driverName"
+            app:layout_constraintTop_toBottomOf="@id/driverName"
+            android:layout_marginTop="@dimen/v_4"
+            />
+
+    <TextView
+            android:id="@+id/rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/starIcon"
+            app:layout_constraintTop_toTopOf="@id/starIcon"
+            app:layout_constraintBottom_toBottomOf="@id/starIcon"
+            android:layout_marginStart="@dimen/v_8"
+            android:text="4.68"
+            android:gravity="center_vertical"
+            style="@style/drawerRating"/>
+
+    <!-- *******************************************************************************************
+                                    PROFILE - END
+    ******************************************************************************************** -->
+
+    <!-- *******************************************************************************************
+                                    TOP MENU - START
+    ******************************************************************************************** -->
+
+    <TextView
+            android:id="@+id/inboxMenuItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/drawerMainMenuItem"
+            app:layout_constraintTop_toBottomOf="@id/profileImage"
+            app:layout_constraintStart_toStartOf="@id/startMarginGuide"
+            android:text="@string/drawer_main_menu_inbox"
+            android:layout_marginTop="@dimen/v_36"
+            />
+
+    <TextView
+            android:id="@+id/promotionsMenuItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/drawerMainMenuItem"
+            app:layout_constraintTop_toBottomOf="@id/inboxMenuItem"
+            app:layout_constraintStart_toStartOf="@id/startMarginGuide"
+            android:text="@string/drawer_main_menu_promotions"
+            android:layout_marginTop="@dimen/v_16"
+            />
+
+    <TextView
+            android:id="@+id/paymentsMenuItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/drawerMainMenuItem"
+            app:layout_constraintTop_toBottomOf="@id/promotionsMenuItem"
+            app:layout_constraintStart_toStartOf="@id/startMarginGuide"
+            android:text="@string/drawer_main_menu_payments"
+            android:layout_marginTop="@dimen/v_16"
+            app:layout_constraintBottom_toBottomOf="@id/seperator"
+            android:layout_marginBottom="@dimen/v_32"
+            />
+
+
+
+
+    <!-- *******************************************************************************************
+                                   TOP MENU - END
+    ******************************************************************************************** -->
+
+    <View
+            android:id="@+id/seperator"
+            android:layout_width="match_parent"
+            android:layout_height="0.15dp"
+            android:background="@color/seperator_bg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="@dimen/v_8"
+            />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

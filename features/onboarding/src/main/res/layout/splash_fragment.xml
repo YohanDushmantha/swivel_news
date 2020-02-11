@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- ***************************************************************************************************************
+            DATA BINDING
+    **************************************************************************************************************** -->
+
+    <data>
+        <variable name="viewModel"
+                  type="com.swivel.onboarding.ui.splash.SplashViewModel"/>
+    </data>
+
+    <!-- ***************************************************************************************************************
+            LAYOUT
+    **************************************************************************************************************** -->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/splash_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/main_bg"
+            tools:context=".ui.splash.SplashFragment">
+
+        <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/topHorizontalGuideline"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/v_0"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.1" />
+
+        <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/centerHorizontalGuideline"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/v_0"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.5" />
+
+        <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/startMarginGuideline"
+                android:layout_width="@dimen/v_0"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/v_16" />
+
+        <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/endMarginGuideline"
+                android:layout_width="@dimen/v_0"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/v_16" />
+
+        <ImageView
+                android:id="@+id/swivelIcon"
+                android:layout_width="@dimen/v_0"
+                android:layout_height="@dimen/v_0"
+                app:layout_constraintDimensionRatio="H,326:264"
+                app:layout_constraintEnd_toEndOf="@id/endMarginGuideline"
+                app:layout_constraintStart_toStartOf="@id/startMarginGuideline"
+                app:layout_constraintBottom_toTopOf="@id/centerHorizontalGuideline"
+                app:layout_constraintWidth_percent="0.2"
+                app:srcCompat="@drawable/ic_app_icon" />
+
+        <TextView
+                android:id="@+id/taskProgressText"
+                style="@style/labelGray"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/v_8"
+                android:text="@{viewModel.taskProgressText ?? `default text`}"
+                app:layout_constraintEnd_toEndOf="@id/endMarginGuideline"
+                app:layout_constraintStart_toStartOf="@id/startMarginGuideline"
+                tools:text="In Progress Text"
+                app:layout_constraintBottom_toTopOf="@id/powered_by"/>
+
+        <TextView
+                android:id="@+id/powered_by"
+                style="@style/labelGray"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/splash_powered_by"
+                app:layout_constraintEnd_toStartOf="@+id/finap_logo"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/copyrights_text"
+                android:layout_marginBottom="@dimen/v_4"
+                android:layout_marginEnd="@dimen/v_8"
+                />
+
+        <ImageView
+                android:id="@+id/finap_logo"
+                android:layout_width="@dimen/v_0"
+                android:layout_height="@dimen/v_0"
+                app:srcCompat="@drawable/ic_app_logo"
+                app:layout_constraintDimensionRatio="H,227:47"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/powered_by"
+                app:layout_constraintWidth_percent="0.12"
+                app:layout_constraintBaseline_toBaselineOf="@id/powered_by"
+                android:baselineAlignBottom="true"
+                />
+
+        <TextView
+                android:id="@+id/copyrights_text"
+                style="@style/labelGray"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/v_16"
+                android:text="@string/splash_copyrights"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/endMarginGuideline"
+                app:layout_constraintStart_toStartOf="@id/startMarginGuideline"
+
+                />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

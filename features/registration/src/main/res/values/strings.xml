@@ -1,3 +1,31 @@
 <resources>
     <string name="app_name">registration</string>
+
+    <!-- *******************************************************************************************
+                                      USER REGISTRATION - START
+    *********************************************************************************************-->
+
+    <string name="user_registration_title">Sign up</string>
+    <string name="user_registration_submit">Submit</string>
+    <string name="user_registration_already_have_account"><u>You already have an account?</u></string>
+
+    <string name="user_registration_form_label_firstName">FIRST NAME</string>
+    <string name="user_registration_form_label_lastName">LAST NAME</string>
+    <string name="user_registration_form_label_email">EMAIL</string>
+    <string name="user_registration_form_label_password">PASSWORD</string>
+    <string name="user_registration_form_label_retypePassword">RETYPE PASSWORD</string>
+
+    <string name="user_registration_form_hint_firstName">ENTER YOUR FIRST NAME</string>
+    <string name="user_registration_form_hint_lastName">ENTER YOUR LAST NAME</string>
+    <string name="user_registration_form_hint_email">ENTER YOUR EMAIL</string>
+    <string name="user_registration_form_hint_password">ENTER YOUR PASSWORD</string>
+    <string name="user_registration_form_hint_retypePassword">RETYPE YOUR PASSWORD</string>
+
+    <string name="user_registration_custom_error_message">User Registration is Failed</string>
+    <string name="user_registration_success_message">User Registered successfully.</string>
+
+
+    <!-- *******************************************************************************************
+                                      USER REGISTRATION - START
+    *********************************************************************************************-->
 </resources>

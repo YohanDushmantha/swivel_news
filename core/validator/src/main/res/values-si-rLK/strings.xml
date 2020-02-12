@@ -12,4 +12,5 @@
     <string name="validation_invalid_phone_number_length_msg">%1$s length is not valid.</string>
     <string name="validation_invalid_url_msg">%1$s is not a valid URL.</string>
     <string name="validation_valid_number_msg">%1$s is not a valid Number.</string>
+    <string name="validation_valid_password_match">Password not matched.</string>
 </resources>

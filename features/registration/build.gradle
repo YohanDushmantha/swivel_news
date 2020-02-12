@@ -19,6 +19,9 @@ dependencies {
     implementation project(mCoreUi)
     implementation project(mRepository)
     implementation project(mModels)
+    implementation project(mCoreValidator)
+    implementation project(mCoreUtility)
+    implementation project(mCoreSecurity)
 
     /**-------------------------------------------------------------------------------------------------------------*
      * REMOTE DEPENDENCIES
@@ -27,10 +30,12 @@ dependencies {
     kotlin()
     dagger()
     debugging()
+    view()
     arcView()
     arcNav()
     arcLiveData()
     validation()
+    gson()
     unitTesting()
     instrumentedTesting()
 }

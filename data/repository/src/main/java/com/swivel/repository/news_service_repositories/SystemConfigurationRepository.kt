@@ -1,4 +1,4 @@
-package com.swivel.repository.driver_service_repositories
+package com.swivel.repository.news_service_repositories
 
 import com.swivel.models.base.DataSource
 import com.swivel.models.dto.common_api.response.SystemConfigurationResponse

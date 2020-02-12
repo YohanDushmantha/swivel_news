@@ -4,7 +4,7 @@ import android.content.Context
 import com.swivel.local.dao.PostDao
 import com.swivel.remote.news_service.api.news_api.NewsRemoteApi
 import com.swivel.remote.post_service.api.post_api.PostRemoteApi
-import com.swivel.repository.driver_service_repositories.DriverAuthenticationRepository
+import com.swivel.repository.news_service_repositories.UserAuthenticationRepository
 import com.swivel.repository.post_service_repositories.PostRepository
 import com.swivel.shared_pref.SharedPrefManager
 import dagger.Module
@@ -36,19 +36,17 @@ class RepositoryModule {
     }
 
     /**
-     * provide driver authentication repository api
-     * @param driverAuthenticationRemoteApi remote api for manage data of driver authentication api
-     * @return DriverAuthenticationRemoteApi driver authentication repository api
+     * provide user authentication repository api
+     * @param sharedPrefManager datasource class for saving data into local storage
+     * @param application context
      */
     @Provides
     @Singleton
-    internal fun provideDriverAuthenticationRepository(
-        driverAuthenticationRemoteApi: NewsRemoteApi,
+    internal fun provideUserAuthenticationRepository(
         sharedPrefManager: SharedPrefManager,
-        context: Context
-    ) : DriverAuthenticationRepository{
-        return DriverAuthenticationRepository(
-            driverAuthenticationRemoteApi,
+        context : Context
+    ) : UserAuthenticationRepository{
+        return UserAuthenticationRepository(
             sharedPrefManager,
             context
         )

@@ -6,6 +6,12 @@ import androidx.databinding.Observable
 import androidx.databinding.PropertyChangeRegistry
 import androidx.databinding.library.baseAdapters.BR
 
+/**
+ * @author Yohan Dushmantha
+ * @class VerifyPasswordFormData
+ *
+ * contains form data of verify password page
+ */
 class VerifyPasswordFormData : BaseObservable(){
 
     private val propertyChangeRegistry = PropertyChangeRegistry()

@@ -17,7 +17,7 @@ import com.swivel.models.features.shared.verify_mobile_number.router_arguments.V
 import com.swivel.models.features.shared.verify_otp.router_arguments.VerifyOTPDeepLinkArguments
 import com.swivel.models.libs.navigation.enums.DEEP_LINK
 import com.swivel.navigation.router.Router
-import com.swivel.repository.driver_service_repositories.DriverAuthenticationRepository
+import com.swivel.repository.news_service_repositories.UserAuthenticationRepository
 import com.swivel.shared.R
 import com.swivel.shared.ui.verify_mobile_number.enums.VerifyMobileNumberInfoBoxID
 import com.swivel.shared.ui.verify_mobile_number.exceptions.VerifyMobileNumberDestinationDeepLinkNotFoundException
@@ -41,7 +41,7 @@ class VerifyMobileNumberViewModel @Inject constructor(
     val verifyMobileNumberFormData: VerifyMobileNumberFormData,
     private val verifyMobileNumberFormValidator: VerifyMobileNumberFormValidator,
     private val softKeyboardManager: SoftKeyboardManager,
-    private val driverAuthenticationRepository: DriverAuthenticationRepository
+    private val userAuthenticationRepository: UserAuthenticationRepository
 ) : BaseViewModel(){
     var verifyMobileNumberDestinationConfig : MutableLiveData<VerifyMobileNumberDestinationConfig> = MutableLiveData()
 
@@ -155,26 +155,26 @@ class VerifyMobileNumberViewModel @Inject constructor(
         viewModelScope.launch {
             try {
                 isLoading.postValue(true)
-                val driverVerificationResponse = withContext(Dispatchers.Main){
-                    driverAuthenticationRepository.verifyDriverMobileNumber(
-                        MobileNumberVerificationRequest(
-                            mobileNumber
-                        ),
-                        DataSource.REMOTE,
-                        context.getString(R.string.mobile_number_verification_error)
-                    )
-                }
-                driverVerificationResponse?.result?.let {
-                    userValidationResult(mobileNumber,it.isUserExists!!,navController)
-                } ?: infoBoxHandler.showErrorInfoBox(
-                    router,
-                    navController,
-                    ValidationResult(
-                        false,
-                        context.getString(R.string.mobile_number_verification_error)
-                    ),
-                    VerifyMobileNumberInfoBoxID.MOBILE_NUMBER_VALIDATION_ERROR.infoBoxID
-                )
+//                val driverVerificationResponse = withContext(Dispatchers.Main){
+//                    userAuthenticationRepository.verifyDriverMobileNumber(
+//                        MobileNumberVerificationRequest(
+//                            mobileNumber
+//                        ),
+//                        DataSource.REMOTE,
+//                        context.getString(R.string.mobile_number_verification_error)
+//                    )
+//                }
+//                driverVerificationResponse?.result?.let {
+//                    userValidationResult(mobileNumber,it.isUserExists!!,navController)
+//                } ?: infoBoxHandler.showErrorInfoBox(
+//                    router,
+//                    navController,
+//                    ValidationResult(
+//                        false,
+//                        context.getString(R.string.mobile_number_verification_error)
+//                    ),
+//                    VerifyMobileNumberInfoBoxID.MOBILE_NUMBER_VALIDATION_ERROR.infoBoxID
+//                )
             }catch (ex : Exception){
                 Timber.e(ex)
             }finally {

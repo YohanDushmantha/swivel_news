@@ -12,7 +12,8 @@ import com.swivel.validator.ValidationConfigResult
  */
 class ValidPasswordConfig constructor(
     var passwordPolicy : String? = null,
-    var passwordPolicyHint : String? = null
+    var passwordPolicyHint : String? = null,
+    var retypePassword : String? = null
 ) : BaseValidationConfig(){
 
     override fun validate(): ValidationConfigResult {
@@ -25,13 +26,24 @@ class ValidPasswordConfig constructor(
             )
         }
 
-        return passwordPolicy?.let {
+        passwordPolicy?.let {
             if(text?.matches(it.toRegex())!!){
                 createValidationConfigResult(true)
             }else{
                 customErrorMessage = passwordPolicyHint
                 createValidationConfigResult(
                     false,null
+                )
+            }
+        }
+
+        return retypePassword?.let {
+            if(retypePassword.equals(text)){
+                createValidationConfigResult(true)
+            } else{
+                createValidationConfigResult(
+                    false,
+                    R.string.validation_valid_password_match
                 )
             }
         } ?: createValidationConfigResult(true)

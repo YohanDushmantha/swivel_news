@@ -21,7 +21,7 @@ import com.swivel.models.features.home.home.router_arguments.HomeDeepLinkArgumen
 import com.swivel.models.features.login.verify_password.router_arguments.VerifyPasswordDeepLinkArguments
 import com.swivel.models.libs.navigation.enums.DEEP_LINK
 import com.swivel.navigation.router.Router
-import com.swivel.repository.driver_service_repositories.DriverAuthenticationRepository
+import com.swivel.repository.news_service_repositories.UserAuthenticationRepository
 import com.swivel.security.auth_manager.AuthManger
 import com.swivel.utility.soft_keyboard_manager.SoftKeyboardManager
 import kotlinx.coroutines.Dispatchers
@@ -40,7 +40,7 @@ class VerifyPasswordViewModel @Inject constructor(
     private val context : Context,
     val verifyPasswordFormData: VerifyPasswordFormData,
     private val verifyPasswordFormValidator: VerifyPasswordFormValidator,
-    private val driverAuthenticationRepository : DriverAuthenticationRepository,
+    private val userAuthenticationRepository : UserAuthenticationRepository,
     private val appStates: AppStates,
     private val appConfig: AppConfig,
     private val appConstants: AppConstants,
@@ -138,26 +138,26 @@ class VerifyPasswordViewModel @Inject constructor(
      * @param navController navigation controller
      */
     private fun authenticate(verifyPasswordFormData: VerifyPasswordFormData,navController: NavController){
-        viewModelScope.launch {
-            try {
-                isLoading.postValue(true)
-                withContext(Dispatchers.Main){
-                    driverAuthenticationRepository.authenticateUser(
-                        getDriverAuthenticationRequest(),
-                        DataSource.REMOTE,
-                        context.getString(R.string.verify_password_authentication_error)
-                    )?.let { response ->
-                        response.result?.let {
-                            handleAuthenticationSuccess(it,navController)
-                        } ?: VerifyPasswordAuthenticationException("Driver Authentication not Found.")
-                    } ?: VerifyPasswordAuthenticationException("Driver Authentication Response not Found.")
-                }
-            }catch (ex : Exception){
-                Timber.e(ex)
-            }finally {
-                isLoading.postValue(false)
-            }
-        }
+//        viewModelScope.launch {
+//            try {
+//                isLoading.postValue(true)
+//                withContext(Dispatchers.Main){
+//                    userAuthenticationRepository.authenticateUser(
+//                        getDriverAuthenticationRequest(),
+//                        DataSource.REMOTE,
+//                        context.getString(R.string.verify_password_authentication_error)
+//                    )?.let { response ->
+//                        response.result?.let {
+//                            handleAuthenticationSuccess(it,navController)
+//                        } ?: VerifyPasswordAuthenticationException("Driver Authentication not Found.")
+//                    } ?: VerifyPasswordAuthenticationException("Driver Authentication Response not Found.")
+//                }
+//            }catch (ex : Exception){
+//                Timber.e(ex)
+//            }finally {
+//                isLoading.postValue(false)
+//            }
+//        }
     }
 
     /**

@@ -8,9 +8,6 @@
                 name="viewModel"
                 type="com.swivel.home.ui.home.HomeViewModel" />
 
-        <variable
-                name="tripPlannerViewModel"
-                type="com.swivel.home.ui.trip_planner.TripPlannerViewModal" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -21,10 +18,21 @@
                                     BOTTOM BAR - START
         **************************************************************************************** -->
 
-        <include
+        <!--<include
                 android:id="@+id/home_content"
                 layout="@layout/home_content_layout"
-                app:viewModel="@{viewModel}" />
+                app:viewModel="@{viewModel}" />-->
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bttm_nav"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                app:menu="@menu/bottom_menu"
+                app:itemTextColor="@drawable/nav_icon_color_state"
+                app:itemIconTint="@drawable/nav_icon_color_state"
+                >
+        </com.google.android.material.bottomnavigation.BottomNavigationView>
 
         <!-- ***************************************************************************************
                                     BOTTOM BAR - END
@@ -34,10 +42,6 @@
                                     BOTTOM BAR - START
         **************************************************************************************** -->
 
-        <include
-                android:id="@+id/trip_planner_container"
-                layout="@layout/trip_planner_persistant_bottom_sheet_layout"
-                app:tripPlannerViewModel="@{tripPlannerViewModel}" />
 
         <!-- ***************************************************************************************
                                     BOTTOM BAR - END

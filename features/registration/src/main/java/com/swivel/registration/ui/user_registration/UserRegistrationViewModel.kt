@@ -214,19 +214,14 @@ class UserRegistrationViewModel @Inject constructor(
                             }
                         }
                     )
+                    appStates.userAuth = userAuthentication
                     Timber.i("YD -> REDIRECT TO LOGIN PAGE DELAY START")
                     delay(4000)
                     redirectToLoginPage(navController)
                     Timber.i("YD -> REDIRECT TO LOGIN PAGE")
                 } ?: throw BaseViewModelException("Nav Controller Not found when showing success info box")
-                return
-            }
-            appStates.userAuth?.apply {
-                this.loginStatus = false
-                this.sessionID = null
-                this.user = null
-            }
-            showValidationErrorMessage(navController,context.getString(R.string.user_registration_custom_error_message))
+            } ?: clearAuthData(navController)
+
         }catch (ex : Exception){
             Timber.e(ex)
             //isLoading.postValue(false)
@@ -234,6 +229,15 @@ class UserRegistrationViewModel @Inject constructor(
         }finally {
             //isLoading.postValue(false)
         }
+    }
+
+    private fun clearAuthData(navController: NavController?){
+        appStates.userAuth?.apply {
+            this.loginStatus = false
+            this.sessionID = null
+            this.user = null
+        }
+        showValidationErrorMessage(navController,context.getString(R.string.user_registration_custom_error_message))
     }
 
     /**

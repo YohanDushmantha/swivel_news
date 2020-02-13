@@ -2,8 +2,10 @@ package com.swivel.home.base.di
 
 import androidx.lifecycle.ViewModel
 import com.swivel.config.di.annotation.ViewModelKey
+import com.swivel.home.ui.filtered_news.FilteredNewsFragment
+import com.swivel.home.ui.filtered_news.FilteredNewsViewModel
 import com.swivel.home.ui.home.HomeViewModel
-import com.swivel.home.ui.trip_planner.TripPlannerViewModal
+import com.swivel.home.ui.profile.ProfileViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -25,7 +27,12 @@ abstract class HomeViewModelBuilder {
 
     @Binds
     @IntoMap
-    @ViewModelKey(TripPlannerViewModal::class)
-    internal abstract fun bindTripPlannerViewModel(viewModel : TripPlannerViewModal) : ViewModel
+    @ViewModelKey(FilteredNewsViewModel::class)
+    internal abstract fun bindFilteredNewsViewModel(viewModel : FilteredNewsViewModel) : ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(ProfileViewModel::class)
+    internal abstract fun bindProfileViewModel(viewModel : ProfileViewModel) : ViewModel
 
 }

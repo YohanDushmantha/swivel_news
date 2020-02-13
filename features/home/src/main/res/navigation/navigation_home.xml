@@ -12,6 +12,23 @@
             android:label="HomeFragment"
             tools:layout="@layout/home_fragment">
         <deepLink app:uri="home://main" />
+        <action
+                android:id="@+id/action_homeFragment_to_filteredNewsFragment"
+                app:destination="@id/filteredNewsFragment" />
+    </fragment>
+    <fragment
+            android:id="@+id/profileFragment"
+            android:name="com.swivel.home.ui.profile.ProfileFragment"
+            android:label="ProfileFragment"
+            tools:layout="@layout/profile_fragment"/>
+    <fragment
+            android:id="@+id/filteredNewsFragment"
+            android:name="com.swivel.home.ui.filtered_news.FilteredNewsFragment"
+            android:label="FilteredNewsFragment"
+            tools:layout="@layout/filtered_news_fragment">
+        <action
+                android:id="@+id/action_filteredNewsFragment_to_profileFragment"
+                app:destination="@id/profileFragment" />
     </fragment>
 
 </navigation>

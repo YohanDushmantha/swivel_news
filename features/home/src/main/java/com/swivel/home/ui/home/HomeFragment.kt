@@ -6,17 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.bottomsheet.BottomSheetBehavior
+import androidx.navigation.ui.NavigationUI
 import com.swivel.core.ui.BaseFragment
 import com.swivel.home.R
 import com.swivel.home.databinding.HomeFragmentBinding
-import com.swivel.home.databinding.TripPlannerPersistantBottomSheetLayoutBinding
-import com.swivel.home.ui.trip_planner.TripPlannerViewModal
 import com.swivel.models.libs.navigation.enums.DEEP_LINK
 import com.swivel.models.libs.navigation.enums.DrawerConfigSettings
-import com.swivel.ui.base.extentions.loadCircularImage
 import com.swivel.ui.base.helpers.back_handler.BackHandler
-import kotlinx.android.synthetic.main.home_content_layout.*
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -28,7 +24,6 @@ import javax.inject.Inject
 class HomeFragment : BaseFragment(){
 
     @Inject lateinit var homeViewModel: HomeViewModel
-    @Inject lateinit var tripPlannerVM: TripPlannerViewModal
     @Inject lateinit var backHandler: BackHandler
 
     private lateinit var homeFragmentBinding : HomeFragmentBinding
@@ -46,7 +41,6 @@ class HomeFragment : BaseFragment(){
         homeFragmentBinding = HomeFragmentBinding.inflate(inflater,container,false).apply {
             lifecycleOwner = this@HomeFragment
             viewModel = homeViewModel
-            tripPlannerViewModel = tripPlannerVM
         }
         return  homeFragmentBinding.root
     }
@@ -56,7 +50,6 @@ class HomeFragment : BaseFragment(){
         initObservers()
         initViews()
         initBackListener()
-        initTripPlannerBottomSheet()
     }
 
     /**---------------------------------------------------------------------------------------------*
@@ -85,6 +78,7 @@ class HomeFragment : BaseFragment(){
 
     override fun initViews() {
         setupDrawer()
+        setupBottomNavigationBar()
         homeViewModel.initViewArguments(router.getDeepLinkArguments(DEEP_LINK.HOME_MAIN))
     }
 
@@ -97,7 +91,7 @@ class HomeFragment : BaseFragment(){
 
         drawerHandler.setup(
             findNavController(),
-            DrawerConfigSettings.ONLY_ENABLE_DRAWER_GESTURE
+            DrawerConfigSettings.REMOVE_ALL
         )
     }
 
@@ -114,9 +108,9 @@ class HomeFragment : BaseFragment(){
         })
     }
 
-
-
-
+    private fun setupBottomNavigationBar(){
+        NavigationUI.setupWithNavController(homeFragmentBinding.bttmNav,findNavController())
+    }
 
     /**=============================================================================================*
      * NAVIGATION DRAWER - END
@@ -149,48 +143,6 @@ class HomeFragment : BaseFragment(){
 
     /**=============================================================================================*
      * HARDWARE BACK BUTTON LISTENER - END
-     *==============================================================================================*/
-
-    /**=============================================================================================*
-     * INIT TRIP PLANNER BOTTOM SHEET - START
-     *==============================================================================================*/
-
-    fun initTripPlannerBottomSheet(){
-
-
-        homeFragmentBinding.tripPlannerContainer.tripPlannerBottomSheet?.let {
-            BottomSheetBehavior.from(it).setBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
-                override fun onStateChanged(bottomSheet: View, newState: Int) {
-                    when (newState) {
-                        BottomSheetBehavior.STATE_HIDDEN -> {
-                            Timber.i("YD -> Trip Planner bottom sheet STATE HIDDEN")
-                        }
-                        BottomSheetBehavior.STATE_EXPANDED -> {
-                            Timber.i("YD -> Trip Planner bottom sheet STATE_EXPANDED")
-                        }
-                        // btBottomSheet.text = "Close Bottom Sheet"
-                        BottomSheetBehavior.STATE_COLLAPSED -> {
-                            Timber.i("YD -> Trip Planner bottom sheet STATE_COLLAPSED")
-                        }
-                        // btBottomSheet.text = "Expand Bottom Sheet"
-                        BottomSheetBehavior.STATE_DRAGGING -> {
-                            Timber.i("YD -> Trip Planner bottom sheet STATE_DRAGGING")
-                        }
-                        BottomSheetBehavior.STATE_SETTLING -> {
-                            Timber.i("YD -> Trip Planner bottom sheet STATE_SETTLING")
-                        }
-                        BottomSheetBehavior.STATE_HALF_EXPANDED -> {}
-                    }
-                }
-
-                override fun onSlide(bottomSheet: View, slideOffset: Float) {
-                }
-            })
-        } ?: Timber.i("YD -> Trip Planner bottom sheet null")
-    }
-
-    /**=============================================================================================*
-     * INIT TRIP PLANNER BOTTOM SHEET - END
      *==============================================================================================*/
 
 

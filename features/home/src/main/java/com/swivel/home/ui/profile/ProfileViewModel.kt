@@ -1,32 +1,30 @@
-package com.swivel.home.ui.home
+package com.swivel.home.ui.profile
 
 import android.content.Context
-import androidx.lifecycle.MutableLiveData
 import com.swivel.core.ui.BaseViewModel
 import com.swivel.models.features.IBaseDeepLinkArguments
-import com.swivel.models.features.home.home.router_arguments.HomeDeepLinkArguments
+import com.swivel.models.features.home.profile.router_arguments.ProfileDeepLinkArguments
 import com.swivel.navigation.router.Router
 import javax.inject.Inject
 
 /**
  * @author Yohan Dushmantha
- * @class HomeViewModel
+ * @class ProfileViewModel
  */
-class HomeViewModel @Inject constructor(
-    private val router: Router,
-    private val context: Context
+class ProfileViewModel @Inject constructor(
+    private val router : Router,
+    private val context : Context
 ) : BaseViewModel(){
 
-    val isDrawerOpen : MutableLiveData<Boolean> = MutableLiveData()
-    val receivedViewArguments : MutableLiveData<HomeDeepLinkArguments> = MutableLiveData()
+    private var receivedDeepLinkArgs : ProfileDeepLinkArguments? = null
 
     /**---------------------------------------------------------------------------------------------*
      * INIT - START
      *----------------------------------------------------------------------------------------------*/
 
     override fun initViewArguments(deepLinkArguments: IBaseDeepLinkArguments?) {
-        deepLinkArguments?.let {
-            receivedViewArguments.postValue(it as? HomeDeepLinkArguments)
+        (deepLinkArguments as? ProfileDeepLinkArguments)?.let {
+            receivedDeepLinkArgs = it
         }
     }
 
@@ -42,15 +40,6 @@ class HomeViewModel @Inject constructor(
 
     /**---------------------------------------------------------------------------------------------*
      * EVENTS HANDLING - END
-     *----------------------------------------------------------------------------------------------*/
-
-
-    /**---------------------------------------------------------------------------------------------*
-     * DATA HANDLING - START
-     *----------------------------------------------------------------------------------------------*/
-
-    /**---------------------------------------------------------------------------------------------*
-     * DATA HANDLING - END
      *----------------------------------------------------------------------------------------------*/
 
 }

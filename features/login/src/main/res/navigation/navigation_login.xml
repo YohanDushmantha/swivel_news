@@ -3,7 +3,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/navigation_login"
-        app:startDestination="@id/verifyPasswordFragment">
+        app:startDestination="@id/loginFragment">
     <fragment   android:id="@+id/verifyPasswordFragment"
                 android:name="com.swivel.login.ui.verify_password.VerifyPasswordFragment"
                 android:label="LoginFragment"
@@ -19,6 +19,13 @@
             android:name="com.swivel.login.ui.forgot_password_option.ForgotPasswordOptionFragment"
             android:label="ForgotPasswordOptionFragment"
             tools:layout="@layout/forgot_password_option_fragment"/>
+    <fragment
+            android:id="@+id/loginFragment"
+            android:name="com.swivel.login.ui.login.LoginFragment"
+            android:label="LoginFragment"
+            tools:layout="@layout/login_fragment">
+        <deepLink app:uri="login://login" />
+    </fragment>
 
 
 </navigation>

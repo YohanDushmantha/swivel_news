@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- *******************************************************************************************
+            DATA BINDING - START
+    ******************************************************************************************** -->
+    <data>
+        <variable
+                name="viewModel"
+                type="com.swivel.login.ui.login.LoginViewModel" />
+
+        <variable
+                name="formData"
+                type="com.swivel.login.ui.login.LoginFormData" />
+    </data>
+
+    <!-- *******************************************************************************************
+            DATA BINDING - START
+    ******************************************************************************************** -->
+
+
+
+    <!-- *******************************************************************************************
+            LAYOUT - START
+    ******************************************************************************************** -->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <!-- ***************************************************************************************
+            LAYOUT MARGIN GUIDELINE - START
+        **************************************************************************************** -->
+
+        <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/topHorizontalMarginGuideline"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/v_0"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="@dimen/v_16"/>
+
+        <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/bottomHorizontalMarginGuideline"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/v_0"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_end="@dimen/v_16"/>
+
+        <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/startMarginGuideline"
+                android:layout_width="@dimen/v_0"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/v_16" />
+
+        <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/endMarginGuideline"
+                android:layout_width="@dimen/v_0"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/v_16" />
+
+
+
+        <!-- ***************************************************************************************
+            LAYOUT MARGIN GUIDELINE - END
+        **************************************************************************************** -->
+
+        <!-- ***************************************************************************************
+            HEADER - START
+        **************************************************************************************** -->
+
+        <ImageView
+                android:id="@+id/mCompanyLogo"
+                android:layout_width="@dimen/v_0"
+                android:layout_height="@dimen/v_0"
+                app:layout_constraintWidth_percent="0.5"
+                android:maxWidth="@dimen/v_128"
+                app:srcCompat="@drawable/ic_app_logo"
+                app:layout_constraintDimensionRatio="H,1356:440"
+                app:layout_constraintStart_toEndOf="@id/startMarginGuideline"
+                app:layout_constraintEnd_toStartOf="@id/endMarginGuideline"
+                app:layout_constraintTop_toBottomOf="@id/topHorizontalMarginGuideline"/>
+
+        <TextView
+                android:id="@+id/mTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/login_title"
+                app:layout_constraintTop_toBottomOf="@id/mCompanyLogo"
+                app:layout_constraintEnd_toEndOf="@id/mCompanyLogo"
+                android:textStyle="bold"
+                style="@style/pageTitleDarkGray"
+                />
+
+
+        <!-- ***************************************************************************************
+            HEADER - END
+        **************************************************************************************** -->
+
+        <!-- ***************************************************************************************
+            FORM - START
+        **************************************************************************************** -->
+
+        <ScrollView
+                android:id="@+id/formScrollViewContainer"
+                android:layout_width="@dimen/v_0"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/mTitle"
+                app:layout_constraintBottom_toTopOf="@id/mLoginButton"
+                android:layout_marginTop="@dimen/v_32"
+                android:layout_marginBottom="@dimen/v_16"
+                app:layout_constraintStart_toStartOf="@id/startMarginGuideline"
+                app:layout_constraintEnd_toEndOf="@id/endMarginGuideline"
+                >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/formContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/v_0">
+
+                <TextView
+                        android:id="@+id/mEmailLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/labelGray"
+                        tools:text="EMAIL ADDRESS"
+                        android:text="@string/login_form_label_email"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginTop="@dimen/v_24"
+                        />
+
+                <EditText
+                        android:id="@+id/emailEditText"
+                        style="@style/defaultEditTextField"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/v_0"
+                        android:imeOptions="actionNext"
+                        android:inputType="textEmailAddress"
+                        android:maxLength="200"
+                        android:hint="@string/login_form_hint_email"
+                        app:layout_constraintTop_toBottomOf="@id/mEmailLabel"
+                        android:layout_marginTop="@dimen/v_8"
+                        android:text="@={formData.email}"
+                        />
+
+                <TextView
+                        android:id="@+id/mPasswordLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/labelGray"
+                        android:text="@string/login_form_label_password"
+                        app:layout_constraintTop_toBottomOf="@id/emailEditText"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginTop="@dimen/v_24"
+                        />
+
+                <EditText
+                        android:id="@+id/passwordEditText"
+                        style="@style/defaultEditTextField"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/v_0"
+                        android:imeOptions="actionDone"
+                        android:inputType="textPassword"
+                        android:maxLength="20"
+                        android:hint="@string/login_form_hint_password"
+                        app:layout_constraintTop_toBottomOf="@id/mPasswordLabel"
+                        android:layout_marginTop="@dimen/v_8"
+                        android:text="@={formData.password}"
+                        onEditorEnterAction="@{viewModel.passwordDone}"
+                        />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+        <!-- ***************************************************************************************
+            FORM - END
+        **************************************************************************************** -->
+
+        <!-- ***************************************************************************************
+            FOOTER - START
+        **************************************************************************************** -->
+
+        <TextView
+                android:id="@+id/mCreateNewAccount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/login_create_new_account"
+                app:layout_constraintEnd_toEndOf="@id/endMarginGuideline"
+                app:layout_constraintTop_toBottomOf="@id/formScrollViewContainer"
+                style="@style/textButtonGray"
+                android:layout_marginTop="@dimen/v_16"
+                android:onClick="@{(v) -> viewModel.onTapCreateNewAccount(v)}"/>
+
+        <Button
+                android:id="@+id/mLoginButton"
+                android:layout_width="0dp"
+                android:onClick="@{(v) -> viewModel.onTapSubmit(v)}"
+                android:text="@string/login_submit"
+                style="@style/BrownBarButtonStyle"
+                app:layout_constraintStart_toStartOf="@id/startMarginGuideline"
+                app:layout_constraintEnd_toEndOf="@id/endMarginGuideline"
+                app:layout_constraintBottom_toTopOf="@id/bottomHorizontalMarginGuideline"
+                />
+
+        <!-- ***************************************************************************************
+            FOOTER - END
+        **************************************************************************************** -->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- *******************************************************************************************
+            LAYOUT - END
+    ******************************************************************************************** -->
+</layout>

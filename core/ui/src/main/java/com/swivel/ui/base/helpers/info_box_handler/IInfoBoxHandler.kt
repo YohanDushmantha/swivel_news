@@ -24,7 +24,8 @@ interface IInfoBoxHandler {
         navController: NavController?,
         validationResult : ValidationResult,
         infoBoxIdentifier : Short,
-        onTapCallback : ((infoBoxId : Short) -> Unit)? = null
+        onTapCallback : ((infoBoxId : Short) -> Unit)? = null,
+        isAutoHide : Boolean = false
     )
 
     /**

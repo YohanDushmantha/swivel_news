@@ -1,8 +1,8 @@
-package com.swivel.registration.ui.user_registration
+package com.swivel.login.ui.login
 
 import android.content.Context
+import com.swivel.login.R
 import com.swivel.models.libs.navigation.ValidationResult
-import com.swivel.registration.R
 import com.swivel.validator.BaseValidator
 import com.swivel.validator.exceptions.FormDataNotFoundException
 import com.swivel.validator.validation_config.BaseValidationConfig
@@ -13,47 +13,34 @@ import javax.inject.Inject
 
 /**
  * @author Yohan Dushmantha
- * @class UserRegistrationFormValidator
+ * @class LoginFormValidator
  */
-class UserRegistrationFormValidator @Inject constructor(
+class LoginFormValidator @Inject constructor(
     private val context : Context,
     private val baseValidator : BaseValidator
-) {
-
+){
     /**
-     * validate form data of user registratoin view model
-     * @param  form data object of user registration
+     * validate form data of login view model
+     * @param  form data object of login
      * @return ValidationResult result of validation
      */
     fun validateFormData(
-        userRegistrationFormData: UserRegistrationFormData?
+        loginFormData: LoginFormData?
     ) : ValidationResult {
-        userRegistrationFormData?.let {
+        loginFormData?.let {
             val configResult : ArrayList<BaseValidationConfig> = ArrayList()
 
-            configResult.add(ValidNameConfig().apply {
-                fieldName = context.getString(R.string.user_registration_form_label_firstName).capitalize()
-                text = it.firstName
-                isRequired = true
-            })
-
-            configResult.add(ValidNameConfig().apply {
-                fieldName = context.getString(R.string.user_registration_form_label_lastName).capitalize()
-                text = it.lastName
-                isRequired = true
-            })
-
             configResult.add(ValidEmailConfig().apply {
-                fieldName = context.getString(R.string.user_registration_form_label_email).capitalize()
+                fieldName = context.getString(R.string.login_form_label_email).capitalize()
                 text = it.email
                 isRequired = true
 
             })
 
             configResult.add(ValidPasswordConfig().apply {
+                fieldName = context.getString(R.string.login_form_label_password).capitalize()
                 text = it.password
                 isRequired = true
-                retypePassword = it.retypePassword
             })
 
             return baseValidator.validate(configResult,context)
@@ -61,5 +48,4 @@ class UserRegistrationFormValidator @Inject constructor(
 
         throw FormDataNotFoundException()
     }
-
 }

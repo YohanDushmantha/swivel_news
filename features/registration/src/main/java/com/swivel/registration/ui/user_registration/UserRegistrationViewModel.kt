@@ -6,6 +6,7 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import com.swivel.config.constants.AppStates
 import com.swivel.core.ui.BaseViewModel
@@ -68,6 +69,11 @@ class UserRegistrationViewModel @Inject constructor(
      * EVENTS HANDLING - START
      *----------------------------------------------------------------------------------------------*/
 
+    /**
+     * executes when clicking on submit button
+     *
+     * @param view
+     */
     fun onTapSubmit(view : View?){
         view?.let {
             softKeyboardManager.hideKeyboard(view)
@@ -84,6 +90,11 @@ class UserRegistrationViewModel @Inject constructor(
         validateFormDataFromMobileSide(textView.findNavController())
     }
 
+    /**
+     * executes when clicking already have an account button
+     *
+     * @param view
+     */
     fun onTapAlreadyHaveAnAccount(view : View?){
         view?.let {
             redirectToLoginPage(it.findNavController())
@@ -107,24 +118,26 @@ class UserRegistrationViewModel @Inject constructor(
      */
     fun validateFormDataFromMobileSide(navController: NavController?){
         try {
-            isLoading.postValue(true)
+            //isLoading.postValue(true)
             userRegistrationFormValidator.validateFormData(
                 userRegistrationFormData
             ).let {
                 if(it.isValid){
                     saveUser(navController)
                 }else{
+                    //isLoading.postValue(false)
                     infoBoxHandler.showErrorInfoBox(
                         router,
                         navController,
                         it,
-                        UserRegistrationInfoBoxID.FORM_DATA_VALIDATION_ERROR.infoBoxId
+                        UserRegistrationInfoBoxID.FORM_DATA_VALIDATION_ERROR.infoBoxId,
+                        null
                     )
                 }
             }
         }catch (ex : Exception){
             Timber.e(ex)
-            isLoading.postValue(false)
+            //isLoading.postValue(false)
             showValidationErrorMessage(navController,ex.message)
         }
     }
@@ -170,12 +183,20 @@ class UserRegistrationViewModel @Inject constructor(
             }
         }catch (ex : Exception){
             Timber.e(ex)
-            isLoading.postValue(false)
+            //isLoading.postValue(false)
             showValidationErrorMessage(navController,ex.message)
         }
 
     }
 
+    /**
+     * handle user registration result
+     * if user registered successfully need to show success message and redirect to login page
+     * otherwise should show error message
+     *
+     * @param userAuthentication user authentication object to be saved
+     * @param navController navigation contrller
+     */
     private suspend fun handleUserRegistrationResult(userAuthentication: UserAuthentication?,navController: NavController?){
         try {
             userAuthentication?.let {
@@ -208,10 +229,10 @@ class UserRegistrationViewModel @Inject constructor(
             showValidationErrorMessage(navController,context.getString(R.string.user_registration_custom_error_message))
         }catch (ex : Exception){
             Timber.e(ex)
-            isLoading.postValue(false)
+            //isLoading.postValue(false)
             showValidationErrorMessage(navController,ex.message)
         }finally {
-            isLoading.postValue(false)
+            //isLoading.postValue(false)
         }
     }
 
@@ -230,6 +251,10 @@ class UserRegistrationViewModel @Inject constructor(
         )
     }
 
+    /**
+     * redirect to login page
+     * @param navController navigation controller
+     */
     private fun redirectToLoginPage(navController: NavController){
         router.popBackStack(navController,navController.currentDestination?.id!!,true)
         router.route(

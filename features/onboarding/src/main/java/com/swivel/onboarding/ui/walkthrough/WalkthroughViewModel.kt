@@ -10,6 +10,7 @@ import com.swivel.core.ui.BaseViewModel
 import com.swivel.models.features.IBaseDeepLinkArguments
 import com.swivel.models.features.login.login.router_arguments.LoginDeepLinkArguments
 import com.swivel.models.features.registration.user_registration.router_arguments.UserRegistrationDeepLinkArguments
+import com.swivel.models.features.sample_feature.post.router_arguments.PostDeepLinkArguments
 import com.swivel.models.features.shared.confirm_box.enums.ConfirmBoxAppearance
 import com.swivel.models.features.shared.confirm_box.enums.ConfirmBoxButtonAppearance
 import com.swivel.models.features.shared.confirm_box.event_listeners.ConfirmBoxEventResult

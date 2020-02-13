@@ -3,6 +3,7 @@ package com.swivel.login.base.di
 import androidx.lifecycle.ViewModel
 import com.swivel.config.di.annotation.ViewModelKey
 import com.swivel.login.ui.forgot_password_option.ForgotPasswordOptionViewModel
+import com.swivel.login.ui.login.LoginViewModel
 import com.swivel.login.ui.verify_password.VerifyPasswordViewModel
 import dagger.Binds
 import dagger.Module
@@ -17,6 +18,11 @@ import dagger.multibindings.IntoMap
 
 @Module
 abstract class LoginViewModelBuilder {
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(LoginViewModel::class)
+    internal abstract fun provideLoginViewModel(viewModel: LoginViewModel) : ViewModel
 
     @Binds
     @IntoMap

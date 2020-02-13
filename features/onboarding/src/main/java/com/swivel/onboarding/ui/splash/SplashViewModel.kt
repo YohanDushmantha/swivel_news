@@ -5,19 +5,16 @@ import android.content.pm.PackageManager
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavController
-import com.google.gson.Gson
 import com.swivel.config.constants.AppStates
 import com.swivel.core.ui.BaseViewModel
 import com.swivel.crypto.keystore_manager.KeystoreManager
 import com.swivel.models.features.IBaseDeepLinkArguments
 import com.swivel.navigation.router.Router
 import com.swivel.models.base.AppConstants
-import com.swivel.models.base.DataSource
 import com.swivel.models.dto.common_api.response.SystemConfigurationResponse
-import com.swivel.models.entities.SystemConfiguration
 import com.swivel.onboarding.R
 import com.swivel.onboarding.ui.splash.enums.SplashInfoBoxID
-import com.swivel.repository.driver_service_repositories.SystemConfigurationRepository
+import com.swivel.repository.news_service_repositories.SystemConfigurationRepository
 import com.swivel.security.root.RootChecker
 import com.swivel.security.auth_manager.AuthManger
 import com.swivel.utility.device_info_manger.IDeviceInfoManager
@@ -245,11 +242,11 @@ class SplashViewModel @Inject constructor(
     }
 
     /**
-     * try to load driver auth data from shared preferences
-     * if driver auth data can be loaded from shared preferences should invoke callback with SPLASH_TASKS.USER_DETAILS_LOADED
+     * try to load user auth data from shared preferences
+     * if user auth data can be loaded from shared preferences should invoke callback with SPLASH_TASKS.USER_DETAILS_LOADED
      * otherwise SPLASH_TASKS.USER_DETAILS_NOT_LOADED
      *
-     * if driver auth data can be loaded, should be stored into AppStates otherwise should be cleared
+     * if user auth data can be loaded, should be stored into AppStates otherwise should be cleared
      *
      * @param context Context Application Context
      * @param callback should invoke this function according to received result
@@ -260,8 +257,8 @@ class SplashViewModel @Inject constructor(
     ){
         withContext(Dispatchers.Main){
             setTaskProgress(context?.getString(R.string.task_loading_msg_loading_session_data)!!)
-            authManger.fetchDriverAuthentication()?.let {
-                appStates.driverAuth = it
+            authManger.fetchUserAuthentication()?.let {
+                appStates.userAuth = it
                 callback(context,SplashTasks.AUTH_DATA_LOADED)
             } ?: callback(context,SplashTasks.AUTH_DATA_NOT_LOADED)
         }
@@ -282,35 +279,8 @@ class SplashViewModel @Inject constructor(
         context: Context?,
         callback : (context : Context? ,task : SplashTasks) -> Unit
     ){
-        viewModelScope.launch {
-            try {
-                setTaskProgress(context?.getString(R.string.task_loading_msg_loading_system_configuration)!!)
-                val systemConfigurationResponse = withContext(Dispatchers.Main){
-                    systemConfigurationRepository.fetchSystemConfiguration(
-                        appConstants.systemConfigurationId,
-                        DataSource.REMOTE,
-                        context.getString(R.string.task_loading_error_system_configuration_not_loaded)
-                    )
-                }
-
-                systemConfigurationResponseLiveData.postValue(systemConfigurationResponse)
-                systemConfigurationResponse?.result?.let {
-                    appStates.systemConfiguration = Gson().fromJson(it, SystemConfiguration::class.java)
-                }
-
-                callback(context,SplashTasks.SYSTEM_CONFIGURATION_LOADED_SUCCESSFULLY)
-
-            }catch (ex : Exception){
-                callback(context,SplashTasks.SYSTEM_CONFIGURATION_LOADING_FAILED)
-                infoBoxHandler.showErrorInfoBox(
-                    router,navController,
-                    ex.message,
-                    SplashInfoBoxID.TASK_PROGRESS_ERROR_SYSTEM_CONFIGURATION_NOT_LOADED.infoBoxID
-                )
-                Timber.e(ex)
-            }
-
-        }
+        callback(context,SplashTasks.SYSTEM_CONFIGURATION_LOADED_SUCCESSFULLY)
+        //TODO need to implement system configuration loading logic from server
     }
 
     /**
@@ -461,7 +431,8 @@ class SplashViewModel @Inject constructor(
                     loadAuthData(context,executeNextStep)
                 }
                 SplashTasks.NO_VALID_SESSION -> {
-                    isRedirectTpWalkthroughUI.postValue(true)
+                    loadAuthData(context,executeNextStep)
+                    //isRedirectTpWalkthroughUI.postValue(true)
                 }
 
                 /** SESSION VALIDATION - END */
@@ -469,10 +440,15 @@ class SplashViewModel @Inject constructor(
                 /** LOAD USER INFO - START */
 
                 SplashTasks.AUTH_DATA_LOADED -> {
-                    isRedirectToHomeUI.postValue(true)
+                    if(appStates?.userAuth?.loginStatus!!){
+                        isRedirectToHomeUI.postValue(true)
+                    }else{
+                        isRedirectTpWalkthroughUI.postValue(true)
+                    }
+
                 }
                 SplashTasks.AUTH_DATA_NOT_LOADED -> {
-                    authManger.invalidateDriverAuthData()
+                    authManger.invalidateUserAuthData()
                     isRedirectTpWalkthroughUI.postValue(true)
                 }
 
@@ -521,7 +497,7 @@ class SplashViewModel @Inject constructor(
     private suspend fun setTaskProgress(text : String){
         withContext(Dispatchers.Main){
             taskProgressText.value = text
-            delay(100)
+            delay(200)
         }
     }
 

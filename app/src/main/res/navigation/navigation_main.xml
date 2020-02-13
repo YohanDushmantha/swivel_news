@@ -5,8 +5,10 @@
 
     <include app:graph="@navigation/navigation_onboarding"/>
     <include app:graph="@navigation/navigation_shared"/>
+    <include app:graph="@navigation/navigation_registration"/>
     <include app:graph="@navigation/navigation_login"/>
     <include app:graph="@navigation/navigation_sample_feature"/>
     <include app:graph="@navigation/navigation_home"/>
+    <include app:graph="@navigation/navigation_sample_feature"/>
 
 </navigation>

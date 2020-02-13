@@ -5,8 +5,12 @@ import android.view.View
 import androidx.lifecycle.MutableLiveData
 import androidx.navigation.NavController
 import androidx.navigation.Navigation.findNavController
+import androidx.navigation.findNavController
 import com.swivel.core.ui.BaseViewModel
 import com.swivel.models.features.IBaseDeepLinkArguments
+import com.swivel.models.features.login.login.router_arguments.LoginDeepLinkArguments
+import com.swivel.models.features.registration.user_registration.router_arguments.UserRegistrationDeepLinkArguments
+import com.swivel.models.features.sample_feature.post.router_arguments.PostDeepLinkArguments
 import com.swivel.models.features.shared.confirm_box.enums.ConfirmBoxAppearance
 import com.swivel.models.features.shared.confirm_box.enums.ConfirmBoxButtonAppearance
 import com.swivel.models.features.shared.confirm_box.event_listeners.ConfirmBoxEventResult
@@ -61,43 +65,27 @@ class WalkthroughViewModel @Inject constructor(
      * trigger when tapping on login button
      */
     fun onTapLogin(view : View?){
-        redirectToMobileNumberEnteringPage(
-            view,
-            view?.context?.getString(R.string.walkthrough_routing_signin_title),
-            view?.context?.getString(R.string.walkthrough_routing_signin_submit_button_text)
-        )
+        view?.let {
+            router.route(
+                it.findNavController(),
+                DEEP_LINK.LOGIN,
+                null,
+                LoginDeepLinkArguments()
+            )
+        }
     }
 
     /**
      * trigger when tapping on registration button
      */
     fun onTapRegistration(view : View?){
-        redirectToMobileNumberEnteringPage(
-            view,
-            view?.context?.getString(R.string.walkthrough_routing_signup_title),
-            view?.context?.getString(R.string.walkthrough_routing_signup_submit_button_text)
-        )
-    }
-
-    /**
-     * redirect to Mobile number entering page either tapping on login button or registration button
-     * @param view View? view object
-     */
-    private fun redirectToMobileNumberEnteringPage(view : View?, titleText : String?, submitButtonText : String?){
         view?.let {
             router.route(
-                findNavController(it),
-                DEEP_LINK.SHARED_VERIFY_MOBILE_NUMBER,
+                it.findNavController(),
+                DEEP_LINK.USER_REGISTRATION,
                 null,
-                VerifyMobileNumberDeepLinkArguments(
-                    VerifyMobileNumberDestinationConfig(
-                        DEEP_LINK.WALKTHROUGH,
-                        DEEP_LINK.VERIFY_PASSWORD,
-                        DEEP_LINK.SHARED_VERIFY_OTP,
-                        titleText,
-                        submitButtonText
-                    )
-            ))
+                UserRegistrationDeepLinkArguments()
+            )
         }
     }
 

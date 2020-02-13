@@ -19,17 +19,17 @@
 
     <TextView
             android:id="@+id/walkthrough_title"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            tools:text="@string/walkthrough_page1_title"
+            tools:text="@string/walkthrough_page3_title"
             android:textSize="@dimen/text_normal_125"
             android:layout_marginStart="@dimen/v_16"
             android:layout_marginEnd="@dimen/v_16"
             android:textColor="@color/walkthrough_view_pager_title"
             android:inputType="textMultiLine"
-
+            android:textAlignment="center"
             />
 </androidx.constraintlayout.widget.ConstraintLayout>

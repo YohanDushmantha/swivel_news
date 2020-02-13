@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tool="http://schemas.android.com/tools"
+        android:id="@+id/navigation_registration"
+        app:startDestination="@id/userRegistrationFragment">
+
+    <fragment
+            android:id="@+id/userRegistrationFragment"
+            android:name="com.swivel.registration.ui.user_registration.UserRegistrationFragment"
+            android:label="UserRegistrationFragment"
+            tool:layout="@layout/user_registration_fragment">
+        <deepLink android:autoVerify="true" app:uri="user_registration://user_registration"/>
+    </fragment>
+</navigation>

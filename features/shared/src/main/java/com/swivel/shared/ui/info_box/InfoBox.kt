@@ -92,11 +92,11 @@ class InfoBox : BaseDialogFragment() {
         infoBoxViewModel.viewConfig.observe(this, Observer {
 
             configInfoBoxPosition(it?.gravity!!)
+            configInfoBoxByType(it.infoBoxType)
             hideInfoBoxWhenTouchingOutside(it.isHideWhenTouchingOutsideOfInfoBox)
             configAutoHideInfoBox(it.isAutoHide,it.visibleTime)
-            configInfoBoxByType(it.infoBoxType)
             hideInfoBoxWhenTouching(it.isHideWhenTouchingInfoBox,it.onTapInfoBoxCallback)
-            configDismissEvent()
+            //configDismissEvent()
         })
     }
 
@@ -120,7 +120,7 @@ class InfoBox : BaseDialogFragment() {
     private fun configAutoHideInfoBox(isAutoHide : Boolean, visibleTime : Long){
         if(isAutoHide){
             Executors.newSingleThreadScheduledExecutor().schedule({
-                dismiss()
+                dialog?.dismiss()
             },visibleTime, TimeUnit.MILLISECONDS)
         }
     }
@@ -175,8 +175,8 @@ class InfoBox : BaseDialogFragment() {
             view?.setOnClickListener {
                 infoBoxViewModel.onTapInfoBox(onTapInfoBox)
 
-                //dismiss the application
-                dismiss()
+                //dismiss the dialog
+                dialog?.dismiss()
             }
         }
     }
@@ -201,7 +201,7 @@ class InfoBox : BaseDialogFragment() {
         infoBoxViewModel.dismissUI.observe(this, Observer {
             it?.let {
                 if (it){
-                    dismiss()
+                    dialog?.dismiss()
                 }
             }
         })

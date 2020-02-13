@@ -431,7 +431,8 @@ class SplashViewModel @Inject constructor(
                     loadAuthData(context,executeNextStep)
                 }
                 SplashTasks.NO_VALID_SESSION -> {
-                    isRedirectTpWalkthroughUI.postValue(true)
+                    loadAuthData(context,executeNextStep)
+                    //isRedirectTpWalkthroughUI.postValue(true)
                 }
 
                 /** SESSION VALIDATION - END */
@@ -439,7 +440,12 @@ class SplashViewModel @Inject constructor(
                 /** LOAD USER INFO - START */
 
                 SplashTasks.AUTH_DATA_LOADED -> {
-                    isRedirectToHomeUI.postValue(true)
+                    if(appStates?.userAuth?.loginStatus!!){
+                        isRedirectToHomeUI.postValue(true)
+                    }else{
+                        isRedirectTpWalkthroughUI.postValue(true)
+                    }
+
                 }
                 SplashTasks.AUTH_DATA_NOT_LOADED -> {
                     authManger.invalidateUserAuthData()

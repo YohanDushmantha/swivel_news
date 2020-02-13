@@ -1,6 +1,7 @@
 package com.swivel.login.base.di
 
 import com.swivel.login.ui.forgot_password_option.ForgotPasswordOptionFragment
+import com.swivel.login.ui.login.LoginFragment
 import com.swivel.login.ui.verify_password.VerifyPasswordFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
@@ -14,6 +15,9 @@ import dagger.android.ContributesAndroidInjector
 
 @Module
 abstract class LoginFragmentBuilder {
+
+    @ContributesAndroidInjector
+    internal abstract fun bindLoginFragment() : LoginFragment
 
     @ContributesAndroidInjector
     internal abstract fun bindVerifyPasswordFragment() : VerifyPasswordFragment

@@ -31,7 +31,7 @@ class UserRegistrationFragment : BaseFragment(){
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return UserRegistrationFragmentBinding.inflate(inflater,container,false)
             .apply {
-                lifecycleOwner = viewLifecycleOwner
+                lifecycleOwner = this@UserRegistrationFragment
                 viewModel = userRegistrationViewModel
                 formData = userRegistrationViewModel.userRegistrationFormData
             }.root
@@ -45,6 +45,14 @@ class UserRegistrationFragment : BaseFragment(){
 
     override fun onResume() {
         super.onResume()
+    }
+
+    override fun onPause() {
+        super.onPause()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
     }
 
     /**---------------------------------------------------------------------------------------------*

@@ -35,7 +35,8 @@ class InfoBoxHandler @Inject constructor() : IInfoBoxHandler {
         navController: NavController?,
         validationResult : ValidationResult,
         infoBoxIdentifier : Short,
-        onTapCallback : ((infoBoxId : Short) -> Unit)?
+        onTapCallback : ((infoBoxId : Short) -> Unit)?,
+        isAutoHide : Boolean
     ){
         navController?.let {
             router.route(
@@ -48,6 +49,7 @@ class InfoBoxHandler @Inject constructor() : IInfoBoxHandler {
                     viewConfig = InfoBoxViewConfig().apply {
                         infoBoxType = InfoBoxAppearance.ERROR
                         onTapInfoBoxCallback = onTapCallback
+                        this.isAutoHide = isAutoHide
                     }
                 }
             )

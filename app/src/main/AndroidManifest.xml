@@ -38,7 +38,8 @@
                 android:name="io.fabric.ApiKey"
                 android:value="${fabricKey}" />
 
-        <activity android:name="com.swivel.news.main.MainActivity">
+        <activity android:name="com.swivel.news.main.MainActivity"
+                android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
             </intent-filter>

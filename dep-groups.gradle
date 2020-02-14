@@ -16,6 +16,7 @@ def Group(Closure closure) {
  arcNav()
  arcLiveData()
  arcRoom()
+ paging()
  view()
  validation()
  testing()
@@ -120,6 +121,10 @@ ext {
         api deps.room.roomRuntime
         api deps.room.roomKTX
         kapt deps.room.roomCompiler
+    }
+
+    paging = Group {
+        implementation deps.paging.pagingRuntime
     }
 
     /**-----------------------------------------------------------------------------------------------------------------*

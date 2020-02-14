@@ -7,12 +7,14 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.swivel.core.ui.BaseFragment
 import com.swivel.home.R
 import com.swivel.home.databinding.HomeFragmentBinding
 import com.swivel.models.libs.navigation.enums.DEEP_LINK
 import com.swivel.models.libs.navigation.enums.DrawerConfigSettings
 import com.swivel.ui.base.helpers.back_handler.BackHandler
+import kotlinx.android.synthetic.main.home_content_layout.*
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -27,6 +29,7 @@ class HomeFragment : BaseFragment(){
     @Inject lateinit var backHandler: BackHandler
 
     private lateinit var homeFragmentBinding : HomeFragmentBinding
+    private val newsAdaptor : HeadLineNewsAdaptor = HeadLineNewsAdaptor()
 
     /**---------------------------------------------------------------------------------------------*
      * LIFECYCLE METHODS - START
@@ -79,7 +82,24 @@ class HomeFragment : BaseFragment(){
     override fun initViews() {
         setupDrawer()
         setupBottomNavigationBar()
+        initializeNewsListUpdateListner()
+        initNewsList()
         homeViewModel.initViewArguments(router.getDeepLinkArguments(DEEP_LINK.HOME_MAIN))
+    }
+
+    private fun initializeNewsListUpdateListner(){
+        homeViewModel.newsList.observe(this, Observer {
+            newsAdaptor.submitList(it)
+        })
+    }
+
+    private fun initNewsList(){
+
+//        homeFragmentBinding.list.layoutManager = LinearLayoutManager(context)
+//        list.adapter = newsAdaptor
+
+        list.layoutManager = LinearLayoutManager(context)
+        list.adapter = newsAdaptor
     }
 
     /**=============================================================================================*

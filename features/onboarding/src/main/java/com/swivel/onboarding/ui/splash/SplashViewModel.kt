@@ -14,7 +14,7 @@ import com.swivel.models.base.AppConstants
 import com.swivel.models.dto.common_api.response.SystemConfigurationResponse
 import com.swivel.onboarding.R
 import com.swivel.onboarding.ui.splash.enums.SplashInfoBoxID
-import com.swivel.repository.news_service_repositories.SystemConfigurationRepository
+import com.swivel.repository.swivel_news_service_repositories.SystemConfigurationRepository
 import com.swivel.security.root.RootChecker
 import com.swivel.security.auth_manager.AuthManger
 import com.swivel.utility.device_info_manger.IDeviceInfoManager

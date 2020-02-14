@@ -3,10 +3,8 @@ package com.swivel.registration.ui.user_registration
 import android.content.Context
 import android.view.View
 import android.widget.TextView
-import androidx.core.content.ContextCompat
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavController
-import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import com.swivel.config.constants.AppStates
 import com.swivel.core.ui.BaseViewModel
@@ -22,8 +20,7 @@ import com.swivel.models.libs.navigation.enums.DEEP_LINK
 import com.swivel.navigation.router.Router
 import com.swivel.registration.R
 import com.swivel.registration.ui.user_registration.enums.UserRegistrationInfoBoxID
-import com.swivel.repository.news_service_repositories.UserAuthenticationRepository
-import com.swivel.security.auth_manager.AuthManger
+import com.swivel.repository.swivel_news_service_repositories.UserAuthenticationRepository
 import com.swivel.security.auth_manager.enums.AuthManagerSharedKeys
 import com.swivel.ui.base.exceptions.BaseViewModelException
 import com.swivel.utility.soft_keyboard_manager.SoftKeyboardManager
@@ -31,7 +28,6 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import timber.log.Timber
 import java.lang.Exception
-import java.util.*
 import javax.inject.Inject
 
 /**

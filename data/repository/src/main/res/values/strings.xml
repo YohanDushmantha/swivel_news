@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">repository</string>
+
+    <!-- *******************************************************************************************
+                                NEWS REPOSITORY - START
+    ******************************************************************************************** -->
+
+    <string name="news_repo_news_headline_retrieving_error">News Headline retrieving process is failed. Please try again.</string>
+    <string name="news_repo_filtered_news_retrieving_error">Filtered News retrieving process is failed. Please try again.</string>
+
+    <!-- *******************************************************************************************
+                                NEWS REPOSITOYR - END
+    ******************************************************************************************** -->
 </resources>

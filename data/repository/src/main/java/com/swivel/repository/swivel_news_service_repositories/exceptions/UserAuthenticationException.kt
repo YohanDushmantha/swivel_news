@@ -1,4 +1,4 @@
-package com.swivel.repository.news_service_repositories.exceptions
+package com.swivel.repository.swivel_news_service_repositories.exceptions
 
 /**
  * @author Yohan Dushmantha

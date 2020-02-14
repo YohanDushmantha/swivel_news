@@ -9,11 +9,10 @@ import java.util.ArrayList
  * classes which is return from swivel backend services
  */
 open class BaseResponse {
-    var statusCode: Int = 0
-    var errorList: ArrayList<StatusError>? = null
-    var responseStatusCode: String? = null
+    var status: String? = null
+    var totalResults: Int? = 0
 
     override fun toString(): String {
-        return "ResponseBase(statusCode=$statusCode, errorList=$errorList, responseStatusCode=$responseStatusCode)"
+        return "BaseResponse(status=$status, totalResults=$totalResults)"
     }
 }

@@ -28,8 +28,8 @@ class NewsServiceApiModule {
      * provide header interceptor for handling news service web requests
      */
     @Provides
-    fun provideNewsHeaderInterceptor(requestHeaders: RequestHeaders) : SwivelHeaderInterceptor{
-        return SwivelHeaderInterceptor(requestHeaders)
+    fun provideNewsHeaderInterceptor(requestHeaders: RequestHeaders,appConfig: AppConfig) : SwivelHeaderInterceptor{
+        return SwivelHeaderInterceptor(requestHeaders,appConfig)
     }
 
     /**---------------------------------------------------------------------------------------------*
@@ -74,8 +74,8 @@ class NewsServiceApiModule {
      */
 
     @Provides
-    fun provideSwivelNewsInterceptor() : SwivelNewsInterceptor{
-        return SwivelNewsInterceptor()
+    fun provideSwivelNewsInterceptor(requestHeaders: RequestHeaders,appConfig: AppConfig) : SwivelNewsInterceptor{
+        return SwivelNewsInterceptor(requestHeaders,appConfig)
     }
 
     /**---------------------------------------------------------------------------------------------*

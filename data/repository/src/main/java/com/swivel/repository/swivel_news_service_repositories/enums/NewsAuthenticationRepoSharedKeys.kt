@@ -1,4 +1,4 @@
-package com.swivel.repository.news_service_repositories.enums
+package com.swivel.repository.swivel_news_service_repositories.enums
 
 /**
  * @author Yohan Dushmantha

@@ -4,37 +4,47 @@ import com.swivel.models.dto.driver_authentication_api.request.DriverAuthenticat
 import com.swivel.models.dto.driver_authentication_api.request.MobileNumberVerificationRequest
 import com.swivel.models.dto.driver_authentication_api.response.DriverAuthenticationResponse
 import com.swivel.models.dto.driver_authentication_api.response.MobileNumberVerificationResponse
+import com.swivel.models.dto.driver_authentication_api.response.NewsResponse
+import com.swivel.models.entities.Source
 import kotlinx.coroutines.Deferred
 import retrofit2.Response
 import retrofit2.http.Body
+import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Query
 
 /**
  * @author Yohan Dushmantha
- * @interface DriverAuthenticationRemoteApi
+ * @interface NewsRemoteApi
  *
- * remote api class for handle driver authentication related api calls
+ * remote api class for handle news api
  */
 interface NewsRemoteApi {
 
     /**
-     * verify driver mobile number whether provided mobile number already exists or not
-     * @param verifyMobileNumberVerificationRequest
-     * @return MobileNumberVerificationResponse
+     * fetch head line news list
+     * @param page requested page
+     * @param pageSize default size of page
+     * @return Deferred<Response<NewsResponse>> return received news list
      */
-    @POST("DriverAuthentication/VerifyDriverMobileNumber")
-    fun verifyDriverMobileNumber(
-        @Body verifyMobileNumberVerificationRequest: MobileNumberVerificationRequest
-    ) : Deferred<Response<MobileNumberVerificationResponse>>
+    @GET("top-headlines?sources=cnn,bbc-news,abc-news,abc-news-au,aftenposten,al-jazeera-english,ansa,ary-news")
+    fun fetchHeadLineNews(
+        @Query("page") page : Int?,
+        @Query("pageSize") pageSize : Int?
+    ) : Deferred<Response<NewsResponse>>
 
     /**
-     * authenticate user with username and password
-     * @param driverAuthenticationRequest
-     * @return DriverAuthenticationResponse
+     * get filtered news result from whole news list
+     * @param q filtered text
+     * @param page requested page
+     * @param pageSize default size of page
+     * @return Deferred<Response<NewsResponse>> return received news list
      */
-    @POST("/DriverAuthentication/DriverLoginAuthentication")
-    fun authenticateUser(
-        @Body driverAuthenticationRequest: DriverAuthenticationRequest
-    ) : Deferred<Response<DriverAuthenticationResponse>>
+    @GET("everything")
+    fun fetchFilteredNews(
+        @Query("q") query : String?,
+        @Query("page") page : Int?,
+        @Query("pageSize") pageSize : Int? = 10
+    ) : Deferred<Response<NewsResponse>>
 
 }

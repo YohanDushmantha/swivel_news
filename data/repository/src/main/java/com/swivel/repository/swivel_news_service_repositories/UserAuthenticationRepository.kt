@@ -1,18 +1,13 @@
-package com.swivel.repository.news_service_repositories
+package com.swivel.repository.swivel_news_service_repositories
 
 import android.content.Context
 import com.swivel.crypto.keystore_manager.KEYSTORE_ALIAS
 import com.swivel.models.base.DataSource
-import com.swivel.models.dto.driver_authentication_api.request.DriverAuthenticationRequest
-import com.swivel.models.dto.driver_authentication_api.request.MobileNumberVerificationRequest
-import com.swivel.models.dto.driver_authentication_api.response.DriverAuthenticationResponse
-import com.swivel.models.dto.driver_authentication_api.response.MobileNumberVerificationResponse
 import com.swivel.models.entities.UserAuthentication
 import com.swivel.models.libs.shared_pref.enums.SHARED_PREF_STORAGE_KEY
-import com.swivel.remote.news_service.api.news_api.NewsRemoteApi
 import com.swivel.repository.core.BaseRepository
 import com.swivel.repository.exception.DataSourceNotHandledException
-import com.swivel.repository.news_service_repositories.exceptions.UserAuthenticationException
+import com.swivel.repository.swivel_news_service_repositories.exceptions.UserAuthenticationException
 import com.swivel.shared_pref.SharedPrefManager
 import javax.inject.Inject
 

@@ -18,10 +18,24 @@
                                     BOTTOM BAR - START
         **************************************************************************************** -->
 
-        <!--<include
+        <include
                 android:id="@+id/home_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 layout="@layout/home_content_layout"
-                app:viewModel="@{viewModel}" />-->
+                app:viewModel="@{viewModel}"
+                android:layout_marginBottom="@dimen/v_56"
+                />
+
+        <View
+                android:id="@+id/seperator"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/v_4"
+                android:background="@drawable/bottom_nav_bar_shadow"
+
+                android:layout_marginBottom="@dimen/v_56"
+                android:layout_gravity="bottom"
+                />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
                 android:id="@+id/bttm_nav"
@@ -31,6 +45,8 @@
                 app:menu="@menu/bottom_menu"
                 app:itemTextColor="@drawable/nav_icon_color_state"
                 app:itemIconTint="@drawable/nav_icon_color_state"
+                android:elevation="@dimen/v_6"
+
                 >
         </com.google.android.material.bottomnavigation.BottomNavigationView>
 

@@ -28,6 +28,7 @@ ext.versions = [
         'viewPager2'                : '1.0.0',
         'viewPagerDots'             : '4.1.2',
         'roomVersion'               : '2.1.0',
+        'pagingVersion'             : '1.0.1',
         'retrofit'                  : '2.6.1',
         'okHttp'                    : '4.1.0',
         'gson'                      : '2.8.5',

@@ -72,6 +72,9 @@ ext.deps = [
                 'roomKTX'                       : "androidx.room:room-ktx:$versions.roomVersion",
                 'roomCompiler'                  : "androidx.room:room-compiler:$versions.roomVersion",
         ],
+        'paging'        : [
+                'pagingRuntime' : "android.arch.paging:runtime:$versions.pagingVersion"
+        ],
         'nav'           : [
                 'navigationFragment'    : "androidx.navigation:navigation-fragment-ktx:$versions.navigation",
                 'navigationUI'          : "androidx.navigation:navigation-ui-ktx:$versions.navigation",

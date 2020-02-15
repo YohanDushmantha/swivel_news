@@ -1,40 +1,32 @@
-package com.swivel.home.ui.home.profile
+package com.swivel.home.ui.home.news_detail
 
 import android.content.Context
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.swivel.config.constants.AppStates
 import com.swivel.core.ui.BaseViewModel
-import com.swivel.models.entities.UserAuthentication
+import com.swivel.models.entities.News
 import com.swivel.models.features.IBaseDeepLinkArguments
-import com.swivel.models.features.home.profile.router_arguments.ProfileDeepLinkArguments
+import com.swivel.models.features.home.news_detail.router_arguments.NewsDetailDeepLinkArguments
 import com.swivel.navigation.router.Router
 import javax.inject.Inject
 
-/**
- * @author Yohan Dushmantha
- * @class ProfileViewModel
- */
-class ProfileViewModel @Inject constructor(
+class NewsDetailViewModel@Inject constructor(
     private val router : Router,
-    private val context : Context,
-    private val appStates: AppStates
+    private val context : Context
 ) : BaseViewModel(){
 
-    private var receivedDeepLinkArgs : ProfileDeepLinkArguments? = null
-    var authentication : MutableLiveData<UserAuthentication> = MutableLiveData()
+    private var receivedDeepLinkArgs : NewsDetailDeepLinkArguments? = null
+    var news : MutableLiveData<News> = MutableLiveData()
 
     /**---------------------------------------------------------------------------------------------*
      * INIT - START
      *----------------------------------------------------------------------------------------------*/
 
     override fun initViewArguments(deepLinkArguments: IBaseDeepLinkArguments?) {
-        (deepLinkArguments as? ProfileDeepLinkArguments)?.let {
+        (deepLinkArguments as? NewsDetailDeepLinkArguments)?.let {
             receivedDeepLinkArgs = it
+            news.postValue(it.news)
         }
-        appStates.userAuth?.let{
-            authentication.postValue(it)
-        }
-
     }
 
     /**---------------------------------------------------------------------------------------------*

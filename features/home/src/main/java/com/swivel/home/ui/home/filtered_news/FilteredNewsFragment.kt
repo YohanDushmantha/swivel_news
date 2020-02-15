@@ -1,22 +1,30 @@
 package com.swivel.home.ui.home.filtered_news
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
+import androidx.paging.PagedList
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.swivel.core.ui.BaseFragment
 import com.swivel.home.R
 import com.swivel.home.databinding.FilteredNewsFragmentBinding
 import com.swivel.home.ui.home.NewsAdaptor
+import com.swivel.models.entities.News
+import com.swivel.models.features.home.news_detail.router_arguments.NewsDetailDeepLinkArguments
 import com.swivel.models.libs.navigation.enums.DEEP_LINK
 import com.swivel.models.libs.navigation.enums.DrawerConfigSettings
+import com.swivel.ui.base.helpers.animation_handler.bounce_handler.BounceAnimationHandler
 import kotlinx.android.synthetic.main.filtered_news_fragment.*
+import timber.log.Timber
 import javax.inject.Inject
 
 
@@ -27,12 +35,34 @@ import javax.inject.Inject
  * filtered news fragment provides capability to check news of selected category
  */
 class FilteredNewsFragment : BaseFragment() {
-    @Inject
-    lateinit var filteredNewsViewModel: FilteredNewsViewModel
-
+    @Inject lateinit var filteredNewsViewModel: FilteredNewsViewModel
     lateinit var filteredNewsFragmentBinding: FilteredNewsFragmentBinding
-    private val newsAdaptor : NewsAdaptor = NewsAdaptor()
     private var isFABOpen : Boolean = false
+    @Inject lateinit var bounceHandler : BounceAnimationHandler
+
+    /**
+     * show news detail page
+     */
+    private val onTapNewsViewMoreCallback : ((news : News?, View : View?) -> Unit) = { news , view ->
+        bounceHandler.animate(view)
+        news?.let {
+            router.route(findNavController(),DEEP_LINK.HOME_NEWS_DETAIL,null,NewsDetailDeepLinkArguments(news))
+        }
+    }
+
+    /**
+     * open provided external link using device browser
+     */
+    private val onTapExternalNewsLink : ((url : String?, view : View?) -> Unit) = { url, view ->
+        bounceHandler.animate(view)
+        url?.let {
+            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+            startActivity(browserIntent)
+        }
+    }
+
+    private val newsAdaptor : NewsAdaptor = NewsAdaptor(onTapNewsViewMoreCallback,onTapExternalNewsLink)
+
 
     /**---------------------------------------------------------------------------------------------*
      * LIFECYCLE METHODS - START
@@ -72,6 +102,7 @@ class FilteredNewsFragment : BaseFragment() {
             filteredNewsViewModel.isLoading.observe(viewLifecycleOwner, Observer {
                 progressBarHandler.toggleProgressUI(router,findNavController(),it,pageNavId)
             })
+            filteredNewsViewModel.isLoading.postValue(true)
         }
     }
 
@@ -80,17 +111,24 @@ class FilteredNewsFragment : BaseFragment() {
         setupDrawer()
         setupBottomNavigationBar()
         initializeNewsListUpdateListner()
-        initNewsList()
-        initFilter()
+        setupNewsList()
+        initFilterIcon()
     }
 
+    /**
+     * update news list when receiving new values to newsList
+     */
     private fun initializeNewsListUpdateListner(){
         filteredNewsViewModel.newsList.observe(this, Observer {
             newsAdaptor.submitList(it)
+            filteredNewsViewModel.isLoading.postValue(false)
         })
     }
 
-    private fun initNewsList(){
+    /**
+     * setup news list layout and setting up news adaptor
+     */
+    private fun setupNewsList(){
         list.layoutManager = LinearLayoutManager(context)
         list.adapter = newsAdaptor
     }
@@ -122,14 +160,18 @@ class FilteredNewsFragment : BaseFragment() {
      * SETUP FILTER ICON - START
      *----------------------------------------------------------------------------------------------*/
 
-    private fun initFilter(){
-        filterIcon.setOnClickListener(View.OnClickListener {
+    /**
+     * initialize filter icon on click listener
+     */
+    private fun initFilterIcon(){
+        //toggle fab menu
+        filterIcon.setOnClickListener {
             if (!isFABOpen) {
                 showFABMenu()
             } else {
                 closeFABMenu()
             }
-        })
+        }
 
         //close fab menu items when clicked.
         filteredNewsViewModel.shouldCloseFabItem?.observe(this, Observer {

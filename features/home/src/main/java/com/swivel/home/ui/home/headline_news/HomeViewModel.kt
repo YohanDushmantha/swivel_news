@@ -6,6 +6,7 @@ import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
 import com.swivel.core.ui.BaseViewModel
 import com.swivel.home.ui.home.NewsDataSourceFactory
+import com.swivel.home.ui.home.filtered_news.enums.NewsListFilterType
 import com.swivel.models.features.IBaseDeepLinkArguments
 import com.swivel.models.features.home.home.router_arguments.HomeDeepLinkArguments
 import com.swivel.navigation.router.Router
@@ -29,11 +30,6 @@ class HomeViewModel @Inject constructor(
     val receivedViewArguments : MutableLiveData<HomeDeepLinkArguments> = MutableLiveData()
 
     protected val ioScope = CoroutineScope(Dispatchers.Default)
-    private val newsDataSource = NewsDataSourceFactory(
-        repository = newsRepository,
-        scope = ioScope
-    )
-    val newsList = LivePagedListBuilder(newsDataSource,pagedListConfig()).build()
 
     /**---------------------------------------------------------------------------------------------*
      * INIT - START
@@ -64,9 +60,26 @@ class HomeViewModel @Inject constructor(
 
 
     /**---------------------------------------------------------------------------------------------*
-     * DATA HANDLING - START
+     * NEWS LIST DATA HANDLING - START
      *----------------------------------------------------------------------------------------------*/
 
+    /**
+     * prepare data source for news list adaptor
+     */
+    private val newsDataSource = NewsDataSourceFactory(
+        repository = newsRepository,
+        scope = ioScope,
+        newsListFilterType = NewsListFilterType.HEADLINES
+    )
+
+    /**
+     * news page list
+     */
+    val newsList = LivePagedListBuilder(newsDataSource,pagedListConfig()).build()
+
+    /**
+     * page list config object for generating live news list
+     */
     private fun pagedListConfig() = PagedList.Config.Builder()
         .setInitialLoadSizeHint(5)
         .setEnablePlaceholders(false)
@@ -74,7 +87,7 @@ class HomeViewModel @Inject constructor(
         .build()
 
     /**---------------------------------------------------------------------------------------------*
-     * DATA HANDLING - END
+     * NEWS LIST DATA HANDLING - END
      *----------------------------------------------------------------------------------------------*/
 
 }

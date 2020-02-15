@@ -5,7 +5,13 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="@dimen/v_16">
+        android:paddingBottom="@dimen/v_16"
+        android:layout_marginBottom="@dimen/v_16"
+        android:background="#EBEDEF">
+
+        <!-- ***************************************************************************************
+                                    LAYOUT GUIDELINE - START
+        **************************************************************************************** -->
 
         <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/cardStartMargin"
@@ -22,6 +28,10 @@
                 android:orientation="vertical"
                 app:layout_constraintGuide_end="@dimen/v_16"
                 />
+
+        <!-- ***************************************************************************************
+                                    LAYOUT GUIDELINE - END
+        **************************************************************************************** -->
 
         <ImageView
                 android:id="@+id/bannerImg"
@@ -93,7 +103,8 @@
                 app:layout_constraintEnd_toStartOf="@id/learnMoreBtn"
                 app:layout_constraintStart_toStartOf="@id/cardStartMargin"
                 tools:text="Elizabeth Wagmeister,Brent Lang, Elizabeth Wagmeister, Brent Lang"
-                android:layout_marginRight="@dimen/v_16"/>
+                android:layout_marginRight="@dimen/v_16"
+                android:textStyle="bold"/>
 
         <Button
                 android:id="@+id/learnMoreBtn"
@@ -106,7 +117,7 @@
                 style="@style/WhiteBarButtonStyle"
                 android:textSize="@dimen/text_small_125"
                 android:layout_marginTop="@dimen/v_8"
-                app:layout_constraintStart_toEndOf="@id/author"/>
+                app:layout_constraintStart_toEndOf="@id/author" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

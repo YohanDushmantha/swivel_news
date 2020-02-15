@@ -46,7 +46,6 @@
                 app:itemTextColor="@drawable/nav_icon_color_state"
                 app:itemIconTint="@drawable/nav_icon_color_state"
                 android:elevation="@dimen/v_6"
-
                 >
         </com.google.android.material.bottomnavigation.BottomNavigationView>
 

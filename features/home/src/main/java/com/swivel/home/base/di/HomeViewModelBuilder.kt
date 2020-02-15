@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import com.swivel.config.di.annotation.ViewModelKey
 import com.swivel.home.ui.home.filtered_news.FilteredNewsViewModel
 import com.swivel.home.ui.home.headline_news.HomeViewModel
+import com.swivel.home.ui.home.news_detail.NewsDetailViewModel
 import com.swivel.home.ui.home.profile.ProfileViewModel
 import dagger.Binds
 import dagger.Module
@@ -33,5 +34,10 @@ abstract class HomeViewModelBuilder {
     @IntoMap
     @ViewModelKey(ProfileViewModel::class)
     internal abstract fun bindProfileViewModel(viewModel : ProfileViewModel) : ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(NewsDetailViewModel::class)
+    internal abstract fun bindNewsDetailViewModel(viewModel: NewsDetailViewModel) : ViewModel
 
 }

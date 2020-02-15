@@ -2,6 +2,7 @@ package com.swivel.home.base.di
 
 import com.swivel.home.ui.home.filtered_news.FilteredNewsFragment
 import com.swivel.home.ui.home.headline_news.HomeFragment
+import com.swivel.home.ui.home.news_detail.NewsDetailFragment
 import com.swivel.home.ui.home.profile.ProfileFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
@@ -25,5 +26,8 @@ abstract class HomeFragmentBuilder {
 
     @ContributesAndroidInjector
     internal abstract fun bindProfileFragment() : ProfileFragment
+
+    @ContributesAndroidInjector
+    internal abstract fun bindNewsDetailFragment() : NewsDetailFragment
 
 }

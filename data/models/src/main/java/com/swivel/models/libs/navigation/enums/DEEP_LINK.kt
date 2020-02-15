@@ -32,6 +32,7 @@ enum class DEEP_LINK (val KEY : String ,val URL : String) {
 
     //HOME MODULE
     HOME_MAIN("HOME_MAIN","home://main"),
+    HOME_NEWS_DETAIL("HOME_NEWS_DETAIL","home://news_detail_fragment"),
 
     //POST MODULE
     POSTS_POSTS("POSTS_POSTS","posts://posts")

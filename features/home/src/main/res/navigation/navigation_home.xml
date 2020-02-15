@@ -15,6 +15,9 @@
         <action
                 android:id="@+id/action_homeFragment_to_filteredNewsFragment"
                 app:destination="@id/filteredNewsFragment" />
+        <action
+                android:id="@+id/action_homeFragment_to_newsDetailFragment"
+                app:destination="@id/newsDetailFragment" />
     </fragment>
     <fragment
             android:id="@+id/profileFragment"
@@ -29,6 +32,16 @@
         <action
                 android:id="@+id/action_filteredNewsFragment_to_profileFragment"
                 app:destination="@id/profileFragment" />
+        <action
+                android:id="@+id/action_filteredNewsFragment_to_newsDetailFragment"
+                app:destination="@id/newsDetailFragment" />
+    </fragment>
+    <fragment
+            android:id="@+id/newsDetailFragment"
+            android:name="com.swivel.home.ui.home.news_detail.NewsDetailFragment"
+            android:label="NewsDetailFragment"
+            tools:layout="@layout/news_detail_fragment">
+        <deepLink app:uri="home://news_detail_fragment"/>
     </fragment>
 
 </navigation>

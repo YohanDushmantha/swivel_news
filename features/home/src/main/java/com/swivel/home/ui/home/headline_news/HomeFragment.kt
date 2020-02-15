@@ -1,5 +1,7 @@
 package com.swivel.home.ui.home.headline_news
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,12 +14,13 @@ import com.swivel.core.ui.BaseFragment
 import com.swivel.home.R
 import com.swivel.home.databinding.HomeFragmentBinding
 import com.swivel.home.ui.home.NewsAdaptor
+import com.swivel.models.entities.News
+import com.swivel.models.features.home.news_detail.router_arguments.NewsDetailDeepLinkArguments
 import com.swivel.models.libs.navigation.enums.DEEP_LINK
 import com.swivel.models.libs.navigation.enums.DrawerConfigSettings
+import com.swivel.ui.base.helpers.animation_handler.bounce_handler.BounceAnimationHandler
 import com.swivel.ui.base.helpers.back_handler.BackHandler
-import kotlinx.android.synthetic.main.filtered_news_fragment.*
 import kotlinx.android.synthetic.main.home_content_layout.*
-import kotlinx.android.synthetic.main.home_content_layout.list
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -25,14 +28,41 @@ import javax.inject.Inject
 /**
  * @author Yohan Dushmantha
  * @class HomeFragment
+ *
+ * show headline news list inside the home page
  */
 class HomeFragment : BaseFragment(){
 
     @Inject lateinit var homeViewModel: HomeViewModel
     @Inject lateinit var backHandler: BackHandler
+    @Inject lateinit var bounceHandler: BounceAnimationHandler
 
     private lateinit var homeFragmentBinding : HomeFragmentBinding
-    private val newsAdaptor : NewsAdaptor = NewsAdaptor()
+
+    /**
+     * show news detail page
+     */
+    private val onTapNewsViewMoreCallback : ((news : News?, View : View?) -> Unit) = { news , view ->
+        bounceHandler.animate(view)
+        news?.let {
+            router.route(findNavController(),DEEP_LINK.HOME_NEWS_DETAIL,null,
+                NewsDetailDeepLinkArguments(news)
+            )
+        }
+    }
+
+    /**
+     * open provided external link using device browser
+     */
+    private val onTapExternalNewsLink : ((url : String?, view : View?) -> Unit) = { url, view ->
+        bounceHandler.animate(view)
+        url?.let {
+            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+            startActivity(browserIntent)
+        }
+    }
+
+    private val newsAdaptor : NewsAdaptor = NewsAdaptor(onTapNewsViewMoreCallback,onTapExternalNewsLink)
 
     /**---------------------------------------------------------------------------------------------*
      * LIFECYCLE METHODS - START
@@ -80,23 +110,31 @@ class HomeFragment : BaseFragment(){
                 }
             })
         }
+        homeViewModel.isLoading.postValue(true)
     }
 
     override fun initViews() {
         setupDrawer()
         setupBottomNavigationBar()
-        initializeNewsListUpdateListner()
-        initNewsList()
+        initializeNewsListUpdateListener()
+        setupNewsList()
         homeViewModel.initViewArguments(router.getDeepLinkArguments(DEEP_LINK.HOME_MAIN))
     }
 
-    private fun initializeNewsListUpdateListner(){
+    /**
+     * update news list when receiving new values to newsList
+     */
+    private fun initializeNewsListUpdateListener(){
         homeViewModel.newsList.observe(this, Observer {
             newsAdaptor.submitList(it)
+            homeViewModel.isLoading.postValue(false)
         })
     }
 
-    private fun initNewsList(){
+    /**
+     * setup news list layout and setting up news adaptor
+     */
+    private fun setupNewsList(){
         list.layoutManager = LinearLayoutManager(context)
         list.adapter = newsAdaptor
     }
@@ -127,6 +165,9 @@ class HomeFragment : BaseFragment(){
         })
     }
 
+    /**
+     * setting up bottom navigation bar to move between other tabs
+     */
     private fun setupBottomNavigationBar(){
         NavigationUI.setupWithNavController(homeFragmentBinding.bttmNav,findNavController())
     }

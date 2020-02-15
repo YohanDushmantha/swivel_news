@@ -27,7 +27,7 @@ interface NewsRemoteApi {
      * @param pageSize default size of page
      * @return Deferred<Response<NewsResponse>> return received news list
      */
-    @GET("top-headlines?sources=cnn,bbc-news,abc-news,abc-news-au,aftenposten,al-jazeera-english,ansa,ary-news")
+    @GET("top-headlines?sources=cnn,bbc-news,abc-news,abc-news-au,ary-news")
     fun fetchHeadLineNews(
         @Query("page") page : Int?,
         @Query("pageSize") pageSize : Int?

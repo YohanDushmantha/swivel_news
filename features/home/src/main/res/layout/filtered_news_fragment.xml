@@ -160,8 +160,21 @@
                 app:layout_constraintEnd_toStartOf="@id/endMarginGuideline"
                 android:layout_marginEnd="@dimen/v_8"
                 android:layout_marginBottom="@dimen/v_24"
-
+                app:backgroundTint="@color/yellow"
                 />
+
+        <TextView
+                android:id="@+id/selectedKeyword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/endMarginGuideline"
+                android:layout_marginTop="@dimen/v_24"
+                android:layout_marginEnd="@dimen/v_8"
+                android:text="@{viewModel.selectedFilter.label}"
+                android:background="@drawable/btn_yellow_bar_bg"
+                android:padding="@dimen/v_8"/>
+
 
         <!-- ***************************************************************************************
                                   FLOATING ACTION BUTTON - END

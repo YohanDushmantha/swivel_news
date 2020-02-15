@@ -5,20 +5,35 @@
                                 HOME - START
     ******************************************************************************************** -->
 
-    <string name="offline_text">You\'re Offline</string>
+    <string name="bottom_nav_news">News</string>
+    <string name="bottom_nav_filtered">Filtered</string>
+    <string name="bottom_nav_profile">Profile</string>
+
 
     <!-- *******************************************************************************************
                                 HOME - END
     ******************************************************************************************** -->
 
     <!-- *******************************************************************************************
-                                TRIP PLANNING - START
+                                NEWS - START
     ******************************************************************************************** -->
 
-    <string name="trending_details">This graph is for\n illustrative purposes and does not represent or guarantee payments.</string>
-    <string name="trending_upcoming_promotion">See upcoming promotions</string>
-    <string name="trending_driver_time">See Driving Time</string>
+    <string name="news_item_view_more">View More</string>
+
     <!-- *******************************************************************************************
-                                TRIP PLANNING - END
+                                NEWS - END
     ******************************************************************************************** -->
+
+    <!-- *******************************************************************************************
+                                PROFILE - START
+    ******************************************************************************************** -->
+    <string name="profile_title">Profile</string>
+    <string name="profile_name_label">Name</string>
+    <string name="profile_email_label">email</string>
+
+    <!-- *******************************************************************************************
+                                PROFILE - END
+    ******************************************************************************************** -->
+
+
 </resources>

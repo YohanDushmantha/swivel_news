@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- *******************************************************************************************
+                                    DATA BINDING - START
+    ******************************************************************************************** -->
+
+    <data>
+        <variable
+                name="viewModel"
+                type="com.swivel.home.ui.home.news_detail.NewsDetailViewModel" />
+    </data>
+
+    <!-- *******************************************************************************************
+                                    DATA BINDIBG - END
+    ******************************************************************************************** -->
+
+    <!-- *******************************************************************************************
+                                    LAYOUT - START
+    ******************************************************************************************** -->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="@dimen/v_16"
+            android:layout_marginBottom="@dimen/v_16">
+
+        <!-- ***************************************************************************************
+                                    LAYOUT GUIDELINE - START
+        **************************************************************************************** -->
+
+        <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/cardStartMargin"
+                android:layout_width="@dimen/v_0"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/v_16" />
+
+        <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/cardEndMargin"
+                android:layout_width="@dimen/v_0"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/v_16" />
+
+        <!-- ***************************************************************************************
+                                    LAYOUT GUIDELINE - END
+        **************************************************************************************** -->
+
+        <ImageView
+                android:id="@+id/bannerImg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                app:layout_constraintTop_toTopOf="parent"
+                android:src="@drawable/sample_banner"
+                app:imageResource="@{viewModel.news.urlToImage}"/>
+
+        <!-- ***************************************************************************************
+                                    SCROLL VIEW - START
+        **************************************************************************************** -->
+
+        <ScrollView
+                android:id="@+id/scrollView"
+                android:layout_width="@dimen/v_0"
+                android:layout_height="@dimen/v_0"
+                app:layout_constraintTop_toBottomOf="@id/bannerImg"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@id/cardStartMargin"
+                app:layout_constraintEnd_toEndOf="@id/cardEndMargin">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                <TextView
+                        android:id="@+id/title"
+                        android:layout_width="@dimen/v_0"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        tools:text="Oppurtunities in the USA for Software Developers."
+                        style="@style/pageTitleBlack"
+                        android:textAlignment="textStart"
+                        android:layout_marginTop="@dimen/v_8"
+                        android:text="@{viewModel.news.title}" />
+
+                <TextView
+                        android:id="@+id/source"
+                        android:layout_width="@dimen/v_0"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/title"
+                        android:layout_marginRight="@dimen/v_16"
+                        tools:text="CNN"
+                        android:textAlignment="textStart"
+                        android:layout_marginTop="@dimen/v_8"
+                        android:text="@{viewModel.news.source.name}"
+                        android:textStyle="bold"/>
+
+                <ImageView
+                        android:id="@+id/externalLink"
+                        android:layout_width="@dimen/v_24"
+                        android:layout_height="@dimen/v_0"
+                        app:layout_constraintDimensionRatio="H,1:1"
+                        app:srcCompat="@drawable/ic_external_link"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/title"
+                        app:layout_constraintBottom_toTopOf="@id/description"
+                        android:tag="@{viewModel.news.url}" />
+
+
+                <TextView
+                        android:id="@+id/description"
+                        android:layout_width="@dimen/v_0"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/source"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        tools:text="Threatening and demeaning King for examining the late basketball player's complicated legacy, writes The Hollywood Reporter columnist, fosters a climate of disrespect that Bryant himself would have never wanted."
+                        style="@style/labelGray"
+                        android:textSize="@dimen/text_normal_100"
+                        android:textAlignment="textStart"
+                        android:layout_marginTop="@dimen/v_8"
+                        android:text="@{viewModel.news.description}" />
+
+                <TextView
+                        android:id="@+id/content"
+                        android:layout_width="@dimen/v_0"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/description"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        tools:text="Threatening and demeaning King for examining the late basketball player's complicated legacy, writes The Hollywood Reporter columnist, fosters a climate of disrespect that Bryant himself would have never wanted."
+                        style="@style/labelGray"
+                        android:textAlignment="textStart"
+                        android:textSize="@dimen/text_normal_100"
+                        android:layout_marginTop="@dimen/v_8"
+                        android:text="@{viewModel.news.content}" />
+
+                <TextView
+                        android:id="@+id/author"
+                        android:layout_width="@dimen/v_0"
+                        android:layout_height="wrap_content"
+                        android:maxLines="1"
+                        android:textSize="@dimen/text_normal_100"
+                        app:layout_constraintStart_toStartOf="parent"
+                        tools:text="Elizabeth Wagmeister,Brent Lang, Elizabeth Wagmeister, Brent Lang"
+                        app:layout_constraintTop_toBottomOf="@id/content"
+                        android:layout_marginTop="@dimen/v_16"
+                        android:text="@{viewModel.news.author}"
+                        android:textStyle="bold"
+                        />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+        <!-- ***************************************************************************************
+                                    SCROLL VIEW - END
+        *****************************************************************************************-->
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- *******************************************************************************************
+                                    LAYOUT - END
+    ******************************************************************************************** -->
+</layout>

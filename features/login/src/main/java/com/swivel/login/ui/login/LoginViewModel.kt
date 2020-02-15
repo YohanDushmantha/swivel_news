@@ -137,6 +137,12 @@ class LoginViewModel @Inject constructor(
      * AUTHENTICATION - START
      *----------------------------------------------------------------------------------------------*/
 
+    /**
+     * authenticate user provided credentials with stored data
+     * if authentication get successful redirect to home page otherwise show error
+     *
+     * @param navController navigation contrller
+     */
     private fun authenticateUser(navController: NavController?){
         try {
             navController?.let {

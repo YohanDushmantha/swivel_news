@@ -3,17 +3,14 @@ package com.swivel.login.ui.verify_password
 import android.content.Context
 import android.view.View
 import android.widget.TextView
-import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import com.swivel.config.constants.AppStates
 import com.swivel.core.ui.BaseViewModel
-import com.swivel.login.R
 import com.swivel.login.ui.verify_password.enums.VerifyPasswordInfoBoxId
 import com.swivel.login.ui.verify_password.exceptions.VerifyPasswordAuthenticationException
 import com.swivel.models.base.AppConfig
 import com.swivel.models.base.AppConstants
-import com.swivel.models.base.DataSource
 import com.swivel.models.dto.driver_authentication_api.request.DriverAuthenticationRequest
 import com.swivel.models.entities.UserAuthentication
 import com.swivel.models.features.IBaseDeepLinkArguments
@@ -21,12 +18,9 @@ import com.swivel.models.features.home.home.router_arguments.HomeDeepLinkArgumen
 import com.swivel.models.features.login.verify_password.router_arguments.VerifyPasswordDeepLinkArguments
 import com.swivel.models.libs.navigation.enums.DEEP_LINK
 import com.swivel.navigation.router.Router
-import com.swivel.repository.news_service_repositories.UserAuthenticationRepository
+import com.swivel.repository.swivel_news_service_repositories.UserAuthenticationRepository
 import com.swivel.security.auth_manager.AuthManger
 import com.swivel.utility.soft_keyboard_manager.SoftKeyboardManager
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import timber.log.Timber
 import javax.inject.Inject
 

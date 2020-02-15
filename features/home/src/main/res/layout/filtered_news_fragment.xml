@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- ***************************************************************************************
+                                  DATA BINDING - START
+    **************************************************************************************** -->
+
+    <data>
+        <variable
+                name="viewModel"
+                type="com.swivel.home.ui.home.filtered_news.FilteredNewsViewModel" />
+    </data>
+
+    <!-- ***************************************************************************************
+                                  DATA BINDING - END
+    **************************************************************************************** -->
+
+    <!-- ***************************************************************************************
+                                  LAYOUT - START
+    **************************************************************************************** -->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <!-- ***************************************************************************************
+                                    LAYOUT GUIDELINES - START
+        **************************************************************************************** -->
+
+        <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/startMarginGuideline"
+                android:layout_width="@dimen/v_0"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/v_16" />
+
+        <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/endMarginGuideline"
+                android:layout_width="@dimen/v_0"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/v_16" />
+
+        <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/topMarginGuideline"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/v_0"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="@dimen/v_16" />
+
+        <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/bottomMarginGuideline"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/v_0"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_end="@dimen/v_64" />
+
+        <!-- ***************************************************************************************
+                                   LAYOUT GUIDELINES - END
+        **************************************************************************************** -->
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="vertical"
+                android:layout_marginBottom="@dimen/v_56"/>
+
+        <!-- ***************************************************************************************
+                                  FLOATING ACTION BUTTON - START
+        **************************************************************************************** -->
+
+        <TextView
+                android:id="@+id/animalLabel"
+                app:layout_constraintEnd_toStartOf="@id/animal"
+                app:layout_constraintTop_toTopOf="@id/animal"
+                app:layout_constraintBottom_toBottomOf="@id/animal"
+                android:text="ANIMAL"
+                style="@style/filtered_icon_label_style"
+                />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/animal"
+                app:fabCustomSize="@dimen/v_56"
+                app:srcCompat="@drawable/ic_animal"
+                app:layout_constraintBottom_toTopOf="@id/seperator"
+                app:layout_constraintEnd_toStartOf="@id/endMarginGuideline"
+                style="@style/filtered_icon_btn"
+                android:onClick="@{(v)-> viewModel.onTapFilterButton(v)}"
+                android:tag="animal"
+                />
+
+        <TextView
+                android:id="@+id/earthQuakeLabel"
+                app:layout_constraintEnd_toStartOf="@id/earthQuarke"
+                app:layout_constraintTop_toTopOf="@id/earthQuarke"
+                app:layout_constraintBottom_toBottomOf="@id/earthQuarke"
+                android:text="EARTH QUAKE"
+                style="@style/filtered_icon_label_style"
+                />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/earthQuarke"
+                app:fabCustomSize="@dimen/v_56"
+                app:srcCompat="@drawable/ic_earth_quake"
+                app:layout_constraintBottom_toTopOf="@id/seperator"
+                app:layout_constraintEnd_toStartOf="@id/endMarginGuideline"
+                style="@style/filtered_icon_btn"
+                android:onClick="@{(v)-> viewModel.onTapFilterButton(v)}"
+                android:tag="earthquake"
+                />
+
+        <TextView
+                android:id="@+id/appleLabel"
+                app:layout_constraintEnd_toStartOf="@id/apple"
+                app:layout_constraintTop_toTopOf="@id/apple"
+                app:layout_constraintBottom_toBottomOf="@id/apple"
+                android:text="APPLE"
+                style="@style/filtered_icon_label_style"
+                />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/apple"
+                app:fabCustomSize="@dimen/v_56"
+                app:srcCompat="@drawable/ic_apple"
+                app:layout_constraintBottom_toTopOf="@id/seperator"
+                app:layout_constraintEnd_toStartOf="@id/endMarginGuideline"
+                style="@style/filtered_icon_btn"
+                android:onClick="@{(v)-> viewModel.onTapFilterButton(v)}"
+                android:tag="apple"
+                />
+
+        <TextView
+                android:id="@+id/bitCoinLabel"
+                app:layout_constraintEnd_toStartOf="@id/bitCoin"
+                app:layout_constraintTop_toTopOf="@id/bitCoin"
+                app:layout_constraintBottom_toBottomOf="@id/bitCoin"
+                android:text="BITCOIN"
+                style="@style/filtered_icon_label_style"
+                />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/bitCoin"
+                app:fabCustomSize="@dimen/v_56"
+                app:srcCompat="@drawable/ic_bit_coin"
+                app:layout_constraintBottom_toTopOf="@id/seperator"
+                app:layout_constraintEnd_toStartOf="@id/endMarginGuideline"
+                style="@style/filtered_icon_btn"
+                android:onClick="@{(v)-> viewModel.onTapFilterButton(v)}"
+                android:tag="bitcoin"
+                />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/filterIcon"
+                android:layout_width="@dimen/v_56"
+                android:layout_height="@dimen/v_56"
+                app:fabCustomSize="@dimen/v_56"
+                app:srcCompat="@drawable/ic_filter"
+                app:layout_constraintBottom_toTopOf="@id/seperator"
+                app:layout_constraintEnd_toStartOf="@id/endMarginGuideline"
+                android:layout_marginEnd="@dimen/v_8"
+                android:layout_marginBottom="@dimen/v_24"
+                app:backgroundTint="@color/yellow"
+                />
+
+        <TextView
+                android:id="@+id/selectedKeyword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/endMarginGuideline"
+                android:layout_marginTop="@dimen/v_24"
+                android:layout_marginEnd="@dimen/v_8"
+                android:text="@{viewModel.selectedFilter.label}"
+                android:background="@drawable/btn_yellow_bar_bg"
+                android:padding="@dimen/v_8"/>
+
+
+        <!-- ***************************************************************************************
+                                  FLOATING ACTION BUTTON - END
+        **************************************************************************************** -->
+
+        <!-- ***************************************************************************************
+                                  BOTTOM NAVIGATION BAR - START
+        **************************************************************************************** -->
+
+        <View
+                android:id="@+id/seperator"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/v_4"
+                android:background="@drawable/bottom_nav_bar_shadow"
+                android:layout_marginBottom="@dimen/v_56"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bttm_nav"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:menu="@menu/bottom_menu"
+                app:itemTextColor="@drawable/nav_icon_color_state"
+                app:itemIconTint="@drawable/nav_icon_color_state"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
+
+        <!-- ***************************************************************************************
+                                  BOTTOM NAVIGATION BAR - START
+        **************************************************************************************** -->
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- ***************************************************************************************
+                                  LAYOUT - END
+    **************************************************************************************** -->
+</layout>

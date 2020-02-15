@@ -8,10 +8,40 @@
 
     <fragment
             android:id="@+id/homeFragment"
-            android:name="com.swivel.home.ui.home.HomeFragment"
+            android:name="com.swivel.home.ui.home.headline_news.HomeFragment"
             android:label="HomeFragment"
             tools:layout="@layout/home_fragment">
         <deepLink app:uri="home://main" />
+        <action
+                android:id="@+id/action_homeFragment_to_filteredNewsFragment"
+                app:destination="@id/filteredNewsFragment" />
+        <action
+                android:id="@+id/action_homeFragment_to_newsDetailFragment"
+                app:destination="@id/newsDetailFragment" />
+    </fragment>
+    <fragment
+            android:id="@+id/profileFragment"
+            android:name="com.swivel.home.ui.home.profile.ProfileFragment"
+            android:label="ProfileFragment"
+            tools:layout="@layout/profile_fragment"/>
+    <fragment
+            android:id="@+id/filteredNewsFragment"
+            android:name="com.swivel.home.ui.home.filtered_news.FilteredNewsFragment"
+            android:label="FilteredNewsFragment"
+            tools:layout="@layout/filtered_news_fragment">
+        <action
+                android:id="@+id/action_filteredNewsFragment_to_profileFragment"
+                app:destination="@id/profileFragment" />
+        <action
+                android:id="@+id/action_filteredNewsFragment_to_newsDetailFragment"
+                app:destination="@id/newsDetailFragment" />
+    </fragment>
+    <fragment
+            android:id="@+id/newsDetailFragment"
+            android:name="com.swivel.home.ui.home.news_detail.NewsDetailFragment"
+            android:label="NewsDetailFragment"
+            tools:layout="@layout/news_detail_fragment">
+        <deepLink app:uri="home://news_detail_fragment"/>
     </fragment>
 
 </navigation>

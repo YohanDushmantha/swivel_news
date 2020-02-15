@@ -13,6 +13,8 @@ class RequestHeaders {
     val encodingTypeKey = "Accept-Enconding"
     val encodingTypeValue = "application/json"
 
+    val newsApiKey = "X-Api-Key"
+
     val readTimeOut : Long = 240
     val writeTimeOut : Long = 240
     val connectTimeOut : Long = 240

@@ -23,8 +23,6 @@ dependencies {
     implementation project(mModels)
 
 
-
-
     /**-------------------------------------------------------------------------------------------------------------*
      * REMOTE DEPENDENCIES
      *--------------------------------------------------------------------------------------------------------------*/
@@ -36,6 +34,7 @@ dependencies {
     arcView()
     arcNav()
     arcLiveData()
+    paging()
     validation()
     maps()
     images()

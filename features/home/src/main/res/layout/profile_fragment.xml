@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+                name="viewModel"
+                type="com.swivel.home.ui.home.profile.ProfileViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <!-- ***************************************************************************************
+            LAYOUT MARGIN GUIDELINE - START
+        **************************************************************************************** -->
+
+        <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/topHorizontalMarginGuideline"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/v_0"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="@dimen/v_16"/>
+
+        <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/bottomHorizontalMarginGuideline"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/v_0"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_end="@dimen/v_16"/>
+
+        <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/startMarginGuideline"
+                android:layout_width="@dimen/v_0"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/v_16" />
+
+        <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/endMarginGuideline"
+                android:layout_width="@dimen/v_0"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/v_16" />
+
+
+
+        <!-- ***************************************************************************************
+            LAYOUT MARGIN GUIDELINE - END
+        **************************************************************************************** -->
+
+        <!-- ***************************************************************************************
+            HEADER - START
+        **************************************************************************************** -->
+
+        <ImageView
+                android:id="@+id/mCompanyLogo"
+                android:layout_width="@dimen/v_0"
+                android:layout_height="@dimen/v_0"
+                app:layout_constraintWidth_percent="0.5"
+                android:maxWidth="@dimen/v_128"
+                app:srcCompat="@drawable/ic_app_logo"
+                app:layout_constraintDimensionRatio="H,1356:440"
+                app:layout_constraintStart_toEndOf="@id/startMarginGuideline"
+                app:layout_constraintEnd_toStartOf="@id/endMarginGuideline"
+                app:layout_constraintTop_toBottomOf="@id/topHorizontalMarginGuideline"/>
+
+        <TextView
+                android:id="@+id/mTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/profile_title"
+                app:layout_constraintTop_toBottomOf="@id/mCompanyLogo"
+                app:layout_constraintEnd_toEndOf="@id/mCompanyLogo"
+                android:textStyle="bold"
+                style="@style/pageTitleDarkGray"
+                />
+
+
+        <!-- ***************************************************************************************
+            HEADER - END
+        **************************************************************************************** -->
+
+        <!-- ***************************************************************************************
+            FORM - START
+        **************************************************************************************** -->
+
+        <ScrollView
+                android:id="@+id/formScrollViewContainer"
+                android:layout_width="@dimen/v_0"
+                android:layout_height="@dimen/v_0"
+                app:layout_constraintTop_toBottomOf="@id/mTitle"
+                app:layout_constraintBottom_toTopOf="@id/seperator"
+                android:layout_marginTop="@dimen/v_32"
+                android:layout_marginBottom="@dimen/v_16"
+                app:layout_constraintStart_toStartOf="@id/startMarginGuideline"
+                app:layout_constraintEnd_toEndOf="@id/endMarginGuideline"
+                >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/formContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/v_0">
+
+                <TextView
+                        android:id="@+id/mName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/labelGray"
+                        tools:text="FIRST NAME"
+                        android:text="@string/profile_name_label"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        />
+
+                <EditText
+                        android:id="@+id/nameEditText"
+                        style="@style/defaultEditTextField"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/v_0"
+                        android:maxLength="200"
+                        app:layout_constraintTop_toBottomOf="@id/mName"
+                        android:layout_marginTop="@dimen/v_8"
+                        android:clickable="false"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:text="@{viewModel.authentication.user.firstName+ ` ` + viewModel.authentication.user.lastName}"
+                        />
+
+                <TextView
+                        android:id="@+id/mEmailLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/labelGray"
+                        tools:text="EMAIL ADDRESS"
+                        android:text="@string/profile_email_label"
+                        app:layout_constraintTop_toBottomOf="@id/nameEditText"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginTop="@dimen/v_24"
+                        />
+
+                <EditText
+                        android:id="@+id/emailEditText"
+                        style="@style/defaultEditTextField"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/v_0"
+                        android:maxLength="200"
+                        app:layout_constraintTop_toBottomOf="@id/mEmailLabel"
+                        android:layout_marginTop="@dimen/v_8"
+                        android:clickable="false"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:text="@{viewModel.authentication.user.email}"
+                        />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+        <!-- ***************************************************************************************
+            FORM - END
+        **************************************************************************************** -->
+
+        <View
+                android:id="@+id/seperator"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/v_4"
+                android:background="@drawable/bottom_nav_bar_shadow"
+                android:layout_marginBottom="@dimen/v_56"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bttm_nav"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:menu="@menu/bottom_menu"
+                app:itemTextColor="@drawable/nav_icon_color_state"
+                app:itemIconTint="@drawable/nav_icon_color_state"
+                app:layout_constraintBottom_toBottomOf="parent"
+                >
+        </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

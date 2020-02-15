@@ -1,5 +1,6 @@
 package com.swivel.remote.news_service.interceptors
 
+import com.swivel.models.base.AppConfig
 import com.swivel.models.base.RequestHeaders
 import okhttp3.Interceptor
 import okhttp3.Response
@@ -12,7 +13,8 @@ import javax.inject.Inject
  * interceptor for handling headers of Swivel service
  */
 class SwivelHeaderInterceptor @Inject constructor(
-    private var headers: RequestHeaders
+    private var headers: RequestHeaders,
+    private val appConfig: AppConfig
 ) : Interceptor {
 
     override fun intercept(chain: Interceptor.Chain): Response {

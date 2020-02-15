@@ -1,4 +1,4 @@
-package com.swivel.home.ui.home.enums
+package com.swivel.home.ui.home.headline_news.enums
 
 /**
  * @author Yohan Dushmantha

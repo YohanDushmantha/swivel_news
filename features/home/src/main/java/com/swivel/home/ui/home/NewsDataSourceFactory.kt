@@ -12,9 +12,10 @@ import kotlinx.coroutines.CoroutineScope
  * @class NewsDataSourceFactory
  *
  */
-class NewsDataSourceFactory (private val repository: NewsRepository,
-                             private val scope: CoroutineScope
-): DataSource.Factory<Int, News>() {
+class NewsDataSourceFactory(
+    private val repository: NewsRepository,
+    private val scope: CoroutineScope
+) : DataSource.Factory<Int, News>() {
 
     val source = MutableLiveData<NewsDataSource>()
 
@@ -23,6 +24,4 @@ class NewsDataSourceFactory (private val repository: NewsRepository,
         this.source.postValue(source)
         return source
     }
-
-    // ...
 }

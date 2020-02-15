@@ -5,14 +5,23 @@
                                 HOME - START
     ******************************************************************************************** -->
 
-    <style name="homeStatisticsDisplayStyle">
-        <item name="elevation">@dimen/v_8</item>
-        <item name="android:textColor">@color/home_statistics_display_text</item>
-        <item name="android:paddingStart">@dimen/v_16</item>
-        <item name="android:paddingEnd">@dimen/v_16</item>
-        <item name="android:gravity">center</item>
-        <item name="android:textSize">@dimen/text_normal_150</item>
+    <style name="filtered_icon_label_style">
+        <item name="android:layout_width">@dimen/v_0</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/label_color_white</item>
+        <item name="android:textViewStyle">@style/pageSubTitleWhite</item>
+        <item name="android:layout_marginEnd">@dimen/v_16</item>
+        <item name="android:background">@drawable/btn_brown_bar_bg</item>
+        <item name="android:padding">@dimen/v_4</item>
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <style name="filtered_icon_btn" >
+        <item name="android:layout_width">@dimen/v_56</item>
         <item name="android:layout_height">@dimen/v_56</item>
+        <item name="android:layout_marginEnd">@dimen/v_8</item>
+        <item name="android:layout_marginBottom">@dimen/v_24</item>
     </style>
 
     <!-- *******************************************************************************************

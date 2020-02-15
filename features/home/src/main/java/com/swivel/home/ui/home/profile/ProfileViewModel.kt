@@ -1,4 +1,4 @@
-package com.swivel.home.ui.profile
+package com.swivel.home.ui.home.profile
 
 import android.content.Context
 import com.swivel.core.ui.BaseViewModel

@@ -5,12 +5,21 @@
     <data>
         <variable
                 name="viewModel"
-                type="com.swivel.home.ui.profile.ProfileViewModel" />
+                type="com.swivel.home.ui.home.profile.ProfileViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
+        <View
+                android:id="@+id/seperator"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/v_4"
+                android:background="@drawable/bottom_nav_bar_shadow"
+                android:layout_marginBottom="@dimen/v_56"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
                 android:id="@+id/bttm_nav"

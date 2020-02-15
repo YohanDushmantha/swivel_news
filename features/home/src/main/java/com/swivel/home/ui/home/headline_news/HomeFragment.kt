@@ -1,4 +1,4 @@
-package com.swivel.home.ui.home
+package com.swivel.home.ui.home.headline_news
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,10 +11,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.swivel.core.ui.BaseFragment
 import com.swivel.home.R
 import com.swivel.home.databinding.HomeFragmentBinding
+import com.swivel.home.ui.home.NewsAdaptor
 import com.swivel.models.libs.navigation.enums.DEEP_LINK
 import com.swivel.models.libs.navigation.enums.DrawerConfigSettings
 import com.swivel.ui.base.helpers.back_handler.BackHandler
+import kotlinx.android.synthetic.main.filtered_news_fragment.*
 import kotlinx.android.synthetic.main.home_content_layout.*
+import kotlinx.android.synthetic.main.home_content_layout.list
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -29,7 +32,7 @@ class HomeFragment : BaseFragment(){
     @Inject lateinit var backHandler: BackHandler
 
     private lateinit var homeFragmentBinding : HomeFragmentBinding
-    private val newsAdaptor : HeadLineNewsAdaptor = HeadLineNewsAdaptor()
+    private val newsAdaptor : NewsAdaptor = NewsAdaptor()
 
     /**---------------------------------------------------------------------------------------------*
      * LIFECYCLE METHODS - START
@@ -94,10 +97,6 @@ class HomeFragment : BaseFragment(){
     }
 
     private fun initNewsList(){
-
-//        homeFragmentBinding.list.layoutManager = LinearLayoutManager(context)
-//        list.adapter = newsAdaptor
-
         list.layoutManager = LinearLayoutManager(context)
         list.adapter = newsAdaptor
     }
@@ -169,5 +168,7 @@ class HomeFragment : BaseFragment(){
     /**---------------------------------------------------------------------------------------------*
      * INIT - END
      *----------------------------------------------------------------------------------------------*/
+
+
 
 }

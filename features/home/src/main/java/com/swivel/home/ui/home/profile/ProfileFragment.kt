@@ -1,4 +1,4 @@
-package com.swivel.home.ui.filtered_news
+package com.swivel.home.ui.home.profile
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,33 +8,33 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.swivel.core.ui.BaseFragment
-import com.swivel.home.databinding.FilteredNewsFragmentBinding
+import com.swivel.home.databinding.ProfileFragmentBinding
 import com.swivel.models.libs.navigation.enums.DEEP_LINK
 import javax.inject.Inject
 
 /**
  * @author Yohan Dushmantha
- * @class FilteredNewsFragment
+ * @class ProfileFragment
  *
- * filtered news fragment provides capability to check news of selected category
+ * profile fragment provides capability to check profile details of current user
  */
-class FilteredNewsFragment : BaseFragment() {
+class ProfileFragment : BaseFragment() {
     @Inject
-    lateinit var filteredNewsViewModel: FilteredNewsViewModel
+    lateinit var profileViewModel: ProfileViewModel
 
-    lateinit var filteredNewsFragmentBinding: FilteredNewsFragmentBinding
+    lateinit var profileFragmentBinding : ProfileFragmentBinding
 
     /**---------------------------------------------------------------------------------------------*
      * LIFECYCLE METHODS - START
      *----------------------------------------------------------------------------------------------*/
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        filteredNewsFragmentBinding =  FilteredNewsFragmentBinding.inflate(inflater,container,false)
+         profileFragmentBinding = ProfileFragmentBinding.inflate(inflater,container,false)
             .apply {
-                lifecycleOwner = this@FilteredNewsFragment
-                viewModel = filteredNewsViewModel
+                lifecycleOwner = this@ProfileFragment
+                viewModel = profileViewModel
             }
-        return filteredNewsFragmentBinding.root
+         return profileFragmentBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -59,14 +59,14 @@ class FilteredNewsFragment : BaseFragment() {
         pageNavigationId = findNavController().currentDestination?.id
 
         pageNavigationId?.let { pageNavId ->
-            filteredNewsViewModel.isLoading.observe(viewLifecycleOwner, Observer {
+            profileViewModel.isLoading.observe(viewLifecycleOwner, Observer {
                 progressBarHandler.toggleProgressUI(router,findNavController(),it,pageNavId)
             })
         }
     }
 
     override fun initViews() {
-        filteredNewsViewModel.initViewArguments(router.getDeepLinkArguments(DEEP_LINK.LOGIN))
+        profileViewModel.initViewArguments(router.getDeepLinkArguments(DEEP_LINK.LOGIN))
         setupDrawer()
         setupBottomNavigationBar()
     }
@@ -76,7 +76,7 @@ class FilteredNewsFragment : BaseFragment() {
     }
 
     private fun setupBottomNavigationBar(){
-        NavigationUI.setupWithNavController(filteredNewsFragmentBinding.bttmNav,findNavController())
+        NavigationUI.setupWithNavController(profileFragmentBinding.bttmNav,findNavController())
     }
 
     /**---------------------------------------------------------------------------------------------*

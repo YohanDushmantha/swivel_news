@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="standard_55">60dp</dimen>
+    <dimen name="standard_105">120dp</dimen>
+    <dimen name="standard_155">180dp</dimen>
+    <dimen name="standard_205">240dp</dimen>
+
+</resources>

@@ -1,8 +1,8 @@
 package com.swivel.home.base.di
 
-import com.swivel.home.ui.filtered_news.FilteredNewsFragment
-import com.swivel.home.ui.home.HomeFragment
-import com.swivel.home.ui.profile.ProfileFragment
+import com.swivel.home.ui.home.filtered_news.FilteredNewsFragment
+import com.swivel.home.ui.home.headline_news.HomeFragment
+import com.swivel.home.ui.home.profile.ProfileFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

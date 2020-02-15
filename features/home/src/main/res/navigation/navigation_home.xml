@@ -8,7 +8,7 @@
 
     <fragment
             android:id="@+id/homeFragment"
-            android:name="com.swivel.home.ui.home.HomeFragment"
+            android:name="com.swivel.home.ui.home.headline_news.HomeFragment"
             android:label="HomeFragment"
             tools:layout="@layout/home_fragment">
         <deepLink app:uri="home://main" />
@@ -18,12 +18,12 @@
     </fragment>
     <fragment
             android:id="@+id/profileFragment"
-            android:name="com.swivel.home.ui.profile.ProfileFragment"
+            android:name="com.swivel.home.ui.home.profile.ProfileFragment"
             android:label="ProfileFragment"
             tools:layout="@layout/profile_fragment"/>
     <fragment
             android:id="@+id/filteredNewsFragment"
-            android:name="com.swivel.home.ui.filtered_news.FilteredNewsFragment"
+            android:name="com.swivel.home.ui.home.filtered_news.FilteredNewsFragment"
             android:label="FilteredNewsFragment"
             tools:layout="@layout/filtered_news_fragment">
         <action

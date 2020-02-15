@@ -1,4 +1,4 @@
-package com.swivel.home.ui.home.exceptions
+package com.swivel.home.ui.home.headline_news.exceptions
 
 /**
  * @author Yohan Dushmantha

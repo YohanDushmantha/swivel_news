@@ -2,10 +2,9 @@ package com.swivel.home.base.di
 
 import androidx.lifecycle.ViewModel
 import com.swivel.config.di.annotation.ViewModelKey
-import com.swivel.home.ui.filtered_news.FilteredNewsFragment
-import com.swivel.home.ui.filtered_news.FilteredNewsViewModel
-import com.swivel.home.ui.home.HomeViewModel
-import com.swivel.home.ui.profile.ProfileViewModel
+import com.swivel.home.ui.home.filtered_news.FilteredNewsViewModel
+import com.swivel.home.ui.home.headline_news.HomeViewModel
+import com.swivel.home.ui.home.profile.ProfileViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap

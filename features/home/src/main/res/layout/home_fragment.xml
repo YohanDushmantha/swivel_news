@@ -6,7 +6,7 @@
     <data>
         <variable
                 name="viewModel"
-                type="com.swivel.home.ui.home.HomeViewModel" />
+                type="com.swivel.home.ui.home.headline_news.HomeViewModel" />
 
     </data>
 
